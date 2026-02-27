@@ -1,0 +1,91 @@
+{
+  "id": "donut-case",
+  "title": "도넛 실종 사건",
+  "tagline": "사라진 도넛의 진실을 찾아라",
+  "version": "1.0.0",
+  "startNodeId": "start",
+  "nodes": {
+    "start": {
+      "id": "start",
+      "title": "사건 발생",
+      "body": "사무실 냉장고의 마지막 도넛이 사라졌다. 가장 먼저 무엇을 할까?",
+      "choices": [
+        {
+          "id": "check-cam",
+          "text": "복도 CCTV를 확인한다",
+          "to": "cam"
+        },
+        {
+          "id": "ask-intern",
+          "text": "신입에게 정중히 물어본다",
+          "to": "intern"
+        }
+      ]
+    },
+    "cam": {
+      "id": "cam",
+      "title": "CCTV 확인",
+      "body": "영상에는 팀장이 도넛 상자를 들고 회의실로 들어가는 모습이 찍혔다.",
+      "choices": [
+        {
+          "id": "go-meeting-room",
+          "text": "회의실로 간다",
+          "to": "meeting-room"
+        }
+      ]
+    },
+    "intern": {
+      "id": "intern",
+      "title": "신입의 증언",
+      "body": "신입: \"팀장님이 배고프면 추리가 안 된다고 하셨어요...\"",
+      "choices": [
+        {
+          "id": "accuse-intern",
+          "text": "신입을 범인으로 몰아간다",
+          "to": "bad-ending"
+        },
+        {
+          "id": "follow-hint",
+          "text": "단서를 믿고 회의실로 간다",
+          "to": "meeting-room"
+        }
+      ]
+    },
+    "meeting-room": {
+      "id": "meeting-room",
+      "title": "회의실의 진실",
+      "body": "팀장은 모두를 위해 도넛을 반으로 잘라 놓고 있었다. 절도 사건이 아니라 배려 사건이었다!",
+      "choices": [
+        {
+          "id": "share-donut",
+          "text": "함께 도넛을 나눠 먹는다",
+          "to": "good-ending"
+        }
+      ]
+    },
+    "good-ending": {
+      "id": "good-ending",
+      "title": "해피 엔딩",
+      "body": "당신은 사건을 평화롭게 마무리했다.",
+      "choices": [],
+      "ending": {
+        "id": "ending-share",
+        "kind": "success",
+        "title": "도넛은 사랑을 싣고",
+        "summary": "성급한 의심 대신 확인을 택해 모두가 행복해졌다."
+      }
+    },
+    "bad-ending": {
+      "id": "bad-ending",
+      "title": "오해 엔딩",
+      "body": "성급한 단정으로 사무실 단톡방에 사과문을 올리게 되었다.",
+      "choices": [],
+      "ending": {
+        "id": "ending-oops",
+        "kind": "gag",
+        "title": "사과문 장인",
+        "summary": "추리는 없고 사과만 남았다."
+      }
+    }
+  }
+}

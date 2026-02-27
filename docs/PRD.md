@@ -186,7 +186,7 @@ type Choice = {
 };
 ```
 
-### 4.8 이미지 URL 필드 규칙
+### 4.5 이미지 URL 필드 규칙
 - `Node.imageUrl`, `Choice.imageUrl`는 모두 optional + nullable(`string | null`)로 취급
 - 값이 `null` 또는 누락되면 텍스트 전용으로 렌더링
 - 값이 문자열이면 `https://` 또는 상대경로(`./assets/...`)를 허용

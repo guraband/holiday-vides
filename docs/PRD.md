@@ -190,7 +190,7 @@ type Choice = {
 - `Node.imageUrl`, `Choice.imageUrl`는 모두 optional + nullable(`string | null`)로 취급
 - 값이 `null` 또는 누락되면 텍스트 전용으로 렌더링
 - 값이 문자열이면 `https://` 또는 상대경로(`./assets/...`)를 허용
-- 이미지 로드 실패 시 대체 텍스트(또는 기본 플레이스홀더)로 폴백
+- 이미지 로드 실패 시 대체 텍스트(예: `Node.title` 또는 `Choice.text`)를 표시하고, 없을 경우 기본 플레이스홀더로 폴백
 - validator에서 URL 포맷(프로토콜/상대경로)과 빈 문자열(`""`) 사용 여부를 검사
 
 ### 4.5 조건(Condition)

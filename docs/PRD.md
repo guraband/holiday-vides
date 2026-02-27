@@ -144,6 +144,7 @@ type Node = {
   id: string;
   title?: string;
   body: string;                 // markdown 허용 가능
+  imageUrl?: string | null;     // 장면(스크립트) 대표 이미지 URL (nullable)
   tags?: string[];              // "investigation", "interrogation", "ending" 등
   choices: Choice[];
 
@@ -164,6 +165,7 @@ type Node = {
 type Choice = {
   id: string;
   text: string;
+  imageUrl?: string | null; // 선택지 보조 이미지 URL (nullable)
 
   // 다음 노드(기본)
   to?: string;
@@ -183,6 +185,13 @@ type Choice = {
   disabledReason?: string; // 조건 미충족 시 표시(자동 생성 가능)
 };
 ```
+
+### 4.5 이미지 URL 필드 규칙
+- `Node.imageUrl`, `Choice.imageUrl`는 모두 optional + nullable(`string | null`)로 취급
+- 값이 `null` 또는 누락되면 텍스트 전용으로 렌더링
+- 값이 문자열이면 `https://` 또는 상대경로(`./assets/...`)를 허용
+- 이미지 로드 실패 시 대체 텍스트(예: `Node.title` 또는 `Choice.text`)를 표시하고, 없을 경우 기본 플레이스홀더로 폴백
+- validator에서 URL 포맷(프로토콜/상대경로)과 빈 문자열(`""`) 사용 여부를 검사
 
 ### 4.5 조건(Condition)
 지원 타입(초기 버전):
@@ -290,6 +299,7 @@ CI 또는 로컬 스크립트에서 아래를 검사해야 합니다.
 - 선택지 id 중복 여부
 - 조건/효과 타입이 지원 목록 내인지
 - 엔딩 id 중복 여부 + 총 엔딩 수 집계
+- `Node.imageUrl`, `Choice.imageUrl`의 URL 형식 규칙 준수 여부(빈 문자열 금지, `https://` 또는 상대 경로만 허용)
 - (선택) “막다른 길” 노드 탐지(choices 0이면서 ending 아님)
 
 ---
@@ -378,6 +388,7 @@ CI 또는 로컬 스크립트에서 아래를 검사해야 합니다.
 MVP 완료 기준:
 - 에피소드 1개를 끝까지 플레이 가능
 - 조건/효과/판정이 명세대로 동작
+- 스크립트(노드)와 선택지에 이미지 URL을 붙여도(또는 비워도) UI/엔진이 정상 동작
 - 엔딩 도감이 정상 누적/표시
 - 새 런 시작/자동 저장/백업 import/export 정상
 - 콘텐츠 검증기가 실패 없이 통과

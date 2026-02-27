@@ -299,7 +299,7 @@ CI 또는 로컬 스크립트에서 아래를 검사해야 합니다.
 - 선택지 id 중복 여부
 - 조건/효과 타입이 지원 목록 내인지
 - 엔딩 id 중복 여부 + 총 엔딩 수 집계
-- `Node.imageUrl`, `Choice.imageUrl`가 `null`/누락/유효 URL 중 하나인지
+- `Node.imageUrl`, `Choice.imageUrl`의 URL 형식 규칙 준수 여부(빈 문자열 금지, `https://` 또는 상대 경로만 허용)
 - (선택) “막다른 길” 노드 탐지(choices 0이면서 ending 아님)
 
 ---

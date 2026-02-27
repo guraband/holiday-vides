@@ -1,6 +1,6 @@
-# 스펙시트: 웃긴 추리 게임북 웹앱 (정적 호스팅 / GitHub Pages)
+# 스펙시트: 웃긴 추리 게임북 웹앱 (GitHub Pages **No-Build 우선**)
 
-문서 버전: v0.1  
+문서 버전: v0.2  
 작성일: 2026-02-26
 
 ---
@@ -9,20 +9,29 @@
 
 ### 1.1 요구 조건
 - 정적 호스팅(GitHub Pages)에서 동작
+- **별도의 빌드 단계 없이** 배포 가능
 - 서버/DB/로그인 없이 플레이 가능
 - 상태 저장: 브라우저 로컬(`localStorage`) + 선택적 백업(JSON import/export)
 - 짧은 플레이 타임 + 분기 많은 멀티엔딩 지원
 - 데이터(스토리) 기반으로 신규 에피소드 추가 가능
 
-### 1.2 권장 스택(예시)
-- 빌드: **Vite**
-- 언어: **TypeScript**
-- UI: React / Preact / Svelte / Vanilla 중 택1  
-  - MVP는 **Vanilla + TS** 또는 **Preact**를 권장(번들 가볍게)
-- 라우팅: 단일 페이지 + **Hash 라우팅**(GitHub Pages 새로고침 404 회피)
-- 테스트: Vitest(선택), 또는 Node 기반 검증 스크립트
+### 1.2 권장 스택(수정안)
+- 런타임: **Vanilla TypeScript 스타일의 구조 + 브라우저 네이티브 ESM(JavaScript 배포)**
+- UI: **Vanilla DOM 렌더링**(필요 시 Web Components)
+- 라우팅: 단일 페이지 + **Hash 라우팅**(`/#/play`)로 404 회피
+- 테스트/검증: Node 스크립트 기반 validator(선택)
+- 의존성 정책:
+  - 1순위: 외부 의존성 최소화(무의존 또는 소수 유틸)
+  - 2순위: 꼭 필요하면 CDN ESM(`jsdelivr`, `esm.sh`) 사용 + 버전 고정
 
-> 프레임워크는 자유이나, “엔진(core)과 콘텐츠(data)를 분리”하는 아키텍처는 고정 권장입니다.
+> 핵심 원칙: “엔진(core)과 콘텐츠(data) 분리” + “No-build로 즉시 Pages 배포 가능”.
+
+### 1.3 빌드 없는 배포를 위한 기술 제약
+- 소스는 브라우저가 바로 실행 가능한 JS 모듈(`.js`)로 저장
+- `index.html`에서 `<script type="module" src="./src/main.js"></script>`로 시작
+- 경로는 상대경로 고정(`./src/...`)하여 Pages 서브패스에서도 안전하게 동작
+- TypeScript 문법(`: string`, `interface`)은 배포 파일에 직접 사용하지 않음
+  - 대신 JSDoc 타입 주석 또는 `.d.ts` 문서로 타입 명세 유지
 
 ---
 
@@ -47,7 +56,7 @@
 - 접근성(키보드/스크린리더) 처리
 
 5) `tools/validator`
-- 콘텐츠 정적 검증(빌드/CI에서 실행)
+- 콘텐츠 정적 검증(Node 스크립트)
 - 누락 참조, 도달 불가 노드, 엔딩 집계, 조건/효과 타입 체크
 
 ---
@@ -200,7 +209,7 @@ type Condition =
 - `addClue`, `removeClue`
 - `setFlag`
 - `addStat` (HP/신경/눈치 등)
-- `goto`(강제 이동을 효과로 처리할지 여부는 취향. 권장은 transition로 처리)
+- `goto`(강제 이동. `to`/`transition.to`와 동시 사용 금지)
 
 ```ts
 type Effect =
@@ -210,7 +219,7 @@ type Effect =
   | { type: "removeClue"; clue: string }
   | { type: "setFlag"; flag: string; value: boolean | number | string }
   | { type: "addStat"; stat: string; delta: number }
-  | { type: "goto"; to: string }; // 사용 시 choice.to/transition.to와 중복되지 않도록 규칙화 권장
+  | { type: "goto"; to: string };
 ```
 
 ### 4.7 판정(Check)
@@ -275,7 +284,7 @@ type Transition = {
 
 ## 7. 콘텐츠 검증(필수)
 
-CI에서 아래를 검사해야 합니다.
+CI 또는 로컬 스크립트에서 아래를 검사해야 합니다.
 - 모든 `to`가 존재하는 노드를 가리키는지
 - 모든 노드가 `startNodeId`에서 도달 가능한지(옵션: 경고 수준)
 - 선택지 id 중복 여부
@@ -297,53 +306,70 @@ CI에서 아래를 검사해야 합니다.
 ### 8.2 성능
 - 초기 로드 빠르게:
   - 에피소드 데이터는 필요 시 lazy-load 가능
-- 번들 크기 목표(권장):
-  - 엔진+UI 200KB(gzip) 이내(가능하면)
+- 번들/파일 크기 목표(권장):
+  - 앱 JS 총량 200KB(gzip) 이내(가능하면)
 - 이미지 최소화(텍스트 중심), 폰트는 시스템 폰트 우선
 
 ---
 
-## 9. 디렉터리 구조(예시)
+## 9. 디렉터리 구조(예시, No-build)
 
 ```
-/src
-  /core
-    engine.ts
-    state.ts
-    rng.ts
-    validator.ts
-  /content
-    episode_donut.json
-    episode_donut.meta.json (선택)
-  /ui
-    App.tsx
-    screens/
-      Home.tsx
-      Play.tsx
-      Ending.tsx
-      Codex.tsx
-    components/
-      ChoiceList.tsx
-      CluePanel.tsx
-  /styles
-    base.css
-/index.html
-/vite.config.ts
+/
+  index.html
+  404.html                  # (선택) non-hash 라우팅 실험 시
+  /src
+    main.js
+    /core
+      engine.js
+      state.js
+      rng.js
+    /content
+      episode_donut.json
+      episodes.json         # 에피소드 인덱스
+    /ui
+      app.js
+      /screens
+        home.js
+        play.js
+        ending.js
+        codex.js
+      /components
+        choice-list.js
+        clue-panel.js
+    /styles
+      base.css
+  /tools
+    validate-content.mjs
+  /docs
+    PRD.md
 ```
 
 ---
 
-## 10. 배포 스펙(GitHub Pages)
+## 10. 배포 스펙(GitHub Pages, No-build)
 
-- 빌드 산출물: `dist/`
-- GitHub Actions로
-  - `npm ci`
-  - `npm run test`(validator 포함)
-  - `npm run build`
-  - Pages에 `dist` 배포
-- 라우팅:
-  - 단일 페이지 + hash 라우팅 권장(`/#/play`)
-  - 또는 404.html 트릭 사용(선택)
+### 10.1 기본 배포 방식
+- 배포 대상: 루트 정적 파일(`index.html`, `src/`, `styles/`, `content/`)
+- 별도 build 산출물(`dist/`) 없이 배포
+- GitHub Pages 소스:
+  - 옵션 A: `main` 브랜치 `/ (root)`
+  - 옵션 B: `gh-pages` 브랜치 루트
+
+### 10.2 GitHub Actions(선택)
+- 필수 단계:
+  - `node tools/validate-content.mjs`
+- 선택 단계:
+  - 링크 체크, JSON 스키마 검사
+- 산출물 업로드/빌드 단계는 필수가 아님
+
+### 10.3 라우팅
+- 단일 페이지 + hash 라우팅 권장(`/#/play`)
+- hash 사용 시 새로고침/직접 URL 접근 모두 안전
+
+### 10.4 캐시 전략
+- `content` 업데이트 시 `episode.version` 증가
+- `localStorage` 로드시 버전 불일치 감지 후 마이그레이션/초기화 분기
 
 ---
 
@@ -355,4 +381,12 @@ MVP 완료 기준:
 - 엔딩 도감이 정상 누적/표시
 - 새 런 시작/자동 저장/백업 import/export 정상
 - 콘텐츠 검증기가 실패 없이 통과
-- GitHub Pages에서 새로고침 포함 정상 동작
+- GitHub Pages에서 **빌드 없이** 배포/새로고침 포함 정상 동작
+
+---
+
+## 12. 구현 메모(권장)
+- 타입 안정성이 필요하면 다음 중 하나를 선택:
+  - JSDoc + `tsc --noEmit`만 로컬 품질검사로 사용(배포는 JS)
+  - 완전 TS 개발 후, 릴리즈 브랜치에 트랜스파일 결과만 커밋(운영은 no-build)
+- 초기 MVP는 “무의존 + 브라우저 기본 API”로 시작하고, 병목이 확인되면 점진적으로 도입

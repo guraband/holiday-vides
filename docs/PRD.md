@@ -30,8 +30,8 @@
 - 소스는 브라우저가 바로 실행 가능한 JS 모듈(`.js`)로 저장
 - `index.html`에서 `<script type="module" src="./src/main.js"></script>`로 시작
 - 경로는 상대경로 고정(`./src/...`)하여 Pages 서브패스에서도 안전하게 동작
-- TypeScript 문법(`: string`, `interface`)은 배포 파일에 직접 사용하지 않음
-  - 대신 JSDoc 타입 주석 또는 `.d.ts` 문서로 타입 명세 유지
+- TypeScript 문법(`: string`, `interface`)은 배포/실행되는 JS 파일에 직접 포함하지 않음
+  - JSDoc을 사용하거나, TypeScript로 개발 후 빌드된 JavaScript 결과물만 커밋하는 방식으로 타입 명세를 관리할 수 있습니다. (세부 사항은 '12. 구현 메모' 참고)
 
 ---
 

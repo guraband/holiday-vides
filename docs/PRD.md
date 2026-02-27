@@ -209,7 +209,8 @@ type Effect =
   | { type: "addClue"; clue: string }
   | { type: "removeClue"; clue: string }
   | { type: "setFlag"; flag: string; value: boolean | number | string }
-  | { type: "addStat"; stat: string; delta: number };
+  | { type: "addStat"; stat: string; delta: number }
+  | { type: "goto"; to: string }; // 사용 시 choice.to/transition.to와 중복되지 않도록 규칙화 권장
 ```
 
 ### 4.7 판정(Check)

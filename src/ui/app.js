@@ -199,11 +199,7 @@ export function createApp(root) {
       navigate("/");
     });
 
-    root.append(title, nodeTitle, body);
-    if (nodeImage) {
-      root.append(nodeImage);
-    }
-    root.append(choices, back);
+    root.append(title, nodeTitle, body, ...(nodeImage ? [nodeImage] : []), choices, back);
   }
 
   async function renderRoute() {

@@ -1,6 +1,6 @@
 import { loadEpisodeById, loadEpisodesIndex } from "../core/content.js";
 import { applyChoice, createRunState, getCurrentNode } from "../core/engine.js";
-import { clearRunState, loadRunState, saveRunState } from "../core/state.js";
+import { loadRunState, saveRunState } from "../core/state.js";
 
 function parseHash() {
   const hash = window.location.hash.replace(/^#\/?/, "");
@@ -60,9 +60,6 @@ export function createApp(root) {
   };
 
   function resetRun() {
-    if (store.currentEpisode?.id) {
-      clearRunState(store.currentEpisode.id);
-    }
     store.currentEpisode = null;
     store.runState = null;
   }
@@ -131,6 +128,7 @@ export function createApp(root) {
       }
 
       store.runState = createRunState(store.currentEpisode);
+      saveRunState(store.runState);
       navigate(`/play/${episodeId}`);
       void renderPlay(episodeId);
     });

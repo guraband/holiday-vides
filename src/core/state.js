@@ -30,8 +30,12 @@ function readStorage() {
     return {};
   }
 
-  const parsed = JSON.parse(raw);
-  return isRecord(parsed) ? parsed : {};
+  try {
+    const parsed = JSON.parse(raw);
+    return isRecord(parsed) ? parsed : {};
+  } catch {
+    return {};
+  }
 }
 
 function writeStorage(value) {

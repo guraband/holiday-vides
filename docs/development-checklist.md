@@ -35,7 +35,7 @@
 목표: 실제 플레이 지속성을 제공한다.
 
 체크리스트:
-- [ ] `core/state`에 세이브/로드(localStorage) 구현
+- [x] `core/state`에 세이브/로드(localStorage) 구현
 - [ ] 엔딩 도감 누적 및 마스킹/힌트 UI 구현
 - [ ] 텍스트 크기/애니메이션 감소 등 설정 저장
 - [ ] JSON import/export(백업/복구) 구현
@@ -55,10 +55,10 @@
 목표: 운영 가능한 수준의 품질 보증과 배포 안정성을 확보한다.
 
 체크리스트:
-- [ ] 콘텐츠 validator가 `Node.imageUrl`, `Choice.imageUrl` 규칙을 검사한다.
-- [ ] `imageUrl`이 `""`(빈 문자열)인 경우 validator가 에러를 낸다.
-- [ ] `imageUrl`이 문자열일 때 `https://`로 시작하거나, `./` 또는 `../`로 시작하는 상대경로만 허용한다.
-- [ ] validator에 도달 불가 노드/중복 id/막다른 길 검증 강화
+- [x] 콘텐츠 validator가 `Node.imageUrl`, `Choice.imageUrl` 규칙을 검사한다.
+- [x] `imageUrl`이 `""`(빈 문자열)인 경우 validator가 에러를 낸다.
+- [x] `imageUrl`이 문자열일 때 `https://`로 시작하거나, `./` 또는 `../`로 시작하는 상대경로만 허용한다.
+- [x] validator에 도달 불가 노드/중복 id/막다른 길 검증 강화
 - [ ] CI에서 validator 실행 시 이미지 URL 규칙 위반을 실패로 처리한다.
 - [ ] GitHub Actions에서 validator 실행
 - [ ] 키보드 포커스/aria-live/reduced-motion 대응

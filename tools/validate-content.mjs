@@ -37,6 +37,29 @@ function collectReachableNodes(episode) {
   return visited;
 }
 
+function validateImageUrl(imageUrl, contextLabel) {
+  if (imageUrl === undefined || imageUrl === null) {
+    return;
+  }
+
+  if (typeof imageUrl !== "string") {
+    fail(`${contextLabel}: imageUrl은 문자열, null, 또는 누락이어야 합니다.`);
+    return;
+  }
+
+  if (imageUrl.trim() === "") {
+    fail(`${contextLabel}: imageUrl에 빈 문자열은 허용되지 않습니다.`);
+    return;
+  }
+
+  const isValid =
+    imageUrl.startsWith("https://") || imageUrl.startsWith("./") || imageUrl.startsWith("../");
+
+  if (!isValid) {
+    fail(`${contextLabel}: imageUrl은 https:// 또는 ./ ../ 상대경로만 허용됩니다. (${imageUrl})`);
+  }
+}
+
 async function run() {
   const episodes = JSON.parse(await fs.readFile(episodesIndexPath, "utf8"));
   const episodeIds = new Set();
@@ -68,13 +91,22 @@ async function run() {
     const endingIds = new Set();
 
     for (const node of Object.values(episode.nodes)) {
+      validateImageUrl(node.imageUrl, `${episode.id}/${node.id}`);
+
       const choiceIds = new Set();
+      const hasNextNode = (node.choices ?? []).some((choice) => Boolean(choice.to));
+
+      if (!node.ending && !hasNextNode) {
+        fail(`${episode.id}/${node.id}: 엔딩이 아닌 노드에 진행 가능한 선택지가 없습니다.`);
+      }
 
       for (const choice of node.choices ?? []) {
         if (choiceIds.has(choice.id)) {
           fail(`${episode.id}/${node.id}: choice id 중복 (${choice.id})`);
         }
         choiceIds.add(choice.id);
+
+        validateImageUrl(choice.imageUrl, `${episode.id}/${node.id}/${choice.id}`);
 
         if (choice.to && !episode.nodes[choice.to]) {
           fail(`${episode.id}/${node.id}: 존재하지 않는 노드 참조 (${choice.to})`);

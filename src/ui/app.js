@@ -1,5 +1,6 @@
 import { loadEpisodeById, loadEpisodesIndex } from "../core/content.js";
 import { applyChoice, createRunState, getCurrentNode } from "../core/engine.js";
+import { loadRunState, saveRunState } from "../core/state.js";
 
 function parseHash() {
   const hash = window.location.hash.replace(/^#\/?/, "");
@@ -127,6 +128,7 @@ export function createApp(root) {
       }
 
       store.runState = createRunState(store.currentEpisode);
+      saveRunState(store.runState);
       navigate(`/play/${episodeId}`);
       void renderPlay(episodeId);
     });
@@ -142,7 +144,8 @@ export function createApp(root) {
   async function renderPlay(episodeId) {
     if (!store.currentEpisode || store.currentEpisode.id !== episodeId) {
       store.currentEpisode = await loadEpisodeById(episodeId);
-      store.runState = createRunState(store.currentEpisode);
+      store.runState = loadRunState(store.currentEpisode) ?? createRunState(store.currentEpisode);
+      saveRunState(store.runState);
     }
 
     const node = getCurrentNode(store.currentEpisode, store.runState);
@@ -184,10 +187,12 @@ export function createApp(root) {
       const button = createButton(choice.text, () => {
         const result = applyChoice(store.currentEpisode, store.runState, choice.id);
         if (result.isEnding && result.node.ending) {
+          saveRunState(store.runState);
           renderEnding(result.node.ending, episodeId);
           return;
         }
 
+        saveRunState(store.runState);
         void renderPlay(episodeId);
       });
       choiceRow.append(button);

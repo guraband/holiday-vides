@@ -25,11 +25,11 @@
 목표: 이미지 필드를 안전하게 확장하고, 기존 데이터와의 호환성을 보장한다.
 
 체크리스트:
-- [ ] `Node.imageUrl?: string | null` 필드를 지원한다.
-- [ ] `Choice.imageUrl?: string | null` 필드를 지원한다.
-- [ ] `imageUrl`이 누락되거나 `null`이어도 렌더링이 깨지지 않는다.
-- [ ] 이미지 로드 실패 시 대체 UI(alt/placeholder)를 보여준다.
-- [ ] 기존 이미지 없는 에피소드 데이터와 하위 호환된다.
+- [x] `Node.imageUrl?: string | null` 필드를 지원한다.
+- [x] `Choice.imageUrl?: string | null` 필드를 지원한다.
+- [x] `imageUrl`이 누락되거나 `null`이어도 렌더링이 깨지지 않는다.
+- [x] 이미지 로드 실패 시 대체 UI(alt/placeholder)를 보여준다.
+- [x] 기존 이미지 없는 에피소드 데이터와 하위 호환된다.
 
 ## Phase 3 — 상태 저장/도감/설정
 목표: 실제 플레이 지속성을 제공한다.

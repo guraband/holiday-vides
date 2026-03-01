@@ -24,6 +24,33 @@ function createButton(label, onClick) {
   return button;
 }
 
+function createImageBlock(imageUrl, altText, className = "scene-image") {
+  if (typeof imageUrl !== "string" || imageUrl.trim() === "") {
+    return null;
+  }
+
+  const wrapper = document.createElement("figure");
+  wrapper.className = `${className}-wrapper`;
+
+  const image = document.createElement("img");
+  image.className = className;
+  image.src = imageUrl;
+  image.alt = altText;
+
+  const placeholder = document.createElement("figcaption");
+  placeholder.className = "image-placeholder";
+  placeholder.textContent = `${altText} (이미지를 불러오지 못했어요)`;
+  placeholder.hidden = true;
+
+  image.addEventListener("error", () => {
+    image.hidden = true;
+    placeholder.hidden = false;
+  });
+
+  wrapper.append(image, placeholder);
+  return wrapper;
+}
+
 export function createApp(root) {
   const store = {
     episodes: [],
@@ -140,10 +167,20 @@ export function createApp(root) {
     const body = document.createElement("p");
     body.textContent = node.body;
 
+    const nodeImage = createImageBlock(node.imageUrl, `${nodeTitle.textContent} 장면 이미지`);
+
     const choices = document.createElement("div");
     choices.className = "choice-list";
 
     for (const choice of node.choices) {
+      const choiceRow = document.createElement("div");
+      choiceRow.className = "choice-item";
+
+      const choiceImage = createImageBlock(choice.imageUrl, `${choice.text} 선택지 이미지`, "choice-image");
+      if (choiceImage) {
+        choiceRow.append(choiceImage);
+      }
+
       const button = createButton(choice.text, () => {
         const result = applyChoice(store.currentEpisode, store.runState, choice.id);
         if (result.isEnding && result.node.ending) {
@@ -153,7 +190,8 @@ export function createApp(root) {
 
         void renderPlay(episodeId);
       });
-      choices.append(button);
+      choiceRow.append(button);
+      choices.append(choiceRow);
     }
 
     const back = createButton("사건 목록", () => {
@@ -161,7 +199,11 @@ export function createApp(root) {
       navigate("/");
     });
 
-    root.append(title, nodeTitle, body, choices, back);
+    root.append(title, nodeTitle, body);
+    if (nodeImage) {
+      root.append(nodeImage);
+    }
+    root.append(choices, back);
   }
 
   async function renderRoute() {

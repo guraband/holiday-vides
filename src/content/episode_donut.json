@@ -13,14 +13,17 @@
         {
           "id": "check-cam",
           "text": "복도 CCTV를 확인한다",
-          "to": "cam"
+          "to": "cam",
+          "imageUrl": null
         },
         {
           "id": "ask-intern",
           "text": "신입에게 정중히 물어본다",
-          "to": "intern"
+          "to": "intern",
+          "imageUrl": "./src/content/images/missing-choice.png"
         }
-      ]
+      ],
+      "imageUrl": "./src/content/images/office-donut.svg"
     },
     "cam": {
       "id": "cam",
@@ -32,7 +35,8 @@
           "text": "회의실로 간다",
           "to": "meeting-room"
         }
-      ]
+      ],
+      "imageUrl": null
     },
     "intern": {
       "id": "intern",
@@ -49,7 +53,8 @@
           "text": "단서를 믿고 회의실로 간다",
           "to": "meeting-room"
         }
-      ]
+      ],
+      "imageUrl": "./src/content/images/missing-intern.png"
     },
     "meeting-room": {
       "id": "meeting-room",

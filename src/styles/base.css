@@ -38,6 +38,44 @@ h2 {
   padding: 16px;
 }
 
+.scene-image-wrapper,
+.choice-image-wrapper {
+  margin: 12px 0;
+}
+
+.scene-image,
+.choice-image {
+  display: block;
+  width: 100%;
+  border-radius: 12px;
+  border: 1px solid #dbe4ee;
+  background: #e2e8f0;
+  object-fit: cover;
+}
+
+.scene-image {
+  max-height: 280px;
+}
+
+.choice-image {
+  max-height: 120px;
+}
+
+.choice-item {
+  border: 1px solid #dbe4ee;
+  border-radius: 12px;
+  background: #fff;
+  padding: 10px;
+}
+
+.image-placeholder {
+  border: 1px dashed #94a3b8;
+  border-radius: 12px;
+  color: #475569;
+  background: #f1f5f9;
+  padding: 10px 12px;
+}
+
 button {
   border: 1px solid #2563eb;
   background: #2563eb;

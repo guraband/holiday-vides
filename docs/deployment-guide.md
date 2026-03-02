@@ -13,11 +13,8 @@ node tools/validate-content.mjs
 
 ## 2) GitHub Pages 설정
 1. GitHub 저장소에서 **Settings → Pages** 이동
-2. **Build and deployment**에서 아래처럼 설정
-   - Source: **Deploy from a branch**
-   - Branch: **main** (또는 운영 브랜치)
-   - Folder: `/(root)`
-3. Save 후 배포 URL 생성 대기
+2. **Build and deployment**에서 Source를 **GitHub Actions**로 설정
+3. 기본 브랜치 `main`에 푸시하면 `Deploy to GitHub Pages` 워크플로우가 자동 배포
 
 > 이 프로젝트는 해시 라우팅(`/#/...`)을 사용하므로 Pages의 404 재작성 없이도 라우팅이 동작합니다.
 
@@ -28,15 +25,16 @@ node tools/validate-content.mjs
 - [ ] 접근성 핵심 동작(키보드 포커스 이동, `aria-live`) 확인
 
 ## 4) GitHub Actions 실행/확인
-- 워크플로우 파일: `.github/workflows/validate-content.yml`
+- 워크플로우 파일
+  - 콘텐츠 검증: `.github/workflows/validate-content.yml`
+  - Pages 배포: `.github/workflows/deploy-pages.yml`
 - 트리거
-  - 모든 브랜치 `push`
-  - 모든 `pull_request`
-  - 수동 실행(`Actions → Validate Content → Run workflow`)
+  - `Validate Content`: 모든 브랜치 `push`, `pull_request`, 수동 실행
+  - `Deploy to GitHub Pages`: `main` 브랜치 `push`, 수동 실행
 - 확인 방법
   1. GitHub 저장소의 **Actions** 탭 이동
-  2. 좌측에서 **Validate Content** 선택
-  3. 최신 실행이 `success`인지 확인
+  2. 좌측에서 **Deploy to GitHub Pages** 선택
+  3. `validate-content`와 `deploy` 잡이 모두 `success`인지 확인
 
 ## 5) 릴리즈 절차(권장)
 1. 기능 브랜치에서 작업

@@ -60,11 +60,15 @@ function createImageBlock(imageUrl, altText, className = "scene-image") {
 }
 
 export function createApp(root) {
-  const announceRegion = document.createElement("p");
-  announceRegion.className = "sr-only";
-  announceRegion.setAttribute("aria-live", "polite");
-  announceRegion.setAttribute("aria-atomic", "true");
-  root.before(announceRegion);
+  let announceRegion = document.getElementById("route-announce-region");
+  if (!announceRegion) {
+    announceRegion = document.createElement("p");
+    announceRegion.id = "route-announce-region";
+    announceRegion.className = "sr-only";
+    announceRegion.setAttribute("aria-live", "polite");
+    announceRegion.setAttribute("aria-atomic", "true");
+    root.before(announceRegion);
+  }
 
   const store = {
     episodes: [],
@@ -137,6 +141,7 @@ export function createApp(root) {
     root.append(title, description, home);
     title.tabIndex = -1;
     title.focus();
+    announceScene(`오류: ${message}`);
   }
 
   function announceScene(message) {

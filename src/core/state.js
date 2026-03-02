@@ -4,7 +4,10 @@ const BACKUP_VERSION = 1;
 
 const DEFAULT_SETTINGS = {
   textSize: "md",
-  reduceMotion: window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches ?? false
+  reduceMotion:
+    typeof window !== "undefined"
+      ? window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches ?? false
+      : false
 };
 
 function isRecord(value) {
@@ -22,7 +25,8 @@ function sanitizeRunState(raw, episode) {
     : [];
 
   const endingsFound = isRecord(raw.endingsFound) ? raw.endingsFound : {};
-  const hasVersionMismatch = typeof raw.episodeVersion === "string" && raw.episodeVersion !== episode.version;
+  const hasVersionMismatch =
+    typeof raw.episodeVersion === "string" && raw.episodeVersion !== episode.version;
 
   if (hasVersionMismatch) {
     return {

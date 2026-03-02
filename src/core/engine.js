@@ -47,13 +47,14 @@ export function undoChoice(state, steps = 1) {
   }
 
   const rollbackCount = Math.min(Math.max(steps, 1), 3, state.history.length - 1);
-  state.history.splice(-rollbackCount, rollbackCount);
-  const last = state.history.at(-1);
+  const nextHistory = state.history.slice(0, -rollbackCount);
+  const last = nextHistory.at(-1);
 
   if (!last?.nodeId) {
     return false;
   }
 
+  state.history = nextHistory;
   state.nodeId = last.nodeId;
   return true;
 }

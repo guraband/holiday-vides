@@ -39,8 +39,8 @@
 - [x] 엔딩 도감 누적 및 마스킹/힌트 UI 구현
 - [x] 텍스트 크기/애니메이션 감소 등 설정 저장
 - [x] JSON import/export(백업/복구) 구현
-- [ ] 버전 불일치 처리(초기화/마이그레이션 전략)
-- [ ] 히스토리(되돌리기 1~3단계) 구현
+- [x] 버전 불일치 처리(초기화/마이그레이션 전략)
+- [x] 히스토리(되돌리기 1~3단계) 구현
 
 ## Phase 4 — 조건/효과/판정 시스템 확장
 목표: PRD의 분기 규칙을 본격 지원한다.
@@ -59,8 +59,8 @@
 - [x] `imageUrl`이 `""`(빈 문자열)인 경우 validator가 에러를 낸다.
 - [x] `imageUrl`이 문자열일 때 `https://`로 시작하거나, `./` 또는 `../`로 시작하는 상대경로만 허용한다.
 - [x] validator에 도달 불가 노드/중복 id/막다른 길 검증 강화
-- [ ] CI에서 validator 실행 시 이미지 URL 규칙 위반을 실패로 처리한다.
-- [ ] GitHub Actions에서 validator 실행
-- [ ] 키보드 포커스/aria-live/reduced-motion 대응
+- [x] CI에서 validator 실행 시 이미지 URL 규칙 위반을 실패로 처리한다.
+- [x] GitHub Actions에서 validator 실행
+- [x] 키보드 포커스/aria-live/reduced-motion 대응
 - [ ] 배포 문서화(GitHub Pages 설정, 릴리즈 절차)
 - [ ] 에피소드 추가 가이드 문서화

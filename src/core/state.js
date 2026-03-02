@@ -121,8 +121,8 @@ export function importBackupData(jsonText) {
     throw new Error("백업 파일이 올바른 JSON 형식이 아닙니다.");
   }
 
-  if (!isRecord(parsed)) {
-    throw new Error("백업 데이터 형식이 올바르지 않습니다.");
+  if (!isRecord(parsed) || parsed.version !== BACKUP_VERSION) {
+    throw new Error("백업 데이터 형식이 올바르지 않거나 버전이 맞지 않습니다.");
   }
 
   const runStates = isRecord(parsed.runStates) ? parsed.runStates : {};

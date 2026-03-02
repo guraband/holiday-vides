@@ -205,9 +205,11 @@ export function applyChoice(episode, state, choiceId) {
     throw new Error("선택지를 처리할 수 없습니다.");
   }
 
-  const choiceView = getChoiceViewModels(episode, state).find((item) => item.id === choice.id);
-  if (!choiceView?.enabled) {
-    throw new Error(choiceView?.disabledReason || "조건을 만족하지 못해 선택할 수 없습니다.");
+  const unmetConditions = (choice.cond ?? []).filter(
+    (condition) => !evaluateCondition(condition, state)
+  );
+  if (unmetConditions.length > 0) {
+    throw new Error(buildDisabledReason(choice, unmetConditions));
   }
 
   const { transition, checkResult } = resolveChoiceTransition(choice, state);

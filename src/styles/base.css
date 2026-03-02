@@ -93,3 +93,90 @@ button:hover {
 .ending-kind {
   font-weight: 600;
 }
+
+.episode-progress {
+  margin: 8px 0 12px;
+  color: #334155;
+  font-weight: 600;
+}
+
+.ending-codex {
+  margin-top: 12px;
+  padding: 10px;
+  border: 1px dashed #cbd5e1;
+  border-radius: 10px;
+  background: #f8fafc;
+}
+
+.ending-codex h3 {
+  margin: 0 0 8px;
+  font-size: 16px;
+}
+
+.ending-codex-list {
+  margin: 0;
+  padding-left: 18px;
+  display: grid;
+  gap: 8px;
+}
+
+.ending-codex-item {
+  color: #334155;
+}
+
+.ending-codex-title {
+  margin: 0;
+  font-weight: 700;
+}
+
+.ending-codex-summary {
+  margin: 2px 0 0;
+  font-size: 14px;
+}
+
+.global-tools {
+  margin: 16px 0;
+  border: 1px solid #cbd5e1;
+  border-radius: 12px;
+  background: #fff;
+  padding: 12px;
+}
+
+.global-tools h2 {
+  margin: 0 0 8px;
+  font-size: 18px;
+}
+
+.global-tools-controls {
+  display: grid;
+  gap: 10px;
+}
+
+.setting-select {
+  margin-left: 8px;
+}
+
+.setting-check {
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.backup-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.app.text-sm {
+  font-size: 15px;
+}
+
+.app.text-lg {
+  font-size: 18px;
+}
+
+.app.reduce-motion * {
+  transition: none !important;
+  animation: none !important;
+}

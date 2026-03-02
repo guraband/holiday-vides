@@ -4,5 +4,11 @@
     "title": "도넛 실종 사건",
     "tagline": "사라진 도넛의 진실을 찾아라",
     "file": "episode_donut.json"
+  },
+  {
+    "id": "night-shift-alibi",
+    "title": "야근실 알리바이",
+    "tagline": "사라진 기획안을 찾고 팀의 밤을 구하라",
+    "file": "episode_night_shift.json"
   }
 ]

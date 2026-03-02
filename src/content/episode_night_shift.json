@@ -1,0 +1,247 @@
+{
+  "id": "night-shift-alibi",
+  "title": "야근실 알리바이",
+  "tagline": "사라진 기획안을 찾고 팀의 밤을 구하라",
+  "version": "1.0.0",
+  "startNodeId": "start",
+  "nodes": {
+    "start": {
+      "id": "start",
+      "title": "긴급 호출",
+      "body": "자정 직전, 내일 발표할 기획안 파일이 공용 드라이브에서 사라졌다. 당신은 당직 추리 담당으로 호출됐다.",
+      "choices": [
+        {
+          "id": "inspect-desk",
+          "text": "책상 주변부터 조사한다",
+          "to": "desk",
+          "effects": [
+            { "type": "addClue", "clue": "coffee_ring" },
+            { "type": "addStat", "stat": "wit", "delta": 1 }
+          ]
+        },
+        {
+          "id": "check-log",
+          "text": "서버 접속 로그를 먼저 확인한다",
+          "to": "log",
+          "effects": [
+            { "type": "addClue", "clue": "vpn_access" },
+            { "type": "setFlag", "flag": "sawLogFirst", "value": true }
+          ]
+        }
+      ],
+      "imageUrl": "./src/content/images/office-donut.svg"
+    },
+    "desk": {
+      "id": "desk",
+      "title": "빈 자리의 흔적",
+      "body": "모니터 옆 컵받침 자국이 두 개다. 누군가 급히 자리를 옮긴 것 같다.",
+      "choices": [
+        {
+          "id": "take-sticky-note",
+          "text": "모니터 뒤쪽 포스트잇을 챙긴다",
+          "to": "hallway",
+          "effects": [
+            { "type": "addItem", "item": "sticky_note" },
+            { "type": "setFlag", "flag": "hasDeskNote", "value": true }
+          ]
+        },
+        {
+          "id": "rush-accuse-designer",
+          "text": "디자이너를 바로 추궁한다",
+          "to": "ending_hasty"
+        }
+      ]
+    },
+    "log": {
+      "id": "log",
+      "title": "접속 기록",
+      "body": "기획안 삭제 시각과 동시에 외부 VPN 접속이 있었다. 하지만 사내 회의실 태블릿도 같은 계정으로 로그인돼 있다.",
+      "choices": [
+        {
+          "id": "secure-log-copy",
+          "text": "증거 로그를 백업한다",
+          "to": "hallway",
+          "effects": [
+            { "type": "addItem", "item": "log_backup" },
+            { "type": "addClue", "clue": "tablet_sync" }
+          ]
+        },
+        {
+          "id": "ignore-context",
+          "text": "외부 접속만 보고 범인을 단정한다",
+          "to": "ending_false_charge"
+        }
+      ]
+    },
+    "hallway": {
+      "id": "hallway",
+      "title": "복도 교차점",
+      "body": "회의실 앞에서 팀장과 디자이너가 서로 알리바이를 주장한다. 누구의 말을 먼저 검증할까?",
+      "choices": [
+        {
+          "id": "question-lead",
+          "text": "팀장의 이동 동선을 확인한다",
+          "to": "lead_check",
+          "effects": [
+            { "type": "setFlag", "flag": "checkedLead", "value": true }
+          ]
+        },
+        {
+          "id": "question-designer",
+          "text": "디자이너의 장비 기록을 확인한다",
+          "to": "designer_check",
+          "effects": [
+            { "type": "setFlag", "flag": "checkedDesigner", "value": true }
+          ]
+        }
+      ]
+    },
+    "lead_check": {
+      "id": "lead_check",
+      "title": "팀장의 진술",
+      "body": "팀장은 회의실 프로젝터를 고치느라 계정을 잠시 공유했다고 말한다.",
+      "choices": [
+        {
+          "id": "find-projector-log",
+          "text": "프로젝터 로그까지 대조한다",
+          "to": "final_deduction",
+          "effects": [
+            { "type": "addClue", "clue": "projector_reboot" },
+            { "type": "addStat", "stat": "wit", "delta": 1 }
+          ]
+        },
+        {
+          "id": "believe-only-words",
+          "text": "말만 믿고 사건을 종료한다",
+          "to": "ending_unsolved"
+        }
+      ]
+    },
+    "designer_check": {
+      "id": "designer_check",
+      "title": "디자이너의 태블릿",
+      "body": "태블릿에는 자동 동기화 알림이 반복된다. 포스트잇에 적힌 임시 비밀번호와 일치한다.",
+      "choices": [
+        {
+          "id": "cross-check-password",
+          "text": "임시 비밀번호 사용 이력을 교차 검증한다",
+          "to": "final_deduction",
+          "cond": [
+            { "type": "hasItem", "item": "sticky_note" }
+          ],
+          "disabledReason": "책상에서 포스트잇을 확보해야 비밀번호 이력을 검증할 수 있습니다.",
+          "effects": [
+            { "type": "addClue", "clue": "temp_password" }
+          ]
+        },
+        {
+          "id": "panic-reset-server",
+          "text": "당황해서 서버를 초기화한다",
+          "to": "ending_reset"
+        }
+      ]
+    },
+    "final_deduction": {
+      "id": "final_deduction",
+      "title": "최종 추론",
+      "body": "핵심 단서가 모였다. 삭제 사건이 해킹인지, 내부 실수인지 결론을 내려야 한다.",
+      "choices": [
+        {
+          "id": "logic-verdict",
+          "text": "증거 기반으로 최종 판정을 내린다",
+          "check": {
+            "stat": "wit",
+            "dc": 10,
+            "roll": "d20",
+            "bonusFlag": "sawLogFirst"
+          },
+          "onPass": {
+            "to": "ending_success",
+            "effects": [
+              { "type": "addStat", "stat": "reputation", "delta": 1 }
+            ]
+          },
+          "onFail": {
+            "to": "ending_unsolved"
+          }
+        },
+        {
+          "id": "manual-restore",
+          "text": "백업 파일로 수동 복구를 시도한다",
+          "cond": [
+            { "type": "hasItem", "item": "log_backup" }
+          ],
+          "disabledReason": "로그 백업 파일이 있어야 복구 경로를 안전하게 추적할 수 있습니다.",
+          "effects": [
+            { "type": "goto", "to": "ending_success" }
+          ]
+        },
+        {
+          "id": "guess-and-blame",
+          "text": "직감으로 범인을 지목한다",
+          "to": "ending_false_charge"
+        }
+      ]
+    },
+    "ending_success": {
+      "id": "ending_success",
+      "title": "복구 성공 엔딩",
+      "body": "삭제는 회의실 태블릿 동기화 오류였다. 기획안을 복구해 발표를 지켜냈다.",
+      "choices": [],
+      "ending": {
+        "id": "ending-night-save",
+        "kind": "success",
+        "title": "새벽 1시의 구조자",
+        "summary": "증거를 끝까지 추적해 팀의 발표를 살렸다."
+      }
+    },
+    "ending_unsolved": {
+      "id": "ending_unsolved",
+      "title": "미해결 엔딩",
+      "body": "명확한 증거를 확보하지 못해 발표는 연기되고, 사건은 다음 주 회의 안건이 됐다.",
+      "choices": [],
+      "ending": {
+        "id": "ending-night-coldcase",
+        "kind": "fail",
+        "title": "끝나지 않은 야근",
+        "summary": "결정적 한 끗이 부족해 사건을 마무리하지 못했다."
+      }
+    },
+    "ending_false_charge": {
+      "id": "ending_false_charge",
+      "title": "오인 지목 엔딩",
+      "body": "성급한 지목으로 팀 분위기만 얼어붙었다. 진짜 원인은 로그 속에 남아 있었다.",
+      "choices": [],
+      "ending": {
+        "id": "ending-night-misjudge",
+        "kind": "gag",
+        "title": "단톡방 사과 2차전",
+        "summary": "추리보다 속도가 빨랐고, 결과는 또 사과문이었다."
+      }
+    },
+    "ending_hasty": {
+      "id": "ending_hasty",
+      "title": "성급한 추궁 엔딩",
+      "body": "증거 없이 추궁하다가 회의실 출입을 막아 버렸다. 기획안 복구 시간도 놓쳤다.",
+      "choices": [],
+      "ending": {
+        "id": "ending-night-hasty",
+        "kind": "fail",
+        "title": "야근실 봉쇄 사건",
+        "summary": "초반 판단 미스로 사건 해결 골든타임을 날렸다."
+      }
+    },
+    "ending_reset": {
+      "id": "ending_reset",
+      "title": "초기화 엔딩",
+      "body": "서버 초기화는 성공했지만 파일도 함께 사라졌다. 모두가 백지 상태로 밤을 샜다.",
+      "choices": [],
+      "ending": {
+        "id": "ending-night-format",
+        "kind": "gag",
+        "title": "Ctrl+Z가 없는 밤",
+        "summary": "침착함 대신 초기화를 눌러 전설의 실수를 남겼다."
+      }
+    }
+  }
+}

@@ -25,6 +25,17 @@ function sanitizeRunState(raw, episode) {
     : [];
 
   const endingsFound = isRecord(raw.endingsFound) ? raw.endingsFound : {};
+  const stats = isRecord(raw.stats) ? raw.stats : {};
+  const flags = isRecord(raw.flags) ? raw.flags : {};
+  const inventory = Array.isArray(raw.inventory) ? raw.inventory.filter((item) => typeof item === "string") : [];
+  const clues = Array.isArray(raw.clues) ? raw.clues.filter((clue) => typeof clue === "string") : [];
+  const rng = isRecord(raw.rng)
+    ? {
+        seed: typeof raw.rng.seed === "string" ? raw.rng.seed : `${Date.now()}`,
+        step: Number.isFinite(raw.rng.step) ? Math.max(0, Math.floor(raw.rng.step)) : 0
+      }
+    : { seed: `${Date.now()}`, step: 0 };
+
   const hasVersionMismatch =
     typeof raw.episodeVersion === "string" && raw.episodeVersion !== episode.version;
 
@@ -33,8 +44,13 @@ function sanitizeRunState(raw, episode) {
       episodeId: episode.id,
       episodeVersion: episode.version,
       nodeId: episode.startNodeId,
+      stats,
+      inventory,
+      clues,
+      flags,
       history: [{ nodeId: episode.startNodeId, timestamp: Date.now() }],
-      endingsFound
+      endingsFound,
+      rng
     };
   }
 
@@ -42,8 +58,13 @@ function sanitizeRunState(raw, episode) {
     episodeId: episode.id,
     episodeVersion: episode.version,
     nodeId,
+    stats,
+    inventory,
+    clues,
+    flags,
     history: history.length ? history : [{ nodeId, timestamp: Date.now() }],
-    endingsFound
+    endingsFound,
+    rng
   };
 }
 

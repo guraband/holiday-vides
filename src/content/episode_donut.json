@@ -2,7 +2,7 @@
   "id": "donut-case",
   "title": "도넛 실종 사건",
   "tagline": "사라진 도넛의 진실을 찾아라",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "startNodeId": "start",
   "nodes": {
     "start": {
@@ -14,12 +14,30 @@
           "id": "check-cam",
           "text": "복도 CCTV를 확인한다",
           "to": "cam",
+          "effects": [
+            {
+              "type": "addClue",
+              "clue": "cctv-frame"
+            },
+            {
+              "type": "addStat",
+              "stat": "wit",
+              "delta": 1
+            }
+          ],
           "imageUrl": null
         },
         {
           "id": "ask-intern",
           "text": "신입에게 정중히 물어본다",
           "to": "intern",
+          "effects": [
+            {
+              "type": "setFlag",
+              "flag": "internTrust",
+              "value": true
+            }
+          ],
           "imageUrl": "./src/content/images/missing-choice.png"
         }
       ],
@@ -31,8 +49,31 @@
       "body": "영상에는 팀장이 도넛 상자를 들고 회의실로 들어가는 모습이 찍혔다.",
       "choices": [
         {
+          "id": "collect-sugar-clue",
+          "text": "프레임을 확대해 설탕가루를 확인한다",
+          "to": "cam",
+          "cond": [
+            {
+              "type": "hasClue",
+              "clue": "cctv-frame"
+            }
+          ],
+          "effects": [
+            {
+              "type": "addItem",
+              "item": "sugar-proof"
+            },
+            {
+              "type": "setFlag",
+              "flag": "hasSugarProof",
+              "value": true
+            }
+          ],
+          "disabledReason": "먼저 CCTV부터 확인해 단서를 확보해야 합니다."
+        },
+        {
           "id": "go-meeting-room",
-          "text": "회의실로 간다",
+          "text": "회의실 문을 열고 들어간다",
           "to": "meeting-room"
         }
       ],
@@ -51,7 +92,14 @@
         {
           "id": "follow-hint",
           "text": "단서를 믿고 회의실로 간다",
-          "to": "meeting-room"
+          "to": "meeting-room",
+          "cond": [
+            {
+              "type": "flagEquals",
+              "flag": "internTrust",
+              "value": true
+            }
+          ]
         }
       ],
       "imageUrl": "./src/content/images/missing-intern.png"
@@ -59,12 +107,65 @@
     "meeting-room": {
       "id": "meeting-room",
       "title": "회의실의 진실",
-      "body": "팀장은 모두를 위해 도넛을 반으로 잘라 놓고 있었다. 절도 사건이 아니라 배려 사건이었다!",
+      "body": "문이 잠겨 있다. 눈치와 운으로 전말을 밝혀낼 수 있을까?",
       "choices": [
         {
-          "id": "share-donut",
-          "text": "함께 도넛을 나눠 먹는다",
-          "to": "good-ending"
+          "id": "logic-check",
+          "text": "논리적으로 상황을 재구성한다",
+          "check": {
+            "stat": "wit",
+            "dc": 10,
+            "roll": "d20",
+            "bonusFlag": "hasSugarProof"
+          },
+          "onPass": {
+            "to": "good-ending",
+            "effects": [
+              {
+                "type": "addStat",
+                "stat": "reputation",
+                "delta": 1
+              }
+            ]
+          },
+          "onFail": {
+            "to": "bad-ending"
+          }
+        },
+        {
+          "id": "coin-flip-entry",
+          "text": "동전을 던져 모험한다",
+          "check": {
+            "stat": "nerve",
+            "dc": 1,
+            "roll": "coin"
+          },
+          "onPass": {
+            "to": "good-ending"
+          },
+          "onFail": {
+            "to": "bad-ending"
+          }
+        },
+        {
+          "id": "secret-route",
+          "text": "설탕가루 증거를 문틈에 밀어 넣는다",
+          "cond": [
+            {
+              "type": "hasItem",
+              "item": "sugar-proof"
+            },
+            {
+              "type": "visitedNode",
+              "nodeId": "cam"
+            }
+          ],
+          "effects": [
+            {
+              "type": "goto",
+              "to": "good-ending"
+            }
+          ]
         }
       ]
     },

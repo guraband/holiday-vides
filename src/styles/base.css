@@ -90,6 +90,19 @@ button:hover {
   background: #1d4ed8;
 }
 
+
+button:disabled {
+  cursor: not-allowed;
+  background: #94a3b8;
+  border-color: #94a3b8;
+}
+
+.choice-disabled-reason {
+  margin: 8px 0 0;
+  color: #b45309;
+  font-size: 14px;
+}
+
 button:focus-visible,
 select:focus-visible,
 input:focus-visible {

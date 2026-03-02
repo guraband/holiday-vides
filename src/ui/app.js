@@ -1,5 +1,11 @@
 import { loadEpisodeById, loadEpisodesIndex } from "../core/content.js";
-import { applyChoice, createRunState, getCurrentNode, undoChoice } from "../core/engine.js";
+import {
+  applyChoice,
+  createRunState,
+  getChoiceViewModels,
+  getCurrentNode,
+  undoChoice
+} from "../core/engine.js";
 import {
   exportBackupData,
   importBackupData,
@@ -400,7 +406,9 @@ export function createApp(root) {
     const choices = document.createElement("div");
     choices.className = "choice-list";
 
-    for (const choice of node.choices) {
+    const choiceViewModels = getChoiceViewModels(store.currentEpisode, store.runState);
+
+    for (const choice of choiceViewModels) {
       const choiceRow = document.createElement("div");
       choiceRow.className = "choice-item";
 
@@ -420,7 +428,16 @@ export function createApp(root) {
         saveRunState(store.runState);
         void renderPlay(episodeId);
       });
+      button.disabled = !choice.enabled;
       choiceRow.append(button);
+
+      if (!choice.enabled && choice.disabledReason) {
+        const reason = document.createElement("p");
+        reason.className = "choice-disabled-reason";
+        reason.textContent = choice.disabledReason;
+        choiceRow.append(reason);
+      }
+
       choices.append(choiceRow);
     }
 

@@ -1,4 +1,11 @@
-const STORAGE_KEY = "holiday-vides:run-state:v1";
+const RUN_STATE_STORAGE_KEY = "holiday-vides:run-state:v1";
+const SETTINGS_STORAGE_KEY = "holiday-vides:settings:v1";
+const BACKUP_VERSION = 1;
+
+const DEFAULT_SETTINGS = {
+  textSize: "md",
+  reduceMotion: false
+};
 
 function isRecord(value) {
   return typeof value === "object" && value !== null && !Array.isArray(value);
@@ -24,26 +31,48 @@ function sanitizeRunState(raw, episode) {
   };
 }
 
-function readStorage() {
-  const raw = localStorage.getItem(STORAGE_KEY);
+function sanitizeSettings(raw) {
+  if (!isRecord(raw)) {
+    return { ...DEFAULT_SETTINGS };
+  }
+
+  const textSize = ["sm", "md", "lg"].includes(raw.textSize) ? raw.textSize : DEFAULT_SETTINGS.textSize;
+  const reduceMotion = typeof raw.reduceMotion === "boolean" ? raw.reduceMotion : DEFAULT_SETTINGS.reduceMotion;
+
+  return {
+    textSize,
+    reduceMotion
+  };
+}
+
+function readJSON(key, fallbackValue = {}) {
+  const raw = localStorage.getItem(key);
   if (!raw) {
-    return {};
+    return fallbackValue;
   }
 
   try {
     const parsed = JSON.parse(raw);
-    return isRecord(parsed) ? parsed : {};
+    return isRecord(parsed) ? parsed : fallbackValue;
   } catch {
-    return {};
+    return fallbackValue;
   }
 }
 
-function writeStorage(value) {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(value));
+function writeJSON(key, value) {
+  localStorage.setItem(key, JSON.stringify(value));
+}
+
+function readRunStorage() {
+  return readJSON(RUN_STATE_STORAGE_KEY, {});
+}
+
+function writeRunStorage(value) {
+  writeJSON(RUN_STATE_STORAGE_KEY, value);
 }
 
 export function loadRunState(episode) {
-  const all = readStorage();
+  const all = readRunStorage();
   return sanitizeRunState(all[episode.id], episode);
 }
 
@@ -52,9 +81,9 @@ export function saveRunState(state) {
     return;
   }
 
-  const all = readStorage();
+  const all = readRunStorage();
   all[state.episodeId] = state;
-  writeStorage(all);
+  writeRunStorage(all);
 }
 
 export function clearRunState(episodeId) {
@@ -62,8 +91,43 @@ export function clearRunState(episodeId) {
     return;
   }
 
-  const all = readStorage();
+  const all = readRunStorage();
   delete all[episodeId];
-  writeStorage(all);
+  writeRunStorage(all);
 }
 
+export function loadSettings() {
+  return sanitizeSettings(readJSON(SETTINGS_STORAGE_KEY, DEFAULT_SETTINGS));
+}
+
+export function saveSettings(settings) {
+  writeJSON(SETTINGS_STORAGE_KEY, sanitizeSettings(settings));
+}
+
+export function exportBackupData() {
+  return {
+    version: BACKUP_VERSION,
+    exportedAt: new Date().toISOString(),
+    runStates: readRunStorage(),
+    settings: loadSettings()
+  };
+}
+
+export function importBackupData(jsonText) {
+  let parsed;
+  try {
+    parsed = JSON.parse(jsonText);
+  } catch {
+    throw new Error("백업 파일이 올바른 JSON 형식이 아닙니다.");
+  }
+
+  if (!isRecord(parsed)) {
+    throw new Error("백업 데이터 형식이 올바르지 않습니다.");
+  }
+
+  const runStates = isRecord(parsed.runStates) ? parsed.runStates : {};
+  const settings = sanitizeSettings(parsed.settings);
+
+  writeRunStorage(runStates);
+  saveSettings(settings);
+}

@@ -1,6 +1,7 @@
 export function createRunState(episode) {
   return {
     episodeId: episode.id,
+    episodeVersion: episode.version,
     nodeId: episode.startNodeId,
     history: [{ nodeId: episode.startNodeId, timestamp: Date.now() }],
     endingsFound: {}
@@ -38,4 +39,21 @@ export function applyChoice(episode, state, choiceId) {
     node: nextNode,
     isEnding: Boolean(nextNode.ending)
   };
+}
+
+export function undoChoice(state, steps = 1) {
+  if (!state || !Array.isArray(state.history) || state.history.length <= 1) {
+    return false;
+  }
+
+  const rollbackCount = Math.min(Math.max(steps, 1), 3, state.history.length - 1);
+  state.history.splice(-rollbackCount, rollbackCount);
+  const last = state.history.at(-1);
+
+  if (!last?.nodeId) {
+    return false;
+  }
+
+  state.nodeId = last.nodeId;
+  return true;
 }

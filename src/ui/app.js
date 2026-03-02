@@ -1,5 +1,5 @@
 import { loadEpisodeById, loadEpisodesIndex } from "../core/content.js";
-import { applyChoice, createRunState, getCurrentNode } from "../core/engine.js";
+import { applyChoice, createRunState, getCurrentNode, undoChoice } from "../core/engine.js";
 import {
   exportBackupData,
   importBackupData,
@@ -60,6 +60,12 @@ function createImageBlock(imageUrl, altText, className = "scene-image") {
 }
 
 export function createApp(root) {
+  const announceRegion = document.createElement("p");
+  announceRegion.className = "sr-only";
+  announceRegion.setAttribute("aria-live", "polite");
+  announceRegion.setAttribute("aria-atomic", "true");
+  root.before(announceRegion);
+
   const store = {
     episodes: [],
     episodeProgress: {},
@@ -129,6 +135,12 @@ export function createApp(root) {
     });
 
     root.append(title, description, home);
+    title.tabIndex = -1;
+    title.focus();
+  }
+
+  function announceScene(message) {
+    announceRegion.textContent = message;
   }
 
   function createGlobalTools() {
@@ -308,6 +320,9 @@ export function createApp(root) {
     }
 
     root.append(title, tools, list);
+    title.tabIndex = -1;
+    title.focus();
+    announceScene("홈 화면");
   }
 
   function renderEnding(ending, episodeId) {
@@ -341,6 +356,9 @@ export function createApp(root) {
     });
 
     root.append(title, kind, summary, restart, home);
+    title.tabIndex = -1;
+    title.focus();
+    announceScene(`엔딩: ${ending.title}`);
   }
 
   async function renderPlay(episodeId) {
@@ -406,7 +424,27 @@ export function createApp(root) {
       navigate("/");
     });
 
-    root.append(title, nodeTitle, body, ...(nodeImage ? [nodeImage] : []), choices, back);
+    const undoControls = document.createElement("div");
+    undoControls.className = "undo-controls";
+
+    for (const steps of [1, 2, 3]) {
+      const canUndo = store.runState.history.length - 1 >= steps;
+      const undoButton = createButton(`${steps}단계 되돌리기`, () => {
+        if (!undoChoice(store.runState, steps)) {
+          return;
+        }
+
+        saveRunState(store.runState);
+        void renderPlay(episodeId);
+      });
+      undoButton.disabled = !canUndo;
+      undoControls.append(undoButton);
+    }
+
+    root.append(title, nodeTitle, body, ...(nodeImage ? [nodeImage] : []), choices, undoControls, back);
+    nodeTitle.tabIndex = -1;
+    nodeTitle.focus();
+    announceScene(`장면: ${nodeTitle.textContent}`);
   }
 
   async function renderRoute() {

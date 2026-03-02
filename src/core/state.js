@@ -4,7 +4,7 @@ const BACKUP_VERSION = 1;
 
 const DEFAULT_SETTINGS = {
   textSize: "md",
-  reduceMotion: false
+  reduceMotion: window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches ?? false
 };
 
 function isRecord(value) {
@@ -22,9 +22,21 @@ function sanitizeRunState(raw, episode) {
     : [];
 
   const endingsFound = isRecord(raw.endingsFound) ? raw.endingsFound : {};
+  const hasVersionMismatch = typeof raw.episodeVersion === "string" && raw.episodeVersion !== episode.version;
+
+  if (hasVersionMismatch) {
+    return {
+      episodeId: episode.id,
+      episodeVersion: episode.version,
+      nodeId: episode.startNodeId,
+      history: [{ nodeId: episode.startNodeId, timestamp: Date.now() }],
+      endingsFound
+    };
+  }
 
   return {
     episodeId: episode.id,
+    episodeVersion: episode.version,
     nodeId,
     history: history.length ? history : [{ nodeId, timestamp: Date.now() }],
     endingsFound

@@ -80,5 +80,9 @@ node tools/validate-content.mjs
 - 에피소드 작성 가이드: `docs/episode-authoring-guide.md`
 
 ## 배포
-`main` 브랜치 루트를 GitHub Pages로 배포하면 됩니다.
+GitHub Pages는 `Deploy to GitHub Pages` 워크플로우(`.github/workflows/deploy-pages.yml`)로 자동 배포합니다.
+
+- 트리거: `main` 브랜치 push, 수동 실행(`workflow_dispatch`)
+- 선행 검증: `node tools/validate-content.mjs`
+
 상세 절차는 `docs/deployment-guide.md`를 따릅니다.

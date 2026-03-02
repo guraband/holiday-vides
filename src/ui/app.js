@@ -192,7 +192,7 @@ export function createApp(root) {
       link.href = url;
       link.download = `holiday-vides-backup-${Date.now()}.json`;
       link.click();
-      URL.revokeObjectURL(url);
+      setTimeout(() => URL.revokeObjectURL(url), 100);
     });
 
     const importInput = document.createElement("input");

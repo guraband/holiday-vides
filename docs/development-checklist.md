@@ -62,5 +62,5 @@
 - [x] CI에서 validator 실행 시 이미지 URL 규칙 위반을 실패로 처리한다.
 - [x] GitHub Actions에서 validator 실행
 - [x] 키보드 포커스/aria-live/reduced-motion 대응
-- [ ] 배포 문서화(GitHub Pages 설정, 릴리즈 절차)
-- [ ] 에피소드 추가 가이드 문서화
+- [x] 배포 문서화(GitHub Pages 설정, 릴리즈 절차)
+- [x] 에피소드 추가 가이드 문서화

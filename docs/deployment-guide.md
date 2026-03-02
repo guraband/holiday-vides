@@ -16,7 +16,7 @@ node tools/validate-content.mjs
 2. **Build and deployment**에서 아래처럼 설정
    - Source: **Deploy from a branch**
    - Branch: **main** (또는 운영 브랜치)
-   - Folder: **/** (root)
+   - Folder: `/(root)`
 3. Save 후 배포 URL 생성 대기
 
 > 이 프로젝트는 해시 라우팅(`/#/...`)을 사용하므로 Pages의 404 재작성 없이도 라우팅이 동작합니다.

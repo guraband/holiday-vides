@@ -27,7 +27,18 @@ node tools/validate-content.mjs
 - [ ] 신규/수정 에피소드 JSON이 validator 경고 없이 통과
 - [ ] 접근성 핵심 동작(키보드 포커스 이동, `aria-live`) 확인
 
-## 4) 릴리즈 절차(권장)
+## 4) GitHub Actions 실행/확인
+- 워크플로우 파일: `.github/workflows/validate-content.yml`
+- 트리거
+  - 모든 브랜치 `push`
+  - 모든 `pull_request`
+  - 수동 실행(`Actions → Validate Content → Run workflow`)
+- 확인 방법
+  1. GitHub 저장소의 **Actions** 탭 이동
+  2. 좌측에서 **Validate Content** 선택
+  3. 최신 실행이 `success`인지 확인
+
+## 5) 릴리즈 절차(권장)
 1. 기능 브랜치에서 작업
 2. 로컬 검증 실행
    ```bash
@@ -38,7 +49,7 @@ node tools/validate-content.mjs
 5. GitHub Actions `Validate Content` 성공 확인
 6. Pages 배포 URL에서 최종 스모크 테스트
 
-## 5) 장애 대응
+## 6) 장애 대응
 - 배포 후 화면이 비는 경우
   - 브라우저 콘솔 오류 확인
   - `index.html`의 모듈 경로가 상대경로(`./src/main.js`)인지 확인

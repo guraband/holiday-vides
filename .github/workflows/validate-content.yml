@@ -2,8 +2,9 @@ name: Validate Content
 
 on:
   push:
-    branches: ["main", "master"]
+    branches: ["**"]
   pull_request:
+  workflow_dispatch:
 
 jobs:
   validate-content:

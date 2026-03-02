@@ -59,6 +59,20 @@ npx serve .
 node tools/validate-content.mjs
 ```
 
+
+## GitHub Actions (콘텐츠 검증)
+저장소에는 `Validate Content` 워크플로우가 포함되어 있으며, 아래 이벤트에서 실행됩니다.
+
+- 모든 브랜치로의 `push`
+- 모든 `pull_request`
+- 수동 실행(`workflow_dispatch`)
+
+로컬에서 동일한 검증을 먼저 수행하려면 아래 명령을 실행하세요.
+
+```bash
+node tools/validate-content.mjs
+```
+
 ## 문서 바로가기
 - 제품/기술 요구사항: `docs/PRD.md`
 - 개발 단계 체크리스트: `docs/development-checklist.md`

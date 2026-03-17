@@ -1,0 +1,376 @@
+{
+  "id": "ww3-fracture-line",
+  "title": "균열선 2032",
+  "tagline": "오해, 사이버 공격, 에너지 위기 속에서 세계대전의 문턱을 막아라",
+  "version": "1.0.0",
+  "startNodeId": "start",
+  "nodes": {
+    "start": {
+      "id": "start",
+      "title": "D-3, 동시다발 위기",
+      "body": "새벽 4시 10분. 국경 감시 레이더 오작동, 주요 항만 전력망 장애, SNS발 대규모 허위영상이 동시에 터졌다. 정보는 넘치지만 신뢰할 수 있는 사실은 거의 없다. 당신은 국가안보위기대응센터의 총괄 조정관으로서 첫 30분의 결정을 내려야 한다.",
+      "choices": [
+        {
+          "id": "to-brief-room",
+          "text": "군 상황실에서 국경 정보부터 검증한다",
+          "to": "brief_room",
+          "effects": [
+            { "type": "addStat", "stat": "wit", "delta": 1 }
+          ]
+        },
+        {
+          "id": "to-media-room",
+          "text": "여론전 대응팀을 소집해 허위정보 확산부터 끊는다",
+          "to": "media_room",
+          "effects": [
+            { "type": "setFlag", "flag": "publicCalm", "value": true }
+          ]
+        },
+        {
+          "id": "to-cyber-center",
+          "text": "사이버안보센터로 이동해 항만 장애 원인을 추적한다",
+          "to": "cyber_center",
+          "effects": [
+            { "type": "addItem", "item": "forensic_pack" }
+          ]
+        }
+      ]
+    },
+    "brief_room": {
+      "id": "brief_room",
+      "title": "군 상황실 브리핑",
+      "body": "전방 초소의 열감지 영상과 위성사진이 서로 어긋난다. 누군가는 '선제타격 준비 정황'이라고 주장하고, 누군가는 '센서 오류'라고 말한다. 단 1개의 오판이 연쇄 동원을 부를 수 있다.",
+      "choices": [
+        {
+          "id": "verify-border-telemetry",
+          "text": "원시 텔레메트리와 민간 위성 자료를 교차 검증한다",
+          "to": "border_analysis",
+          "effects": [
+            { "type": "addClue", "clue": "border_telemetry" },
+            { "type": "addStat", "stat": "wit", "delta": 1 }
+          ]
+        },
+        {
+          "id": "demand-immediate-strike",
+          "text": "불완전한 보고를 근거로 즉시 강경 대응을 지시한다",
+          "to": "ending_escalation"
+        }
+      ]
+    },
+    "media_room": {
+      "id": "media_room",
+      "title": "정보전 대응실",
+      "body": "30분 사이에 '미사일 낙하' 합성 영상이 12개 언어로 확산됐다. 거래 봇과 자동 계정이 공포를 증폭시키며 각국 정치권에 강경 발언을 압박하고 있다.",
+      "choices": [
+        {
+          "id": "counter-disinfo",
+          "text": "국제 팩트체크 네트워크와 공조해 허위영상 출처를 공개한다",
+          "to": "diplomacy_hub",
+          "effects": [
+            { "type": "addClue", "clue": "botnet_pattern" },
+            { "type": "setFlag", "flag": "publicCalm", "value": true }
+          ]
+        },
+        {
+          "id": "blame-rival-on-live",
+          "text": "확인 전 특정 국가를 공개 비난해 주도권을 잡는다",
+          "to": "ending_infofire"
+        }
+      ]
+    },
+    "cyber_center": {
+      "id": "cyber_center",
+      "title": "사이버안보센터",
+      "body": "항만 자동제어망이 11분 동안 멈춰 섰다. 공격 패턴은 군사용 악성코드와 유사하지만, 코드 서명 일부가 너무 '티 나게' 남아 있다. 누군가 의도적으로 책임 소재를 덮어씌우는 듯하다.",
+      "choices": [
+        {
+          "id": "isolate-grid",
+          "text": "망을 분리하고 포렌식 우선 원칙으로 추적한다",
+          "to": "cyber_trace",
+          "effects": [
+            { "type": "addClue", "clue": "malware_sig" }
+          ]
+        },
+        {
+          "id": "retaliate-immediately",
+          "text": "출처 확정 전 보복성 사이버 작전을 승인한다",
+          "to": "ending_chain_reaction"
+        }
+      ]
+    },
+    "border_analysis": {
+      "id": "border_analysis",
+      "title": "국경 데이터 재분석",
+      "body": "교차 검증 결과, 레이더 반사값 일부가 고고도 드론 떼와 기상 교란이 겹치며 왜곡된 것으로 보인다. 하지만 현장 지휘관들은 '만약 진짜면 늦는다'며 압박한다.",
+      "choices": [
+        {
+          "id": "activate-hotline",
+          "text": "군사 핫라인을 즉시 가동해 오판 가능성을 상호 통보한다",
+          "to": "diplomacy_hub",
+          "cond": [
+            { "type": "hasClue", "clue": "border_telemetry" }
+          ],
+          "disabledReason": "원시 텔레메트리 검증이 선행되어야 신뢰 가능한 통보가 가능합니다.",
+          "effects": [
+            { "type": "setFlag", "flag": "hotlineActive", "value": true }
+          ]
+        },
+        {
+          "id": "forward-deployment",
+          "text": "전진 배치를 확대하되 교전규칙은 방어로 제한한다",
+          "to": "military_posture",
+          "effects": [
+            { "type": "addStat", "stat": "resolve", "delta": 1 }
+          ]
+        },
+        {
+          "id": "wait-and-watch",
+          "text": "결정을 미루고 추가 보고만 기다린다",
+          "to": "ending_misread"
+        }
+      ]
+    },
+    "cyber_trace": {
+      "id": "cyber_trace",
+      "title": "공격 기원 추적",
+      "body": "악성코드 명령 서버가 3개 대륙을 경유한다. 표면적으로는 특정 진영의 소행처럼 보이지만, 시간대·언어·인프라 흔적이 서로 충돌한다. 당신은 '신속한 단정'과 '느리지만 정확한 추적' 사이에서 선택해야 한다.",
+      "choices": [
+        {
+          "id": "careful-attribution",
+          "text": "다국적 합동분석팀에 귀속 판단을 맡긴다",
+          "check": {
+            "stat": "wit",
+            "dc": 10,
+            "roll": "d20",
+            "bonusFlag": "hotlineActive"
+          },
+          "onPass": {
+            "to": "diplomacy_hub",
+            "effects": [
+              { "type": "addClue", "clue": "false_flag_evidence" }
+            ]
+          },
+          "onFail": {
+            "to": "military_posture"
+          }
+        },
+        {
+          "id": "leak-unverified-attribution",
+          "text": "확정 전 언론에 귀속 정보를 흘려 상대를 압박한다",
+          "to": "ending_infofire"
+        }
+      ]
+    },
+    "diplomacy_hub": {
+      "id": "diplomacy_hub",
+      "title": "긴급 외교 허브",
+      "body": "UN 안보리 비공개 회의와 지역안보협의체 화상회의가 동시에 열렸다. 동맹국들은 단호함을 요구하고, 중립국들은 검증 절차를 요구한다. 어느 한쪽만 만족시키면 다른 한쪽이 이탈할 수 있다.",
+      "choices": [
+        {
+          "id": "convene-triad",
+          "text": "핵심 3국 실무 채널을 열어 허위기원 증거를 공유한다",
+          "to": "summit",
+          "cond": [
+            { "type": "hasClue", "clue": "false_flag_evidence" }
+          ],
+          "disabledReason": "허위기원 증거가 있어야 3국 채널에서 신뢰를 얻을 수 있습니다.",
+          "effects": [
+            { "type": "setFlag", "flag": "coalitionTrust", "value": true }
+          ]
+        },
+        {
+          "id": "open-hotline-window",
+          "text": "핫라인 가동 사실을 공개하고 상호 오경보 방지 프로토콜을 제안한다",
+          "to": "summit",
+          "cond": [
+            { "type": "flagEquals", "flag": "hotlineActive", "value": true }
+          ],
+          "disabledReason": "핫라인이 실제로 가동되어야 상호 검증 제안이 설득력을 가집니다.",
+          "effects": [
+            { "type": "addClue", "clue": "deescalation_window" }
+          ]
+        },
+        {
+          "id": "sanction-first",
+          "text": "검증보다 제재를 우선 발표해 신속한 결속을 시도한다",
+          "to": "economic_shock",
+          "effects": [
+            { "type": "setFlag", "flag": "sanctionMode", "value": true }
+          ]
+        }
+      ]
+    },
+    "military_posture": {
+      "id": "military_posture",
+      "title": "군사 대비 태세",
+      "body": "현장 사기는 올라가지만, 양측 전력의 근접 배치가 길어질수록 작은 사고가 대규모 충돌로 번질 확률도 커진다. 억지력과 오해 방지의 균형이 절실하다.",
+      "choices": [
+        {
+          "id": "defensive-alert",
+          "text": "방어 중심 경계태세와 실시간 충돌회피 채널을 함께 운용한다",
+          "to": "summit",
+          "effects": [
+            { "type": "setFlag", "flag": "defensiveOnly", "value": true }
+          ]
+        },
+        {
+          "id": "preemptive-show-force",
+          "text": "선제적 무력시위를 감행해 상대 의지를 꺾는다",
+          "to": "ending_escalation"
+        }
+      ]
+    },
+    "economic_shock": {
+      "id": "economic_shock",
+      "title": "에너지·금융 충격",
+      "body": "제재 발표 직후 원자재 선물과 해상 운임이 급등했다. 동맹 내부에서도 비용 분담 갈등이 시작된다. 전선은 총성이 아니라 가격표에서 먼저 흔들린다.",
+      "choices": [
+        {
+          "id": "ration-and-buffer",
+          "text": "비축분 방출·수요관리·취약국 지원 패키지를 묶어 발표한다",
+          "to": "summit",
+          "effects": [
+            { "type": "addItem", "item": "reserve_plan" },
+            { "type": "addStat", "stat": "logistics", "delta": 1 }
+          ]
+        },
+        {
+          "id": "asset-seizure-rush",
+          "text": "정치적 박수만 노리고 초강경 경제조치를 단독 집행한다",
+          "to": "ending_fragmented_alliance"
+        }
+      ]
+    },
+    "summit": {
+      "id": "summit",
+      "title": "72시간 정상회의",
+      "body": "세 번째 밤, 정상들은 한 문장씩을 두고 줄다리기한다. '즉각 휴전선 복귀', '사이버 귀속 공동조사', '에너지 안전망 공동부담' 중 무엇을 어떤 순서로 묶느냐에 따라 전쟁 억지와 국내 정치의 성패가 갈린다.",
+      "choices": [
+        {
+          "id": "phased-mutual-steps",
+          "text": "군사 완화와 사이버 공동조사를 단계적으로 교환하는 합의안을 제시한다",
+          "cond": [
+            { "type": "flagEquals", "flag": "coalitionTrust", "value": true },
+            { "type": "hasClue", "clue": "deescalation_window" }
+          ],
+          "disabledReason": "신뢰 채널과 오경보 방지 창구가 모두 확보되어야 단계적 합의가 성립합니다.",
+          "to": "ending_detente"
+        },
+        {
+          "id": "joint-verification-mission",
+          "text": "중립 감시단과 기술검증팀을 분쟁지에 동시 파견한다",
+          "cond": [
+            { "type": "hasClue", "clue": "false_flag_evidence" }
+          ],
+          "disabledReason": "허위기원 증거가 있어야 합동 검증 임무의 정당성을 확보할 수 있습니다.",
+          "to": "ending_cold_peace"
+        },
+        {
+          "id": "hardline-speech",
+          "text": "국내 지지율을 위해 강경 연설을 선택한다",
+          "to": "ending_fragmented_alliance"
+        },
+        {
+          "id": "final-crisis-check",
+          "text": "모든 전장(군사·사이버·경제) 데이터를 통합 판정한다",
+          "check": {
+            "stat": "wit",
+            "dc": 12,
+            "roll": "d20",
+            "bonusFlag": "publicCalm"
+          },
+          "onPass": {
+            "to": "ending_detente"
+          },
+          "onFail": {
+            "to": "ending_escalation"
+          }
+        }
+      ]
+    },
+    "ending_detente": {
+      "id": "ending_detente",
+      "title": "완화 성공 엔딩",
+      "body": "무력 충돌은 피했고, 상호 오경보 방지 체계와 사이버 공동조사 메커니즘이 합의됐다. 불신은 남았지만 전면전의 문턱은 뒤로 밀려났다.",
+      "choices": [],
+      "ending": {
+        "id": "ending-ww3-detente",
+        "kind": "success",
+        "title": "72시간의 브레이크",
+        "summary": "검증 가능한 약속을 단계적으로 묶어 전면전 확산을 막아냈다."
+      }
+    },
+    "ending_cold_peace": {
+      "id": "ending_cold_peace",
+      "title": "불안정 휴전 엔딩",
+      "body": "총성은 멎었지만 상호 불신은 더 깊어졌다. 각국은 재무장과 공급망 블록화를 가속하고, 다음 위기를 대비한 긴 냉전이 시작된다.",
+      "choices": [],
+      "ending": {
+        "id": "ending-ww3-cold-peace",
+        "kind": "fail",
+        "title": "멈췄지만 끝나지 않은 전쟁",
+        "summary": "단기 충돌은 막았으나 구조적 갈등을 봉합하지 못했다."
+      }
+    },
+    "ending_escalation": {
+      "id": "ending_escalation",
+      "title": "연쇄 확전 엔딩",
+      "body": "오판과 과잉대응이 맞물리며 국지 충돌이 동맹 간 자동개입 조항을 건드렸다. 통제 가능한 위기였던 사건은 다중 전선의 3차 세계대전으로 번졌다.",
+      "choices": [],
+      "ending": {
+        "id": "ending-ww3-escalation",
+        "kind": "fail",
+        "title": "도미노의 새벽",
+        "summary": "불확실한 정보를 무력으로 해석한 순간, 되돌릴 수 없는 확전이 시작됐다."
+      }
+    },
+    "ending_infofire": {
+      "id": "ending_infofire",
+      "title": "정보전 붕괴 엔딩",
+      "body": "검증되지 않은 단정이 외교 채널을 무너뜨렸고, 각국은 자국 여론에 끌려 강경 조치 경쟁에 돌입했다. 사실보다 속도가 빨랐던 정보전이 실전으로 번졌다.",
+      "choices": [],
+      "ending": {
+        "id": "ending-ww3-infofire",
+        "kind": "gag",
+        "title": "실시간 속보의 함정",
+        "summary": "가장 먼저 말한 쪽이 이기는 게임처럼 보였지만, 모두가 지는 전쟁이 되었다."
+      }
+    },
+    "ending_fragmented_alliance": {
+      "id": "ending_fragmented_alliance",
+      "title": "동맹 분열 엔딩",
+      "body": "비용과 책임을 둘러싼 균열이 커지며 공조 체계가 붕괴했다. 각국은 따로 움직였고, 억지력은 약해진 채 위기만 길어졌다.",
+      "choices": [],
+      "ending": {
+        "id": "ending-ww3-fragmented",
+        "kind": "fail",
+        "title": "함께 버티지 못한 방벽",
+        "summary": "전쟁을 막는 힘은 군비만이 아니라 신뢰의 비용 분담이라는 사실이 드러났다."
+      }
+    },
+    "ending_misread": {
+      "id": "ending_misread",
+      "title": "판단 유예 엔딩",
+      "body": "결정을 미루는 사이 현장 소규모 충돌이 발생했고, 뒤늦은 진화 시도는 어느 쪽도 만족시키지 못했다. 아무것도 하지 않는 것도 하나의 선택이었다.",
+      "choices": [],
+      "ending": {
+        "id": "ending-ww3-misread",
+        "kind": "fail",
+        "title": "침묵의 비용",
+        "summary": "불확실성을 관리하지 못하면 시간 자체가 가장 위험한 적이 된다."
+      }
+    },
+    "ending_chain_reaction": {
+      "id": "ending_chain_reaction",
+      "title": "보복 연쇄 엔딩",
+      "body": "선제 보복 코드는 상대의 민간 기반시설까지 번졌고, 예측하지 못한 2차 장애가 의료·물류 시스템을 마비시켰다. 사이버 공간의 한 줄 명령이 현실 전장을 열어 버렸다.",
+      "choices": [],
+      "ending": {
+        "id": "ending-ww3-chain-reaction",
+        "kind": "fail",
+        "title": "한 줄의 역폭주",
+        "summary": "귀속 확정 없는 보복은 억지력이 아니라 확전 자동장치가 되었다."
+      }
+    }
+  }
+}

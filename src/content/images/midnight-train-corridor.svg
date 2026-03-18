@@ -1,0 +1,31 @@
+<svg width="1200" height="800" viewBox="0 0 1200 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="800" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#09111F"/>
+      <stop offset="1" stop-color="#1C2A4A"/>
+    </linearGradient>
+    <linearGradient id="floor" x1="600" y1="430" x2="600" y2="800" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#5D4D3F"/>
+      <stop offset="1" stop-color="#251C18"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="800" fill="url(#bg)"/>
+  <rect x="120" y="90" width="960" height="540" rx="20" fill="#0E1729" stroke="#8EA7D6" stroke-opacity="0.25"/>
+  <polygon points="160,630 1040,630 1200,800 0,800" fill="url(#floor)"/>
+  <rect x="170" y="140" width="210" height="390" rx="12" fill="#243554" stroke="#D4B26A" stroke-width="6"/>
+  <rect x="190" y="190" width="170" height="190" rx="8" fill="#131E33"/>
+  <text x="275" y="170" text-anchor="middle" fill="#F1D39A" font-size="34" font-family="Georgia, serif">705</text>
+  <rect x="430" y="140" width="210" height="390" rx="12" fill="#243554" stroke="#D4B26A" stroke-width="6"/>
+  <rect x="450" y="190" width="170" height="190" rx="8" fill="#131E33"/>
+  <text x="535" y="170" text-anchor="middle" fill="#F1D39A" font-size="34" font-family="Georgia, serif">707</text>
+  <rect x="690" y="140" width="210" height="390" rx="12" fill="#243554" stroke="#D4B26A" stroke-width="6"/>
+  <rect x="710" y="190" width="170" height="190" rx="8" fill="#131E33"/>
+  <text x="795" y="170" text-anchor="middle" fill="#F1D39A" font-size="34" font-family="Georgia, serif">709</text>
+  <ellipse cx="980" cy="230" rx="110" ry="180" fill="#DADFFB" fill-opacity="0.07"/>
+  <ellipse cx="970" cy="240" rx="85" ry="140" fill="#DADFFB" fill-opacity="0.12"/>
+  <circle cx="525" cy="345" r="7" fill="#F3D48C"/>
+  <rect x="544" y="280" width="18" height="120" rx="9" fill="#CBA864"/>
+  <path d="M453 560C555 510 645 510 647 560" stroke="#9FC2FF" stroke-width="5" stroke-dasharray="10 12" opacity="0.45"/>
+  <text x="600" y="720" text-anchor="middle" fill="#E8EDF8" font-size="42" font-family="Georgia, serif">안개 특급 7호차</text>
+  <text x="600" y="760" text-anchor="middle" fill="#BFCBE2" font-size="24" font-family="sans-serif">잠긴 문보다 수상한 건, 너무 잘 짜인 연출이다</text>
+</svg>

@@ -1,0 +1,808 @@
+{
+  "id": "midnight-train-room",
+  "title": "안개 특급 7호차의 밀실",
+  "tagline": "잠긴 객실, 사라진 작가, 그리고 너무 많은 거짓말",
+  "version": "1.1.0",
+  "startNodeId": "start",
+  "nodes": {
+    "start": {
+      "id": "start",
+      "title": "00:17, 안개 특급 7호차",
+      "body": "부산행 야간열차가 짙은 안개를 가르며 남하한다. 베스트셀러 추리소설 작가 한서우가 707호 객실에서 감쪽같이 사라졌다는 소식이 침대차 전체를 흔든다. 문은 안쪽 걸쇠가 잠긴 것처럼 보이고, 창문은 사람 하나 빠져나가기엔 턱없이 좁다. 열차는 다음 정차역까지 38분. 그 안에 밀실의 구조와, 누가 무엇을 숨기고 있는지 밝혀내야 한다.",
+      "imageUrl": "./src/content/images/midnight-train-corridor.svg",
+      "choices": [
+        {
+          "id": "go-room",
+          "text": "707호 객실부터 조사한다",
+          "to": "room",
+          "effects": [
+            { "type": "addStat", "stat": "wit", "delta": 1 }
+          ]
+        },
+        {
+          "id": "go-conductor",
+          "text": "차장에게 열쇠와 동선 기록을 요구한다",
+          "to": "conductor",
+          "effects": [
+            { "type": "addStat", "stat": "nerve", "delta": 1 }
+          ]
+        },
+        {
+          "id": "go-lounge",
+          "text": "라운지 바에서 마지막 목격자를 찾는다",
+          "to": "lounge"
+        },
+        {
+          "id": "panic-break",
+          "text": "문을 부수고 난입한다",
+          "to": "panic-chain"
+        }
+      ]
+    },
+    "room": {
+      "id": "room",
+      "title": "707호 객실 앞",
+      "body": "황동 걸쇠 홈에는 아주 얇은 기름막이 남아 있고, 문 하단 카펫은 바깥쪽으로 미세하게 쓸려 있다. 창틀 아래엔 물방울이 길게 흘렀지만 객실 내부 공기는 오히려 건조하다. 침대 밑 먼지는 반달 모양으로 비어 있다. 누군가 창문 탈출처럼 보이게 연출했지만, 진짜 답은 더 낮고 더 가까운 곳에 있는 것 같다.",
+      "imageUrl": "./src/content/images/locked-compartment.svg",
+      "choices": [
+        {
+          "id": "room-window",
+          "text": "창틀의 물방울과 바깥 서리를 확인한다",
+          "to": "room",
+          "effects": [
+            { "type": "addClue", "clue": "window-frost" },
+            { "type": "addStat", "stat": "wit", "delta": 1 }
+          ]
+        },
+        {
+          "id": "room-latch",
+          "text": "걸쇠 홈의 긁힌 흔적과 기름막을 살핀다",
+          "to": "room",
+          "effects": [
+            { "type": "addClue", "clue": "oiled-latch" },
+            { "type": "addItem", "item": "brass-button" }
+          ]
+        },
+        {
+          "id": "room-bed",
+          "text": "침대 밑으로 이어진 먼지의 빈 자국을 추적한다",
+          "to": "service",
+          "cond": [
+            { "type": "hasClue", "clue": "window-frost" },
+            { "type": "hasClue", "clue": "oiled-latch" }
+          ],
+          "effects": [
+            { "type": "addClue", "clue": "drag-mark" }
+          ],
+          "disabledReason": "창문 위장과 걸쇠 조작을 모두 봐야 침대 밑 흔적의 의미가 드러납니다."
+        },
+        {
+          "id": "room-note",
+          "text": "휴지통 속 찢긴 메모를 맞춰 본다",
+          "to": "room",
+          "effects": [
+            { "type": "addClue", "clue": "platform-note" },
+            { "type": "setFlag", "flag": "knowsPlatformTime", "value": true }
+          ],
+          "imageUrl": "./src/content/images/platform-whisper.svg"
+        },
+        {
+          "id": "room-to-conductor",
+          "text": "차장실로 가서 기록을 확인한다",
+          "to": "conductor"
+        },
+        {
+          "id": "room-to-lounge",
+          "text": "라운지 바 목격담을 확인한다",
+          "to": "lounge"
+        },
+        {
+          "id": "room-to-first",
+          "text": "중간 추리를 정리한다",
+          "to": "deduction-1"
+        }
+      ]
+    },
+    "conductor": {
+      "id": "conductor",
+      "title": "침대차 차장실",
+      "body": "차장 민도혁은 정돈된 미소를 유지하지만, 펀치 기록표를 보여 달라는 말에 손끝이 아주 잠깐 굳는다. 707호 침구 정리 시간은 23:40. 그런데 같은 시각 라운지 바 영수증에는 한서우의 서명이 남아 있다. 누군가 시간표를 덧칠했고, 누군가는 그 덧칠이 들통날까 봐 조용히 숨을 삼킨다.",
+      "imageUrl": "./src/content/images/conductor-ledger.svg",
+      "choices": [
+        {
+          "id": "conductor-log",
+          "text": "펀치 기록표의 겹친 압흔을 확인한다",
+          "to": "conductor",
+          "effects": [
+            { "type": "addClue", "clue": "fake-punch" },
+            { "type": "addStat", "stat": "wit", "delta": 1 }
+          ]
+        },
+        {
+          "id": "conductor-route",
+          "text": "세탁물 카트와 직원 통로 사용 시각을 묻는다",
+          "to": "conductor",
+          "effects": [
+            { "type": "addClue", "clue": "linen-route" },
+            { "type": "setFlag", "flag": "knowsServiceTiming", "value": true }
+          ]
+        },
+        {
+          "id": "conductor-button",
+          "text": "객실 앞에서 주운 금빛 버튼을 내민다",
+          "to": "conductor",
+          "cond": [
+            { "type": "hasItem", "item": "brass-button" }
+          ],
+          "effects": [
+            { "type": "addClue", "clue": "uniform-button" },
+            { "type": "setFlag", "flag": "conductorRattled", "value": true }
+          ],
+          "disabledReason": "객실 앞 버튼을 확보해야 차장을 압박할 수 있습니다."
+        },
+        {
+          "id": "conductor-masterkey",
+          "text": "마스터키 사용 기록을 보여 달라고 한다",
+          "to": "conductor",
+          "cond": [
+            { "type": "flagEquals", "flag": "conductorRattled", "value": true }
+          ],
+          "effects": [
+            { "type": "addClue", "clue": "masterkey-gap" }
+          ],
+          "disabledReason": "먼저 차장을 흔들어야 숨기던 기록을 꺼냅니다."
+        },
+        {
+          "id": "conductor-to-service",
+          "text": "직원 통로를 직접 보러 간다",
+          "to": "service",
+          "cond": [
+            { "type": "hasClue", "clue": "linen-route" }
+          ],
+          "disabledReason": "카트 동선을 알아야 어느 통로를 따라갈지 보입니다."
+        },
+        {
+          "id": "conductor-to-passenger",
+          "text": "옆 객실 승객들의 증언을 모은다",
+          "to": "passenger-car"
+        },
+        {
+          "id": "conductor-to-first",
+          "text": "기록 조작을 포함해 중간 추리를 정리한다",
+          "to": "deduction-1"
+        }
+      ]
+    },
+    "lounge": {
+      "id": "lounge",
+      "title": "심야 라운지 바",
+      "body": "보랏빛 향수가 아직 공기 중에 떠 있고, 재즈 보컬 제이의 마이크 옆에는 젖은 대본이 반쯤 말라 있다. 바텐더는 한서우가 공연 직후 누군가에게 '마지막 장은 내가 직접 고른 사람에게만 보여 준다'고 말했다고 한다. 누군가는 농담이라고 웃었고, 누군가는 진담이라고 굳게 믿었다.",
+      "imageUrl": "./src/content/images/lounge-singer.svg",
+      "choices": [
+        {
+          "id": "lounge-jay",
+          "text": "재즈 보컬 제이와 작가의 관계를 묻는다",
+          "to": "lounge",
+          "effects": [
+            { "type": "addClue", "clue": "violet-perfume" },
+            { "type": "setFlag", "flag": "jayCooperative", "value": true }
+          ]
+        },
+        {
+          "id": "lounge-manuscript",
+          "text": "젖은 대본 사이 찢긴 원고를 읽는다",
+          "to": "lounge",
+          "effects": [
+            { "type": "addClue", "clue": "rewritten-ending" },
+            { "type": "setFlag", "flag": "readFullManuscript", "value": true },
+            { "type": "addStat", "stat": "wit", "delta": 1 }
+          ]
+        },
+        {
+          "id": "lounge-glass",
+          "text": "작가가 마신 잔과 냅킨을 살핀다",
+          "to": "lounge",
+          "effects": [
+            { "type": "addClue", "clue": "sedative-rim" },
+            { "type": "addItem", "item": "monogram-napkin" }
+          ]
+        },
+        {
+          "id": "lounge-door",
+          "text": "젖은 바퀴 자국을 따라 직원용 문을 찾는다",
+          "to": "service",
+          "cond": [
+            { "type": "hasClue", "clue": "violet-perfume" }
+          ],
+          "effects": [
+            { "type": "addClue", "clue": "wet-wheel-track" }
+          ],
+          "disabledReason": "향수 흔적의 방향을 먼저 파악해야 바퀴 자국과 연결됩니다."
+        },
+        {
+          "id": "lounge-to-kitchen",
+          "text": "주방 쪽에서 음료 주문 기록을 찾는다",
+          "to": "kitchen"
+        },
+        {
+          "id": "lounge-to-first",
+          "text": "목격담을 토대로 중간 추리를 정리한다",
+          "to": "deduction-1"
+        }
+      ]
+    },
+    "kitchen": {
+      "id": "kitchen",
+      "title": "식당차 주방",
+      "body": "심야 간식 준비가 끝난 주방은 이미 정리 단계지만, 싱크대 구석엔 씻겨 나가다 만 보랏빛 립스틱 자국이 묻은 잔 하나가 남아 있다. 주문 전표에는 23:32, 707호로 전달된 '얼음 없는 토닉' 표시가 있고, 옆에는 손으로 급히 덧쓴 메모가 있다. 누군가 손님보다 먼저 음료의 목적을 알고 있었다.",
+      "imageUrl": "./src/content/images/kitchen-tonic.svg",
+      "choices": [
+        {
+          "id": "kitchen-ticket",
+          "text": "주문 전표와 배달 시간을 대조한다",
+          "to": "kitchen",
+          "effects": [
+            { "type": "addClue", "clue": "drink-ticket" },
+            { "type": "addStat", "stat": "wit", "delta": 1 }
+          ]
+        },
+        {
+          "id": "kitchen-glass",
+          "text": "잔의 향과 립스틱 자국을 확인한다",
+          "to": "kitchen",
+          "effects": [
+            { "type": "addClue", "clue": "lipstick-glass" }
+          ]
+        },
+        {
+          "id": "kitchen-chef",
+          "text": "주방장에게 누가 707호 주문을 재촉했는지 묻는다",
+          "to": "kitchen",
+          "effects": [
+            { "type": "addClue", "clue": "manager-call" },
+            { "type": "setFlag", "flag": "heardManagerName", "value": true }
+          ]
+        },
+        {
+          "id": "kitchen-to-passenger",
+          "text": "승객 구역으로 돌아가 증언을 모은다",
+          "to": "passenger-car"
+        },
+        {
+          "id": "kitchen-to-second",
+          "text": "음료와 시간대를 포함해 추리를 정리한다",
+          "to": "deduction-2"
+        }
+      ]
+    },
+    "service": {
+      "id": "service",
+      "title": "직원용 서비스 통로",
+      "body": "통로 끝에는 세탁물 카트가 멈춰 있다. 카트 하단은 생각보다 깊고, 한쪽 바닥판은 최근 탈착된 듯 나사 하나만 새것이다. 바닥에는 무대 분장용 펄, 담뱃재, 그리고 종이 다발이 한 번 스쳐 지나간 듯한 마찰 자국이 남아 있다. 누군가를 숨겼거나, 원고 뭉치를 실어 날랐거나, 어쩌면 둘 다다.",
+      "imageUrl": "./src/content/images/linen-cart-hatch.svg",
+      "choices": [
+        {
+          "id": "service-cart",
+          "text": "카트의 바닥판을 들어 숨은 공간을 확인한다",
+          "to": "service",
+          "effects": [
+            { "type": "addClue", "clue": "hidden-compartment" },
+            { "type": "addItem", "item": "silver-cufflink" }
+          ]
+        },
+        {
+          "id": "service-ash",
+          "text": "펄과 담뱃재의 출처를 가늠한다",
+          "to": "service",
+          "effects": [
+            { "type": "addClue", "clue": "stage-ash" },
+            { "type": "addStat", "stat": "nerve", "delta": 1 }
+          ]
+        },
+        {
+          "id": "service-paper",
+          "text": "벽 틈에 낀 원고 조각을 꺼낸다",
+          "to": "service",
+          "effects": [
+            { "type": "addClue", "clue": "contract-copy" }
+          ]
+        },
+        {
+          "id": "service-observation",
+          "text": "통로 끝 전망 데크로 나가 바깥 흔적을 확인한다",
+          "to": "observation",
+          "cond": [
+            { "type": "hasClue", "clue": "hidden-compartment" }
+          ],
+          "disabledReason": "숨는 공간을 먼저 봐야 왜 바깥 흔적이 필요한지 이해할 수 있습니다."
+        },
+        {
+          "id": "service-to-second",
+          "text": "서비스 통로 단서를 모아 다음 추리를 정리한다",
+          "to": "deduction-2"
+        }
+      ]
+    },
+    "passenger-car": {
+      "id": "passenger-car",
+      "title": "706호와 708호 사이 복도",
+      "body": "옆 객실 승객들은 제각기 다른 장면을 기억한다. 706호 사업가는 23:50 무렵 세탁물 카트 바퀴 소리를 들었다고 하고, 708호 대학원생은 707호 안에서 남녀가 동시에 말다툼하는 소리를 들었다고 주장한다. 그런데 두 사람 모두 확신하는 부분은 묘하게 다르다. 누군가는 직접 본 것이 아니라, 듣고 싶은 방식으로 기억을 고쳐 쓰고 있다.",
+      "imageUrl": "./src/content/images/passenger-corridor.svg",
+      "choices": [
+        {
+          "id": "passenger-businessman",
+          "text": "706호 사업가의 시간 기억을 따져 묻는다",
+          "to": "passenger-car",
+          "effects": [
+            { "type": "addClue", "clue": "wheel-time" },
+            { "type": "addStat", "stat": "wit", "delta": 1 }
+          ]
+        },
+        {
+          "id": "passenger-student",
+          "text": "708호 승객의 말다툼 증언을 검증한다",
+          "to": "passenger-car",
+          "effects": [
+            { "type": "addClue", "clue": "two-voices" }
+          ]
+        },
+        {
+          "id": "passenger-cufflink",
+          "text": "은색 커프링크를 보여 주며 누가 착용했는지 묻는다",
+          "to": "passenger-car",
+          "cond": [
+            { "type": "hasItem", "item": "silver-cufflink" }
+          ],
+          "effects": [
+            { "type": "addClue", "clue": "manager-cufflink" }
+          ],
+          "disabledReason": "서비스 통로에서 커프링크를 확보해야 누구의 것인지 확인할 수 있습니다."
+        },
+        {
+          "id": "passenger-to-second",
+          "text": "증언의 모순을 묶어 다음 추리를 정리한다",
+          "to": "deduction-2"
+        },
+        {
+          "id": "passenger-to-lounge",
+          "text": "라운지로 돌아간다",
+          "to": "lounge"
+        }
+      ]
+    },
+    "observation": {
+      "id": "observation",
+      "title": "후미 전망 데크",
+      "body": "차량 연결부를 지나 후미 데크로 나오자 차가운 안개가 얼굴을 스친다. 난간 아래 외벽에는 누군가 밧줄을 걸었던 듯한 짧은 섬유 보풀이 남아 있지만, 실제로 사람이 매달려 이동한 흔적은 없다. 대신 바닥 철판엔 젖은 구두 자국이 한 번 방향을 바꾼 뒤 다시 안쪽으로 향한다. '바깥으로 나간 것처럼 보이게만 만들었다'는 가설이 확신으로 변한다.",
+      "imageUrl": "./src/content/images/observation-deck.svg",
+      "choices": [
+        {
+          "id": "observation-fiber",
+          "text": "난간의 섬유 보풀과 끊긴 매듭 자국을 확인한다",
+          "to": "observation",
+          "effects": [
+            { "type": "addClue", "clue": "fake-rope" },
+            { "type": "addStat", "stat": "wit", "delta": 1 }
+          ]
+        },
+        {
+          "id": "observation-footprint",
+          "text": "젖은 구두 자국의 방향을 읽는다",
+          "to": "observation",
+          "effects": [
+            { "type": "addClue", "clue": "return-footprint" }
+          ]
+        },
+        {
+          "id": "observation-to-final",
+          "text": "이제 전체 구조를 재구성한다",
+          "to": "timeline-lock"
+        },
+        {
+          "id": "observation-to-service",
+          "text": "서비스 통로로 돌아간다",
+          "to": "service"
+        }
+      ]
+    },
+    "deduction-1": {
+      "id": "deduction-1",
+      "title": "중간 추리: 밀실의 외형",
+      "body": "여기까지 보면 적어도 하나는 분명하다. 창문은 진짜 탈출 경로가 아니라 시선을 끌기 위한 장식이고, 걸쇠는 '안에서 잠겼다'는 인상을 남기기 위한 도구다. 하지만 아직 사람을 어떻게 옮겼는지, 누가 이 연출에 협력했는지는 부족하다. 성급히 범인을 정하기엔 아직 판이 덜 열렸다.",
+      "imageUrl": "./src/content/images/deduction-board-1.svg",
+      "choices": [
+        {
+          "id": "ded1-jay",
+          "text": "제이가 냄새와 공연으로 시선을 끌었다고 확신한다",
+          "to": "accusation-jay"
+        },
+        {
+          "id": "ded1-conductor",
+          "text": "기록 조작을 근거로 차장을 범인으로 단정한다",
+          "to": "accusation-conductor",
+          "cond": [
+            { "type": "hasClue", "clue": "fake-punch" }
+          ],
+          "disabledReason": "기록 조작 단서 없이 차장을 바로 몰아붙일 수는 없습니다."
+        },
+        {
+          "id": "ded1-continue",
+          "text": "아직 부족하다. 더 조사한다",
+          "to": "passenger-car",
+          "cond": [
+            { "type": "hasClue", "clue": "fake-punch" },
+            { "type": "hasClue", "clue": "window-frost" }
+          ],
+          "disabledReason": "적어도 기록 조작과 창문 위장을 함께 확인해야 다음 단계로 넘어갈 수 있습니다."
+        },
+        {
+          "id": "ded1-lounge",
+          "text": "라운지 쪽 단서를 더 모은다",
+          "to": "lounge"
+        }
+      ]
+    },
+    "deduction-2": {
+      "id": "deduction-2",
+      "title": "중간 추리: 운반과 조력자",
+      "body": "이제 사람이나 원고가 서비스 통로를 거쳤다는 정황은 충분하다. 다만 '누가 누구를 숨겼는가'와 '왜 하필 지금 사라져야 했는가'가 남아 있다. 협박, 공모, 혹은 자발적 잠적. 셋은 비슷해 보여도 결말은 완전히 달라진다.",
+      "imageUrl": "./src/content/images/deduction-board-2.svg",
+      "choices": [
+        {
+          "id": "ded2-manager",
+          "text": "매니저가 판을 짰다고 보고 끝까지 밀어붙인다",
+          "to": "manager-file",
+          "cond": [
+            { "type": "hasClue", "clue": "manager-call" },
+            { "type": "hasClue", "clue": "manager-cufflink" }
+          ],
+          "effects": [
+            { "type": "setFlag", "flag": "suspectManager", "value": true }
+          ],
+          "disabledReason": "매니저를 찍으려면 최소한 호출 기록과 소지품 연결이 필요합니다."
+        },
+        {
+          "id": "ded2-jay",
+          "text": "제이가 작가와 공모해 전부 꾸몄다고 결론낸다",
+          "to": "ending-jay"
+        },
+        {
+          "id": "ded2-continue",
+          "text": "후미 데크까지 확인하고 확실한 구조를 잡는다",
+          "to": "observation",
+          "cond": [
+            { "type": "hasClue", "clue": "hidden-compartment" }
+          ],
+          "disabledReason": "숨는 공간을 봤다면 이제 바깥 위장 흔적까지 확인해야 합니다."
+        },
+        {
+          "id": "ded2-interrogate-jay",
+          "text": "제이에게 마지막으로 숨긴 말을 꺼내게 만든다",
+          "to": "jay-interview",
+          "cond": [
+            { "type": "hasClue", "clue": "violet-perfume" },
+            { "type": "hasClue", "clue": "rewritten-ending" }
+          ],
+          "disabledReason": "향수와 원고 단서를 함께 잡아야 제이의 진심을 흔들 수 있습니다."
+        },
+        {
+          "id": "ded2-kitchen",
+          "text": "주방으로 돌아가 음료 쪽 퍼즐을 메운다",
+          "to": "kitchen"
+        }
+      ]
+    },
+    "manager-file": {
+      "id": "manager-file",
+      "title": "매니저의 그림자",
+      "body": "여기까지 오면 매니저의 존재를 더는 배경으로 둘 수 없다. 주방 호출 기록, 승객이 기억한 커프링크, 서비스 통로의 계약 조각은 모두 같은 사람을 가리킨다. 하지만 혐의만으론 부족하다. 이 사람이 왜 하필 열차 안에서 일을 벌였는지, 한서우가 왜 공개 신고가 아닌 '실종극'을 택했는지까지 맞물려야 한다.",
+      "imageUrl": "./src/content/images/contract-shreds.svg",
+      "choices": [
+        {
+          "id": "manager-file-contract",
+          "text": "찢긴 계약 조각을 시간순으로 다시 맞춘다",
+          "to": "manager-file",
+          "effects": [
+            { "type": "addClue", "clue": "contract-motive" },
+            { "type": "addStat", "stat": "wit", "delta": 1 }
+          ]
+        },
+        {
+          "id": "manager-file-route",
+          "text": "매니저가 어느 객차에서 사라졌는지 동선을 정리한다",
+          "to": "timeline-lock",
+          "cond": [
+            { "type": "hasClue", "clue": "contract-copy" },
+            { "type": "hasClue", "clue": "manager-call" }
+          ],
+          "disabledReason": "계약 조각과 호출 기록이 있어야 매니저의 동선을 좁힐 수 있습니다."
+        },
+        {
+          "id": "manager-file-back",
+          "text": "다른 조사 구역으로 돌아간다",
+          "to": "observation"
+        }
+      ]
+    },
+    "jay-interview": {
+      "id": "jay-interview",
+      "title": "제이의 마지막 진술",
+      "body": "제이는 한동안 말없이 마이크 받침만 만지작거리다가, 결국 한서우가 '원고가 아니라 이름을 지키고 싶다'고 말했다고 털어놓는다. 향수와 공연은 시선을 끌기 위한 장치였고, 자신은 누군가를 속이기보다 누군가에게 몇 분의 시간을 벌어주고 싶었다고 한다. 거짓말은 했지만, 그 방향은 살의가 아니라 보호에 가까웠다.",
+      "imageUrl": "./src/content/images/interrogation-jay.svg",
+      "choices": [
+        {
+          "id": "jay-interview-confession",
+          "text": "제이의 말에서 '자발적 잠적'의 의도를 읽어낸다",
+          "to": "timeline-lock",
+          "effects": [
+            { "type": "addClue", "clue": "jay-confession" },
+            { "type": "setFlag", "flag": "jayOpenedUp", "value": true }
+          ]
+        },
+        {
+          "id": "jay-interview-doubt",
+          "text": "여전히 제이를 의심하지만 시간표부터 다시 맞춘다",
+          "to": "timeline-lock"
+        }
+      ]
+    },
+    "timeline-lock": {
+      "id": "timeline-lock",
+      "title": "타임라인 고정",
+      "body": "이제 남은 건 시간을 잠그는 일이다. 누가 언제 라운지에 있었고, 707호에 토닉이 들어간 시점이 언제이며, 세탁물 카트가 7호차 복도를 지난 때가 언제인지. 이 세 가지만 정확히 겹치면 '밀실'은 더 이상 공간의 문제가 아니라 시간의 문제로 바뀐다. 그리고 그 순간, 누가 판을 설계했고 누가 그 판 위를 뛰어넘었는지가 드러난다.",
+      "imageUrl": "./src/content/images/final-deduction.svg",
+      "choices": [
+        {
+          "id": "timeline-room",
+          "text": "객실 메모와 차장 기록을 같은 축에 올린다",
+          "to": "timeline-lock",
+          "effects": [
+            { "type": "addClue", "clue": "timeline-room" },
+            { "type": "addStat", "stat": "wit", "delta": 1 }
+          ]
+        },
+        {
+          "id": "timeline-lounge",
+          "text": "라운지 영수증과 주방 전표를 대조한다",
+          "to": "timeline-lock",
+          "effects": [
+            { "type": "addClue", "clue": "timeline-lounge" }
+          ]
+        },
+        {
+          "id": "timeline-final",
+          "text": "시간표까지 고정했으니 최종 추리로 들어간다",
+          "to": "final-deduction",
+          "cond": [
+            { "type": "hasClue", "clue": "timeline-room" },
+            { "type": "hasClue", "clue": "timeline-lounge" }
+          ],
+          "disabledReason": "객실 쪽 시간과 라운지 쪽 시간을 모두 맞춰야 최종 추리가 완성됩니다."
+        }
+      ]
+    },
+    "final-deduction": {
+      "id": "final-deduction",
+      "title": "최종 추리",
+      "body": "모든 조각이 한 자리에 놓였다. 창문은 가짜 탈출극, 걸쇠는 가짜 밀실, 서비스 카트는 진짜 이동 경로, 조작된 기록은 시간 착시, 그리고 원고와 계약서는 이 모든 소동의 이유를 설명한다. 이제 남은 건 어떤 진실을 꺼내느냐뿐이다. 모두를 살릴 수도 있고, 가장 그럴듯한 거짓말 하나에 속아 넘어갈 수도 있다.",
+      "imageUrl": "./src/content/images/final-deduction.svg",
+      "choices": [
+        {
+          "id": "final-truth",
+          "text": "밀실 트릭과 매니저의 계약 사기까지 완성된 논리로 밝힌다",
+          "cond": [
+            { "type": "hasClue", "clue": "window-frost" },
+            { "type": "hasClue", "clue": "fake-punch" },
+            { "type": "hasClue", "clue": "hidden-compartment" },
+            { "type": "hasClue", "clue": "manager-call" },
+            { "type": "hasClue", "clue": "contract-copy" },
+            { "type": "hasClue", "clue": "contract-motive" },
+            { "type": "hasClue", "clue": "timeline-room" },
+            { "type": "hasClue", "clue": "timeline-lounge" }
+          ],
+          "check": {
+            "stat": "wit",
+            "dc": 5,
+            "roll": "d6",
+            "bonusFlag": "readFullManuscript"
+          },
+          "onPass": {
+            "to": "ending-truth"
+          },
+          "onFail": {
+            "to": "ending-almost"
+          },
+          "disabledReason": "밀실 구조와 동기, 계약 증거까지 다 모여야 정답 엔딩에 닿습니다."
+        },
+        {
+          "id": "final-bittersweet",
+          "text": "작가의 자발적 잠적을 눈감아 주고 증거만 외부로 넘긴다",
+          "to": "ending-bittersweet",
+          "cond": [
+            { "type": "hasClue", "clue": "rewritten-ending" },
+            { "type": "hasClue", "clue": "hidden-compartment" },
+            { "type": "hasClue", "clue": "stage-ash" },
+            { "type": "hasClue", "clue": "contract-copy" }
+          ],
+          "disabledReason": "작가의 의도와 은신 경로, 조력의 흔적, 계약 조각까지 이해해야 조용한 결말을 택할 수 있습니다."
+        },
+        {
+          "id": "final-drug",
+          "text": "음료에 탄 약물 흔적을 근거로 제이의 배신을 확신한다",
+          "to": "accusation-drug",
+          "cond": [
+            { "type": "hasClue", "clue": "sedative-rim" },
+            { "type": "hasClue", "clue": "lipstick-glass" }
+          ],
+          "disabledReason": "잔과 흔적은 있지만, 맥락 없이 보면 오히려 함정입니다."
+        },
+        {
+          "id": "final-conductor",
+          "text": "차장을 주범으로 체포하라고 지시한다",
+          "to": "accusation-conductor",
+          "cond": [
+            { "type": "hasClue", "clue": "fake-punch" }
+          ],
+          "disabledReason": "적어도 기록 조작 단서는 있어야 차장을 내세울 수 있습니다."
+        }
+      ]
+    },
+    "panic-chain": {
+      "id": "panic-chain",
+      "title": "성급한 돌입",
+      "body": "문을 들이받자 안쪽에 받쳐 둔 트렁크가 쓰러지고, 복도 전체에 유리 깨지는 소리와 승객 비명이 번진다. 차장은 비상 절차를 외치고, 당신은 사건보다 먼저 혼란을 수습하라는 시선을 한몸에 받는다. 이제 이 밤은 추리가 아니라 사고 보고서의 문장으로 굴러가기 시작한다.",
+      "imageUrl": "./src/content/images/ending-panic.svg",
+      "choices": [
+        {
+          "id": "panic-chain-report",
+          "text": "비상 정지와 피해 보고를 감수한다",
+          "to": "ending-panic"
+        }
+      ]
+    },
+    "accusation-jay": {
+      "id": "accusation-jay",
+      "title": "성급한 지목",
+      "body": "당신은 향수와 공연 타이밍을 엮어 제이를 정면으로 몰아세운다. 객실 승객들과 바텐더의 시선이 한순간 무대처럼 제이에게 꽂히고, 당신도 잠깐은 자신감이 생긴다. 하지만 화려한 장면과 진짜 범행 구조는 늘 같은 것이 아니다.",
+      "imageUrl": "./src/content/images/ending-jay.svg",
+      "choices": [
+        {
+          "id": "accusation-jay-fail",
+          "text": "향수 흔적만으로 범행을 단정한다",
+          "to": "ending-jay"
+        }
+      ]
+    },
+    "accusation-conductor": {
+      "id": "accusation-conductor",
+      "title": "차장을 몰아붙이다",
+      "body": "당신은 기록표와 버튼을 내세워 민도혁을 강하게 압박한다. 그는 분명 무언가를 숨기고 있었고, 그 사실은 쉽게 부정되지 않는다. 다만 무엇을 숨겼는지와 왜 숨겼는지는 아직 완전히 분리되지 않았다.",
+      "imageUrl": "./src/content/images/ending-conductor.svg",
+      "choices": [
+        {
+          "id": "accusation-conductor-fail",
+          "text": "기록 조작을 곧 주범의 증거로 간주한다",
+          "to": "ending-conductor"
+        }
+      ]
+    },
+    "accusation-drug": {
+      "id": "accusation-drug",
+      "title": "흔적의 오독",
+      "body": "잔 가장자리의 자국과 향은 분명 수상하다. 당신은 그 즉시 제이가 음료로 작가를 조종했을 거라 결론내린다. 하지만 흔적은 늘 문맥을 필요로 하고, 문맥을 잃은 증거는 가장 그럴듯한 함정이 되곤 한다.",
+      "imageUrl": "./src/content/images/ending-drug.svg",
+      "choices": [
+        {
+          "id": "accusation-drug-fail",
+          "text": "음료 흔적을 결정적 증거로 밀어붙인다",
+          "to": "ending-drug"
+        }
+      ]
+    },
+    "ending-truth": {
+      "id": "ending-truth",
+      "title": "정답 엔딩",
+      "body": "당신은 707호의 밀실이 객실 안에서 완성된 것이 아니라는 점부터 짚는다. 창문 서리는 외부 탈출처럼 보이게 만든 위장, 걸쇠의 기름막은 바깥에서 끈과 도구로 잠금 상태를 연출한 흔적, 조작된 펀치 기록은 실종 시각을 흐리기 위한 연막이었다. 한서우는 제이의 도움으로 시선을 라운지에 묶어 두고, 차장이 협박에 못 이겨 시간을 덧칠하는 사이 세탁물 카트의 숨은 칸으로 이동했다. 진짜 배후는 새 계약서를 강요하며 원고를 빼돌리려던 매니저였다. 당신이 서비스 통로에서 건진 계약 조각과 주방의 호출 기록을 들이밀자, 다음 정차역에서 숨어 있던 한서우가 스스로 모습을 드러낸다. 승객들은 탄성을 터뜨리고, 누군가는 오늘 밤 처음으로 진짜 추리소설 같은 결말을 봤다고 중얼거린다.",
+      "imageUrl": "./src/content/images/ending-truth.svg",
+      "choices": [],
+      "ending": {
+        "id": "ending_midnight_truth",
+        "kind": "success",
+        "title": "안개를 찢은 정답",
+        "summary": "밀실은 위장이었고, 진짜 통로는 세탁물 카트였다. 당신은 실종의 구조와 계약 사기의 배후까지 모두 밝혀냈다.",
+        "hint1": "창문은 미끼입니다. 사람 키보다 낮은 이동 경로를 보세요.",
+        "hint2": "밀실 구조뿐 아니라 계약서 조각과 호출 기록까지 이어야 완전한 진실이 됩니다."
+      }
+    },
+    "ending-bittersweet": {
+      "id": "ending-bittersweet",
+      "title": "비터스위트 엔딩",
+      "body": "당신은 한서우가 단순한 피해자가 아니라, 자신의 마지막 원고와 이름을 지키기 위해 스스로 사라졌다는 것을 이해한다. 제이는 시간을 벌기 위해 눈에 띄는 향수와 공연을 이용했고, 차장은 협박에 떠밀려 기록을 바꿨다. 당신은 철도 경찰에 계약 사기 증거만 익명으로 넘기고, 한서우에게는 다음 정차역에서 사라질 기회를 준다. 며칠 뒤 신문 1면에는 '실종 작가, 표절 계약 폭로 후 귀환'이라는 제목이 실리고, 그 아래에는 신작 출간 예고가 조용히 붙는다.",
+      "imageUrl": "./src/content/images/ending-bittersweet.svg",
+      "choices": [],
+      "ending": {
+        "id": "ending_midnight_bittersweet",
+        "kind": "success",
+        "title": "사라진 작가의 마지막 장",
+        "summary": "모든 진실을 공개하진 않았지만, 누가 무엇을 훔치려 했는지는 세상 밖으로 흘려보냈다.",
+        "hint1": "조력자가 남긴 흔적과 범행 흔적은 꼭 같지 않습니다.",
+        "hint2": "원고, 숨은 칸, 분장 흔적, 계약 조각을 함께 보세요."
+      }
+    },
+    "ending-almost": {
+      "id": "ending-almost",
+      "title": "아슬아슬 엔딩",
+      "body": "당신은 밀실 트릭의 큰 구조를 맞힌다. 하지만 마지막 한 조각, 즉 왜 이 실종이 벌어졌는지와 누가 판 전체를 짰는지에서 논리가 흔들린다. 설명이 길어지는 사이 숨어 있던 한서우는 다음 객차로 빠져나가고, 매니저는 오히려 당신의 추리를 '과하게 소설적'이라고 비웃는다. 승객들은 당신이 거의 다 풀었다고 인정하지만, 거의 다 푼 사건은 정답보다 오래 아프다.",
+      "imageUrl": "./src/content/images/ending-almost.svg",
+      "choices": [],
+      "ending": {
+        "id": "ending_midnight_almost",
+        "kind": "fail",
+        "title": "정답 바로 옆자리",
+        "summary": "밀실 구조는 읽었지만 동기와 배후를 고정하지 못했다.",
+        "hint1": "구조만 맞아서는 부족합니다. 누가 왜 그 구조를 필요로 했는지 보세요.",
+        "hint2": "계약 조각이나 주방 호출 기록을 챙기고, wit를 더 높이면 좋습니다."
+      }
+    },
+    "ending-jay": {
+      "id": "ending-jay",
+      "title": "개그 엔딩",
+      "body": "당신은 향수와 무대 조명을 근거로 제이를 주범이라 선언한다. 제이는 한숨을 쉬며 향수병을 흔들어 보이고, 바텐더는 '그 향, 오늘 공연 협찬품인데요'라고 덧붙인다. 그 순간 세탁물 카트 안쪽에서 한서우가 고개를 내밀며 '탐정님, 장르를 너무 빨리 정하셨어요'라고 말한다. 객차 전체에 웃음이 번지고, 당신만 무료 음료 쿠폰 한 장을 위로로 받는다.",
+      "imageUrl": "./src/content/images/ending-jay.svg",
+      "choices": [],
+      "ending": {
+        "id": "ending_midnight_jay",
+        "kind": "gag",
+        "title": "향수는 죄가 없다",
+        "summary": "가장 화려한 단서를 범인으로 착각해 공개 망신을 당했다.",
+        "hint1": "너무 눈에 띄는 단서는 대개 무대 장치입니다.",
+        "hint2": "제이가 무엇을 숨겼는지보다, 누구를 숨길 시간을 벌었는지 생각해 보세요."
+      }
+    },
+    "ending-conductor": {
+      "id": "ending-conductor",
+      "title": "오판 엔딩",
+      "body": "당신은 조작된 기록표와 버튼 하나만으로 차장을 주범이라 단정한다. 민도혁은 결국 무너져 협박받아 시간을 고쳤다고 실토하지만, 그 순간 이미 핵심 인물들은 다음 칸과 정차역으로 흩어진 뒤다. 기록 조작은 분명 죄지만, 그 죄를 밀실 전체의 설계도로 착각한 대가는 쓰다. 당신은 중요한 공범 하나를 잡고도 사건의 중심을 놓친다.",
+      "imageUrl": "./src/content/images/ending-conductor.svg",
+      "choices": [],
+      "ending": {
+        "id": "ending_midnight_conductor",
+        "kind": "fail",
+        "title": "반만 맞은 범인",
+        "summary": "거짓 기록은 잡아냈지만, 그 거짓을 필요로 한 진짜 배후까진 닿지 못했다.",
+        "hint1": "차장은 퍼즐의 전부가 아니라 톱니 하나일 수 있습니다.",
+        "hint2": "서비스 통로와 계약 동기를 함께 이어 보세요."
+      }
+    },
+    "ending-drug": {
+      "id": "ending-drug",
+      "title": "오독 엔딩",
+      "body": "당신은 잔의 흔적만 보고 제이가 음료에 약을 탔다고 결론낸다. 그러나 주방장은 그 잔이 제이 본인의 공연용 허브 음료였고, 한서우에게 간 토닉은 별도 주문이었다고 밝힌다. 립스틱 자국은 화려했지만 진실은 밋밋하게 따로 움직이고 있었다. 눈앞의 화학 반응만 믿은 당신은, 정작 가장 인간적인 동기와 거짓말의 결을 놓치고 만다.",
+      "imageUrl": "./src/content/images/ending-drug.svg",
+      "choices": [],
+      "ending": {
+        "id": "ending_midnight_drug",
+        "kind": "fail",
+        "title": "증거는 있었지만 문맥이 없었다",
+        "summary": "흔적은 잡았지만 그 흔적이 누구의 이야기인지 잘못 읽었다.",
+        "hint1": "같은 잔이라도 누구의 잔인지는 별개 문제입니다.",
+        "hint2": "주방 주문 기록과 연결해 보면 다른 그림이 나옵니다."
+      }
+    },
+    "ending-panic": {
+      "id": "ending-panic",
+      "title": "패닉 엔딩",
+      "body": "당신이 문을 들이받는 순간, 안쪽에 세워 둔 트렁크가 쓰러지며 비상 망치가 유리창을 박살 낸다. 7호차는 삽시간에 찬바람과 비명과 방송 소리로 뒤엉키고, 실종 사건은 철도경찰과 보험사 공동 조사로 넘어간다. 한서우가 왜 사라졌는지보다 누가 유리값을 낼지가 더 급한 의제가 되는 순간이다. 추리소설 같은 밤은 행정 지옥 같은 새벽으로 변한다.",
+      "imageUrl": "./src/content/images/ending-panic.svg",
+      "choices": [],
+      "ending": {
+        "id": "ending_midnight_panic",
+        "kind": "gag",
+        "title": "밀실보다 무서운 보고서",
+        "summary": "성급함은 언제나 서류를 부른다.",
+        "hint1": "잠긴 문은 대개 첫 번째 함정입니다.",
+        "hint2": "부수기 전에 왜 잠겨 보이는지부터 생각해 보세요."
+      }
+    }
+  }
+}

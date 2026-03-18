@@ -1,20 +1,8 @@
 [
   {
-    "id": "donut-case",
-    "title": "도넛 실종 사건",
-    "tagline": "사라진 도넛의 진실을 찾아라",
-    "file": "episode_donut.json"
-  },
-  {
-    "id": "night-shift-alibi",
-    "title": "야근실 알리바이",
-    "tagline": "사라진 기획안을 찾고 팀의 밤을 구하라",
-    "file": "episode_night_shift.json"
-  },
-  {
-    "id": "ww3-fracture-line",
-    "title": "균열선 2032",
-    "tagline": "오해, 사이버 공격, 에너지 위기 속에서 세계대전의 문턱을 막아라",
-    "file": "episode_ww3_fracture_line.json"
+    "id": "midnight-train-room",
+    "title": "안개 특급 7호차의 밀실",
+    "tagline": "잠긴 객실, 사라진 작가, 그리고 너무 많은 거짓말",
+    "file": "episode_midnight_train.json"
   }
 ]

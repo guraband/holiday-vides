@@ -1,0 +1,24 @@
+<svg width="1200" height="800" viewBox="0 0 1200 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="800" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#172126"/>
+      <stop offset="1" stop-color="#30444A"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="800" fill="url(#bg)"/>
+  <rect x="120" y="140" width="960" height="520" rx="28" fill="#223039" stroke="#9CB3BA" stroke-opacity="0.2"/>
+  <rect x="180" y="420" width="840" height="180" rx="18" fill="#5A4C40"/>
+  <rect x="240" y="240" width="280" height="140" rx="16" fill="#D9DDE0"/>
+  <line x1="280" y1="284" x2="470" y2="284" stroke="#7E8992" stroke-width="8"/>
+  <line x1="280" y1="328" x2="430" y2="328" stroke="#9AA4AD" stroke-width="6"/>
+  <rect x="740" y="220" width="120" height="220" rx="24" fill="#93BBC0" fill-opacity="0.55" stroke="#D9F1F3" stroke-width="6"/>
+  <ellipse cx="800" cy="220" rx="60" ry="20" fill="#D4EEF0"/>
+  <ellipse cx="800" cy="250" rx="42" ry="12" fill="#C98DD0" fill-opacity="0.7"/>
+  <path d="M846 250C879 278 902 336 902 420" stroke="#F2C6F5" stroke-width="7" stroke-dasharray="10 12" opacity="0.7"/>
+  <circle cx="919" cy="447" r="7" fill="#F2C6F5"/>
+  <circle cx="946" cy="432" r="5" fill="#F2C6F5" fill-opacity="0.7"/>
+  <rect x="595" y="484" width="160" height="58" rx="12" fill="#29343A"/>
+  <rect x="620" y="505" width="112" height="10" rx="5" fill="#9AB0B7"/>
+  <text x="600" y="724" text-anchor="middle" fill="#EDF3F2" font-size="42" font-family="Georgia, serif">식당차 주방</text>
+  <text x="600" y="764" text-anchor="middle" fill="#C6D3D4" font-size="24" font-family="sans-serif">음료 한 잔이 때로는 알리바이보다 정직하다</text>
+</svg>

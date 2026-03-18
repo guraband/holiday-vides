@@ -1,0 +1,31 @@
+<svg width="1200" height="800" viewBox="0 0 1200 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="800" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0E151E"/>
+      <stop offset="1" stop-color="#22313C"/>
+    </linearGradient>
+    <linearGradient id="cart" x1="250" y1="290" x2="852" y2="640" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#A7B2BD"/>
+      <stop offset="1" stop-color="#55616C"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="800" fill="url(#bg)"/>
+  <rect x="100" y="130" width="1000" height="520" rx="26" fill="#15202A" stroke="#8CA1B4" stroke-opacity="0.2"/>
+  <rect x="248" y="290" width="600" height="260" rx="18" fill="url(#cart)" stroke="#D3D9DF" stroke-width="6"/>
+  <rect x="300" y="338" width="498" height="116" rx="14" fill="#E4E7EA"/>
+  <path d="M350 465H740" stroke="#8D98A4" stroke-width="10"/>
+  <path d="M560 338V454" stroke="#C5CCD3" stroke-width="8"/>
+  <rect x="610" y="466" width="170" height="48" rx="10" fill="#39444E"/>
+  <path d="M624 490C658 464 723 462 764 488" stroke="#A7B5C4" stroke-width="6" stroke-linecap="round"/>
+  <circle cx="318" cy="602" r="34" fill="#242D34" stroke="#6C7A86" stroke-width="8"/>
+  <circle cx="780" cy="602" r="34" fill="#242D34" stroke="#6C7A86" stroke-width="8"/>
+  <circle cx="927" cy="440" r="8" fill="#F4D17E"/>
+  <circle cx="954" cy="416" r="6" fill="#F4D17E" fill-opacity="0.7"/>
+  <circle cx="980" cy="452" r="7" fill="#F4D17E" fill-opacity="0.85"/>
+  <path d="M892 482C947 469 1001 474 1040 501" stroke="#BFC8D2" stroke-width="7" stroke-dasharray="12 11" opacity="0.6"/>
+  <rect x="910" y="248" width="98" height="98" rx="14" fill="#2A333C" stroke="#AAB7C2" stroke-width="4"/>
+  <path d="M939 298H980" stroke="#AAB7C2" stroke-width="5"/>
+  <path d="M939 320H972" stroke="#AAB7C2" stroke-width="5"/>
+  <text x="600" y="722" text-anchor="middle" fill="#EFF3F7" font-size="42" font-family="Georgia, serif">직원용 서비스 통로</text>
+  <text x="600" y="761" text-anchor="middle" fill="#C7D0D8" font-size="24" font-family="sans-serif">세탁물 카트는 종종 가장 정직한 증언을 한다</text>
+</svg>

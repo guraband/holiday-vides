@@ -1,0 +1,30 @@
+<svg width="1200" height="800" viewBox="0 0 1200 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="800" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#111826"/>
+      <stop offset="1" stop-color="#2E2A3D"/>
+    </linearGradient>
+    <linearGradient id="desk" x1="600" y1="360" x2="600" y2="760" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#6A503F"/>
+      <stop offset="1" stop-color="#2D211D"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="800" fill="url(#bg)"/>
+  <rect x="110" y="120" width="980" height="560" rx="28" fill="#182336" stroke="#8FA6CA" stroke-opacity="0.25"/>
+  <rect x="180" y="430" width="840" height="230" rx="24" fill="url(#desk)"/>
+  <rect x="290" y="230" width="420" height="250" rx="18" transform="rotate(-6 290 230)" fill="#EFE4CC"/>
+  <line x1="340" y1="290" x2="640" y2="258" stroke="#7E6A55" stroke-width="8"/>
+  <line x1="332" y1="340" x2="648" y2="308" stroke="#A18666" stroke-width="6"/>
+  <line x1="324" y1="390" x2="640" y2="358" stroke="#A18666" stroke-width="6"/>
+  <circle cx="806" cy="342" r="88" fill="#C8A564"/>
+  <circle cx="806" cy="342" r="62" fill="#F2DEB3"/>
+  <path d="M792 322H822" stroke="#604B2D" stroke-width="8" stroke-linecap="round"/>
+  <path d="M807 307V337" stroke="#604B2D" stroke-width="8" stroke-linecap="round"/>
+  <rect x="748" y="476" width="180" height="96" rx="14" fill="#3C4959"/>
+  <rect x="772" y="500" width="132" height="14" rx="7" fill="#93A8BF"/>
+  <rect x="772" y="530" width="92" height="14" rx="7" fill="#93A8BF"/>
+  <circle cx="965" cy="248" r="9" fill="#F2D998"/>
+  <circle cx="938" cy="280" r="7" fill="#F2D998" fill-opacity="0.7"/>
+  <text x="600" y="728" text-anchor="middle" fill="#ECF1F8" font-size="42" font-family="Georgia, serif">침대차 차장실</text>
+  <text x="600" y="768" text-anchor="middle" fill="#C5D1E2" font-size="24" font-family="sans-serif">기록은 거짓말을 못 한다. 사람만 할 뿐</text>
+</svg>

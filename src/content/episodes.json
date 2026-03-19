@@ -10,5 +10,11 @@
     "title": "어벤져스: 둠스데이 - 회의록이 우주를 구할 때",
     "tagline": "닥터 둠, 다중우주, 그리고 이상하리만치 중요한 회의 준비물",
     "file": "episode_avengers_doomsday.json"
+  },
+  {
+    "id": "dbh_full_campaign_external_images",
+    "title": "디트로이트: 비컴 휴먼 - 통합 캠페인",
+    "tagline": "코너, 카라, 마커스의 전 서사를 하나의 대형 JSON으로 묶고, 모든 장면 이미지를 외부 URL로 연결한 통합 버전입니다.",
+    "file": "dbh_full_campaign_external_images.json"
   }
 ]

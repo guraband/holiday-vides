@@ -4,5 +4,11 @@
     "title": "안개 특급 7호차의 밀실",
     "tagline": "잠긴 객실, 사라진 작가, 그리고 너무 많은 거짓말",
     "file": "episode_midnight_train.json"
+  },
+  {
+    "id": "avengers-doomsday",
+    "title": "어벤져스: 둠스데이 - 회의록이 우주를 구할 때",
+    "tagline": "닥터 둠, 다중우주, 그리고 이상하리만치 중요한 회의 준비물",
+    "file": "episode_avengers_doomsday.json"
   }
 ]

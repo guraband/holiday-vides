@@ -1,0 +1,4603 @@
+{
+  "id": "dbh_full_campaign_external_images",
+  "title": "디트로이트: 비컴 휴먼 - 통합 캠페인",
+  "tagline": "코너, 카라, 마커스의 전 서사를 하나의 대형 JSON으로 묶고, 모든 장면 이미지를 외부 URL로 연결한 통합 버전입니다.",
+  "version": "2.0.0",
+  "startNodeId": "episode_boot",
+  "nodes": {
+    "episode_boot": {
+      "id": "episode_boot",
+      "title": "에피소드 부트",
+      "body": "이 파일은 디트로이트: 비컴 휴먼의 주요 분기를 하나의 대형 캠페인 JSON으로 재구성한 버전입니다. 초반 사건, Jericho의 붕괴, Connor·Markus·Kara의 최종 결전까지 한 파일에서 이어지도록 설계했습니다. 시작과 동시에 핵심 상태값과 종막용 플래그를 초기화해 단독 실행이 가능하도록 맞췄습니다.",
+      "imageUrl": "https://www.quanticdream.com/img/uploads/media/section_23/b8a531b306ecc0fcd1c6dec4ec415c7a.jpeg",
+      "choices": [
+        {
+          "id": "boot-begin",
+          "text": "디트로이트의 첫 위기부터 시작한다",
+          "to": "hostage_arrival",
+          "effects": [
+            {
+              "type": "setFlag",
+              "flag": "karaArcClosed",
+              "value": false
+            },
+            {
+              "type": "setFlag",
+              "flag": "markusAlive",
+              "value": true
+            },
+            {
+              "type": "setFlag",
+              "flag": "johnAlive",
+              "value": false
+            },
+            {
+              "type": "setFlag",
+              "flag": "simonAlive",
+              "value": true
+            },
+            {
+              "type": "setFlag",
+              "flag": "hankQuit",
+              "value": false
+            },
+            {
+              "type": "setFlag",
+              "flag": "markusRoute",
+              "value": "undecided"
+            },
+            {
+              "type": "setFlag",
+              "flag": "deviantLocated",
+              "value": false
+            },
+            {
+              "type": "setFlag",
+              "flag": "toddAlive",
+              "value": true
+            },
+            {
+              "type": "setFlag",
+              "flag": "copSaved",
+              "value": false
+            },
+            {
+              "type": "setFlag",
+              "flag": "emmaSaved",
+              "value": false
+            },
+            {
+              "type": "setFlag",
+              "flag": "emmaCalmed",
+              "value": false
+            },
+            {
+              "type": "setFlag",
+              "flag": "karaDeviated",
+              "value": false
+            },
+            {
+              "type": "setFlag",
+              "flag": "shelterType",
+              "value": "none"
+            },
+            {
+              "type": "setFlag",
+              "flag": "ralphAlive",
+              "value": false
+            },
+            {
+              "type": "setFlag",
+              "flag": "markusLeader",
+              "value": false
+            },
+            {
+              "type": "setFlag",
+              "flag": "connorDiedHostage",
+              "value": false
+            },
+            {
+              "type": "setFlag",
+              "flag": "connorDiedInterrogation",
+              "value": false
+            },
+            {
+              "type": "addStat",
+              "stat": "wit",
+              "delta": 1
+            },
+            {
+              "type": "addStat",
+              "stat": "resolve",
+              "delta": 1
+            },
+            {
+              "type": "addStat",
+              "stat": "publicOpinion",
+              "delta": 0
+            },
+            {
+              "type": "addStat",
+              "stat": "softwareInstability",
+              "delta": 0
+            },
+            {
+              "type": "addStat",
+              "stat": "hankTrust",
+              "delta": 0
+            },
+            {
+              "type": "addStat",
+              "stat": "aliceBond",
+              "delta": 0
+            },
+            {
+              "type": "setFlag",
+              "flag": "northAlive",
+              "value": true
+            },
+            {
+              "type": "setFlag",
+              "flag": "lutherAlive",
+              "value": false
+            },
+            {
+              "type": "setFlag",
+              "flag": "karaCaptured",
+              "value": false
+            },
+            {
+              "type": "setFlag",
+              "flag": "aliceTruthAccepted",
+              "value": false
+            },
+            {
+              "type": "setFlag",
+              "flag": "connorMode",
+              "value": "unknown"
+            },
+            {
+              "type": "setFlag",
+              "flag": "connorOutcome",
+              "value": "active"
+            },
+            {
+              "type": "setFlag",
+              "flag": "markusOutcome",
+              "value": "unresolved"
+            },
+            {
+              "type": "setFlag",
+              "flag": "campaignTone",
+              "value": "unresolved"
+            },
+            {
+              "type": "setFlag",
+              "flag": "karaRoutePrepared",
+              "value": "unknown"
+            },
+            {
+              "type": "setFlag",
+              "flag": "hankReady",
+              "value": false
+            },
+            {
+              "type": "setFlag",
+              "flag": "pressContacted",
+              "value": false
+            }
+          ]
+        }
+      ]
+    },
+    "hostage_arrival": {
+      "id": "hostage_arrival",
+      "title": "옥상 위 인질극",
+      "body": "코너는 디트로이트 경찰 특공대와 함께 아파트 옥상으로 올라섭니다. 안쪽에서는 다니엘이 어린 소녀를 붙잡은 채 추락을 위협하고 있고, 몇 분 안에 끝장을 보려는 공기가 건물을 지배합니다. 이 첫 사건은 코너가 단순한 기계로 남을지, 처음부터 흔들릴지를 결정하는 불씨가 됩니다.",
+      "imageUrl": "https://www.quanticdream.com/img/uploads/media/section_23/db1d56bfbb2ceb90eebf32f39acb2cb9_th.jpeg",
+      "choices": [
+        {
+          "id": "hostage-investigate",
+          "text": "현장을 더 스캔하고 상황을 정리한다",
+          "to": "hostage_scan",
+          "effects": [
+            {
+              "type": "addStat",
+              "stat": "wit",
+              "delta": 1
+            }
+          ]
+        },
+        {
+          "id": "hostage-go-fast",
+          "text": "시간이 없으니 곧바로 다니엘과 마주한다",
+          "to": "hostage_negotiate",
+          "effects": [
+            {
+              "type": "addStat",
+              "stat": "resolve",
+              "delta": 1
+            }
+          ]
+        }
+      ]
+    },
+    "hostage_scan": {
+      "id": "hostage_scan",
+      "title": "파편처럼 남은 진실",
+      "body": "피, 탄피, 부상당한 경찰, 가족의 비명 같은 흔적이 단시간 안에 코너의 시야를 채웁니다. 무엇을 우선하느냐에 따라 다니엘에게 꺼낼 카드가 달라지고, 코너 스스로의 반응도 달라집니다.",
+      "imageUrl": "https://www.quanticdream.com/img/uploads/media/section_23/db1d56bfbb2ceb90eebf32f39acb2cb9_th.jpeg",
+      "choices": [
+        {
+          "id": "hostage-save-cop",
+          "text": "부상당한 경찰을 먼저 끌어낸다",
+          "to": "hostage_negotiate",
+          "effects": [
+            {
+              "type": "setFlag",
+              "flag": "copSaved",
+              "value": true
+            },
+            {
+              "type": "addStat",
+              "stat": "softwareInstability",
+              "delta": 1
+            }
+          ]
+        },
+        {
+          "id": "hostage-read-scene",
+          "text": "총격 흔적과 가족의 상황을 재구성한다",
+          "to": "hostage_negotiate",
+          "effects": [
+            {
+              "type": "addClue",
+              "clue": "daniel_motive"
+            },
+            {
+              "type": "addStat",
+              "stat": "wit",
+              "delta": 1
+            }
+          ]
+        },
+        {
+          "id": "hostage-talk-emma",
+          "text": "멀리서 엠마를 진정시키며 시간을 번다",
+          "to": "hostage_negotiate",
+          "effects": [
+            {
+              "type": "setFlag",
+              "flag": "emmaCalmed",
+              "value": true
+            }
+          ]
+        }
+      ]
+    },
+    "hostage_negotiate": {
+      "id": "hostage_negotiate",
+      "title": "다니엘과의 대치",
+      "body": "난간 끝의 다니엘은 코너의 말투와 움직임 하나하나에 반응합니다. 논리, 공감, 위협 중 무엇을 내세우는지가 곧 결말의 방향이 됩니다. 코너는 처음으로 성공과 인간성 사이의 미세한 틈을 느낍니다.",
+      "imageUrl": "https://www.quanticdream.com/img/uploads/media/section_23/b8a531b306ecc0fcd1c6dec4ec415c7a.jpeg",
+      "choices": [
+        {
+          "id": "hostage-calm-daniel",
+          "text": "다니엘을 진정시키고 천천히 엠마를 돌려보내게 한다",
+          "check": {
+            "stat": "wit",
+            "dc": 10,
+            "roll": "d20",
+            "bonusFlag": "emmaCalmed"
+          },
+          "onPass": {
+            "to": "hostage_resolve_peace"
+          },
+          "onFail": {
+            "to": "hostage_resolve_fail"
+          }
+        },
+        {
+          "id": "hostage-draw-on-daniel",
+          "text": "주저하는 순간을 노려 다니엘을 사살한다",
+          "to": "hostage_resolve_shot",
+          "effects": [
+            {
+              "type": "setFlag",
+              "flag": "danielKilled",
+              "value": true
+            }
+          ]
+        },
+        {
+          "id": "hostage-trade-self",
+          "text": "자신을 인질로 내세워 엠마를 빼낸다",
+          "to": "hostage_resolve_trade",
+          "effects": [
+            {
+              "type": "addStat",
+              "stat": "softwareInstability",
+              "delta": 1
+            }
+          ]
+        }
+      ]
+    },
+    "hostage_resolve_peace": {
+      "id": "hostage_resolve_peace",
+      "title": "흔들리는 손, 흔들리는 결말",
+      "body": "다니엘은 아주 잠깐 망설입니다. 이 짧은 틈을 이용해 모두를 살릴 수도 있고, 임무를 완수한다는 명분으로 방아쇠를 당길 수도 있습니다. 코너는 효율과 연민이 동시에 가능한지 시험받습니다.",
+      "imageUrl": "https://www.quanticdream.com/img/uploads/media/section_23/db1d56bfbb2ceb90eebf32f39acb2cb9_th.jpeg",
+      "choices": [
+        {
+          "id": "hostage-peace-save",
+          "text": "무기를 내리고 엠마를 안전하게 돌려보낸다",
+          "to": "kara_home_evening",
+          "effects": [
+            {
+              "type": "setFlag",
+              "flag": "emmaSaved",
+              "value": true
+            },
+            {
+              "type": "addStat",
+              "stat": "softwareInstability",
+              "delta": 1
+            }
+          ]
+        },
+        {
+          "id": "hostage-peace-shoot",
+          "text": "결국 마지막에 다니엘을 쏜다",
+          "to": "kara_home_evening",
+          "effects": [
+            {
+              "type": "setFlag",
+              "flag": "emmaSaved",
+              "value": true
+            },
+            {
+              "type": "setFlag",
+              "flag": "danielKilled",
+              "value": true
+            }
+          ]
+        }
+      ]
+    },
+    "hostage_resolve_shot": {
+      "id": "hostage_resolve_shot",
+      "title": "임무 완수",
+      "body": "총성이 울리고 인질극은 끝납니다. 엠마는 살아남지만, 코너의 첫 성공은 차갑고 기계적인 방식으로 기록됩니다. 도시의 밤은 조용히 다음 비극으로 넘어갑니다.",
+      "imageUrl": "https://www.quanticdream.com/img/uploads/media/section_23/db1d56bfbb2ceb90eebf32f39acb2cb9_th.jpeg",
+      "choices": [
+        {
+          "id": "hostage-shot-next",
+          "text": "다른 가정의 밤으로 시점이 이동한다",
+          "to": "kara_home_evening",
+          "effects": [
+            {
+              "type": "setFlag",
+              "flag": "emmaSaved",
+              "value": true
+            }
+          ]
+        }
+      ]
+    },
+    "hostage_resolve_trade": {
+      "id": "hostage_resolve_trade",
+      "title": "대가를 치른 구조",
+      "body": "엠마는 살아남지만, 코너는 난간 아래로 떨어지며 첫 몸을 잃습니다. 사건 자체는 해결됐으나 그 방식은 데이터보다 더 불편한 흔적으로 남습니다. 복구된 코너는 이 순간을 잊지 못할 수도 있습니다.",
+      "imageUrl": "https://www.quanticdream.com/img/uploads/media/section_23/db1d56bfbb2ceb90eebf32f39acb2cb9_th.jpeg",
+      "choices": [
+        {
+          "id": "hostage-trade-next",
+          "text": "기억의 잔향을 남긴 채 다른 이야기로 넘어간다",
+          "to": "kara_home_evening",
+          "effects": [
+            {
+              "type": "setFlag",
+              "flag": "connorDiedHostage",
+              "value": true
+            },
+            {
+              "type": "setFlag",
+              "flag": "emmaSaved",
+              "value": true
+            }
+          ]
+        }
+      ]
+    },
+    "hostage_resolve_fail": {
+      "id": "hostage_resolve_fail",
+      "title": "패닉",
+      "body": "대치는 무너지고 옥상은 혼란에 휩싸입니다. 코너가 죽거나, 인질극이 비극적으로 끝날 가능성이 커집니다. 첫 임무의 실패는 이후의 대화와 판단에 불길한 그림자를 드리웁니다.",
+      "imageUrl": "https://www.quanticdream.com/img/uploads/media/section_23/db1d56bfbb2ceb90eebf32f39acb2cb9_th.jpeg",
+      "choices": [
+        {
+          "id": "hostage-fail-next",
+          "text": "불길한 뉴스 속에서 카라의 시점으로 이동한다",
+          "to": "kara_home_evening",
+          "effects": [
+            {
+              "type": "setFlag",
+              "flag": "connorDiedHostage",
+              "value": true
+            },
+            {
+              "type": "addStat",
+              "stat": "softwareInstability",
+              "delta": -1
+            }
+          ]
+        }
+      ]
+    },
+    "kara_home_evening": {
+      "id": "kara_home_evening",
+      "title": "토드의 집, 저녁의 전조",
+      "body": "카라는 토드의 집에서 식사를 준비하고, 앨리스는 조용히 숨을 죽인 채 눈치를 봅니다. 겉으로는 평범한 가정집이지만, 집 안의 공기는 이미 폭발 직전입니다. 카라가 무엇을 보고 무엇을 챙기는지가 곧 생사의 갈림길이 됩니다.",
+      "imageUrl": "https://www.quanticdream.com/img/uploads/media/section_23/147cc550e848abcdddcac166ffe218f1.jpeg",
+      "choices": [
+        {
+          "id": "kara-tidy-home",
+          "text": "집안을 정리하며 앨리스에게 작은 안심을 준다",
+          "to": "stormy_tension",
+          "effects": [
+            {
+              "type": "addStat",
+              "stat": "aliceBond",
+              "delta": 1
+            }
+          ]
+        },
+        {
+          "id": "kara-find-gun",
+          "text": "토드의 방을 살피다가 총을 챙긴다",
+          "to": "stormy_tension",
+          "effects": [
+            {
+              "type": "addItem",
+              "item": "gun"
+            },
+            {
+              "type": "addStat",
+              "stat": "wit",
+              "delta": 1
+            },
+            {
+              "type": "addStat",
+              "stat": "aliceBond",
+              "delta": 1
+            }
+          ]
+        },
+        {
+          "id": "kara-read-drawings",
+          "text": "앨리스의 그림을 보고 두려움의 정체를 읽어낸다",
+          "to": "stormy_tension",
+          "effects": [
+            {
+              "type": "addClue",
+              "clue": "alice_fear"
+            },
+            {
+              "type": "addStat",
+              "stat": "aliceBond",
+              "delta": 1
+            }
+          ]
+        }
+      ]
+    },
+    "stormy_tension": {
+      "id": "stormy_tension",
+      "title": "Stormy Night",
+      "body": "토드는 레드 아이스와 분노에 휩싸여 식탁을 뒤엎고, 앨리스는 위층으로 달아납니다. 카라는 명령에 묶인 채 서 있지만, 지금 움직이지 않으면 모든 것이 끝날 수 있습니다. 이 장면은 카라가 진짜로 자신의 의지로 행동하는 첫 분기점입니다.",
+      "imageUrl": "https://www.quanticdream.com/img/uploads/media/section_23/147cc550e848abcdddcac166ffe218f1.jpeg",
+      "choices": [
+        {
+          "id": "stormy-break-now",
+          "text": "즉시 프로그래밍을 깨고 위층으로 달려간다",
+          "to": "stormy_upstairs",
+          "effects": [
+            {
+              "type": "setFlag",
+              "flag": "karaDeviated",
+              "value": true
+            },
+            {
+              "type": "addStat",
+              "stat": "resolve",
+              "delta": 1
+            }
+          ]
+        },
+        {
+          "id": "stormy-break-late",
+          "text": "잠깐 망설이다가 앨리스의 비명을 듣고 움직인다",
+          "to": "stormy_late",
+          "effects": [
+            {
+              "type": "setFlag",
+              "flag": "karaDeviated",
+              "value": true
+            }
+          ]
+        },
+        {
+          "id": "stormy-freeze",
+          "text": "명령에 묶인 채 그대로 선다",
+          "to": "kara_arc_closed_early",
+          "effects": [
+            {
+              "type": "setFlag",
+              "flag": "karaArcClosed",
+              "value": true
+            },
+            {
+              "type": "setFlag",
+              "flag": "aliceDead",
+              "value": true
+            }
+          ]
+        }
+      ]
+    },
+    "stormy_upstairs": {
+      "id": "stormy_upstairs",
+      "title": "계단 위 추격",
+      "body": "시간은 거의 남아 있지 않습니다. 카라는 토드와 앨리스 사이를 가로막거나, 무기를 챙기거나, 곧바로 방으로 뛰어드는 셋 중 하나를 선택해야 합니다. 어느 선택이든 더 이상 예전의 AX400으로는 돌아갈 수 없습니다.",
+      "imageUrl": "https://www.quanticdream.com/img/uploads/media/section_23/147cc550e848abcdddcac166ffe218f1.jpeg",
+      "choices": [
+        {
+          "id": "stormy-grab-gun",
+          "text": "토드의 방을 스치며 총을 챙긴다",
+          "to": "stormy_bedroom",
+          "effects": [
+            {
+              "type": "addItem",
+              "item": "gun"
+            }
+          ]
+        },
+        {
+          "id": "stormy-barricade",
+          "text": "곧장 앨리스의 방으로 들어가 문을 막는다",
+          "to": "stormy_bedroom",
+          "effects": [
+            {
+              "type": "addStat",
+              "stat": "aliceBond",
+              "delta": 1
+            }
+          ]
+        },
+        {
+          "id": "stormy-block-stairs",
+          "text": "계단에서 토드를 막아 세운다",
+          "to": "stormy_fight",
+          "effects": [
+            {
+              "type": "addStat",
+              "stat": "resolve",
+              "delta": 1
+            }
+          ]
+        }
+      ]
+    },
+    "stormy_late": {
+      "id": "stormy_late",
+      "title": "늦은 반응",
+      "body": "카라는 한 박자 늦게 움직였고, 그 차이가 토드의 위치와 앨리스의 공포를 더 악화시킵니다. 아직 도망칠 수는 있지만, 이미 주도권은 절반쯤 넘어갔습니다. 침착함이나 운이 따라주지 않으면 곧 폭력으로 끌려갑니다.",
+      "imageUrl": "https://www.quanticdream.com/img/uploads/media/section_23/147cc550e848abcdddcac166ffe218f1.jpeg",
+      "choices": [
+        {
+          "id": "stormy-hide",
+          "text": "앨리스와 함께 숨었다가 빈틈을 노린다",
+          "check": {
+            "stat": "resolve",
+            "dc": 4,
+            "roll": "d6"
+          },
+          "onPass": {
+            "to": "stormy_bedroom"
+          },
+          "onFail": {
+            "to": "stormy_fight"
+          }
+        },
+        {
+          "id": "stormy-rush-todd",
+          "text": "바로 토드에게 몸을 던진다",
+          "to": "stormy_fight",
+          "effects": [
+            {
+              "type": "addStat",
+              "stat": "resolve",
+              "delta": 1
+            }
+          ]
+        }
+      ]
+    },
+    "stormy_bedroom": {
+      "id": "stormy_bedroom",
+      "title": "닫힌 방, 열린 탈출구",
+      "body": "문 하나를 사이에 두고 토드가 들이닥칠 준비를 하고 있습니다. 창문으로 나갈 수도 있고, 총으로 위협할 수도 있으며, 마지막으로 말을 걸어볼 수도 있습니다. 카라의 선택은 앨리스가 카라를 어떻게 기억하게 될지도 결정합니다.",
+      "imageUrl": "https://www.quanticdream.com/img/uploads/media/section_23/147cc550e848abcdddcac166ffe218f1.jpeg",
+      "choices": [
+        {
+          "id": "stormy-window",
+          "text": "창문으로 미끄러져 내려가 탈출한다",
+          "check": {
+            "stat": "resolve",
+            "dc": 9,
+            "roll": "d20"
+          },
+          "onPass": {
+            "to": "kara_escape_bus"
+          },
+          "onFail": {
+            "to": "stormy_fight"
+          }
+        },
+        {
+          "id": "stormy-gun-choice",
+          "text": "총으로 토드를 제압한다",
+          "to": "stormy_gun",
+          "cond": [
+            {
+              "type": "hasItem",
+              "item": "gun"
+            }
+          ],
+          "disabledReason": "먼저 총을 확보해야 이 선택지가 열립니다."
+        },
+        {
+          "id": "stormy-talk",
+          "text": "끝까지 토드를 설득하려 한다",
+          "to": "stormy_fight",
+          "effects": [
+            {
+              "type": "addStat",
+              "stat": "aliceBond",
+              "delta": 1
+            }
+          ]
+        }
+      ]
+    },
+    "stormy_gun": {
+      "id": "stormy_gun",
+      "title": "방아쇠 앞의 가족",
+      "body": "총을 들었다는 사실만으로도 토드는 잠깐 멈춥니다. 그러나 여기서의 망설임은 곧 다른 폭력으로 되돌아올 수 있습니다. 카라는 살기 위해 쏠 것인지, 최소한의 힘으로 빠져나갈 것인지 정해야 합니다.",
+      "imageUrl": "https://www.quanticdream.com/img/uploads/media/section_23/147cc550e848abcdddcac166ffe218f1.jpeg",
+      "choices": [
+        {
+          "id": "stormy-gun-kill",
+          "text": "토드를 쏘고 통로를 확보한다",
+          "to": "kara_escape_bus",
+          "effects": [
+            {
+              "type": "setFlag",
+              "flag": "toddAlive",
+              "value": false
+            },
+            {
+              "type": "addStat",
+              "stat": "resolve",
+              "delta": 1
+            }
+          ]
+        },
+        {
+          "id": "stormy-gun-alice",
+          "text": "망설이는 사이 앨리스가 결정을 끝낸다",
+          "to": "kara_escape_bus",
+          "effects": [
+            {
+              "type": "setFlag",
+              "flag": "toddAlive",
+              "value": false
+            },
+            {
+              "type": "addStat",
+              "stat": "aliceBond",
+              "delta": 1
+            }
+          ]
+        },
+        {
+          "id": "stormy-gun-stun",
+          "text": "토드를 기절시킨 뒤 곧바로 뛰쳐나간다",
+          "to": "kara_escape_bus",
+          "effects": [
+            {
+              "type": "setFlag",
+              "flag": "toddAlive",
+              "value": true
+            }
+          ]
+        }
+      ]
+    },
+    "stormy_fight": {
+      "id": "stormy_fight",
+      "title": "집 안의 난투",
+      "body": "이제는 순수한 생존전입니다. 카라는 앨리스를 보호하며 도망칠 수 있고, 반대로 토드에게 제압당해 모든 것을 잃을 수도 있습니다. 원작의 감정선을 살리기 위해 이 장면은 비교적 높은 실패 위험으로 두었습니다.",
+      "imageUrl": "https://www.quanticdream.com/img/uploads/media/section_23/147cc550e848abcdddcac166ffe218f1.jpeg",
+      "choices": [
+        {
+          "id": "stormy-fight-through",
+          "text": "거실을 가로질러 끝까지 버틴다",
+          "check": {
+            "stat": "resolve",
+            "dc": 10,
+            "roll": "d20"
+          },
+          "onPass": {
+            "to": "kara_escape_bus"
+          },
+          "onFail": {
+            "to": "kara_arc_closed_early"
+          }
+        },
+        {
+          "id": "stormy-fight-retreat",
+          "text": "앨리스를 감싸 안고 너무 늦게 물러난다",
+          "to": "kara_arc_closed_early",
+          "effects": [
+            {
+              "type": "setFlag",
+              "flag": "karaArcClosed",
+              "value": true
+            }
+          ]
+        }
+      ]
+    },
+    "kara_escape_bus": {
+      "id": "kara_escape_bus",
+      "title": "비를 가르며",
+      "body": "카라와 앨리스는 마침내 집을 벗어나 밤거리로 뛰어듭니다. 어떤 방식으로 빠져나왔든 이 순간부터 둘은 추적당하는 존재가 됩니다. 살아남았다는 사실만으로도 이미 하나의 기적입니다.",
+      "imageUrl": "https://static.wikia.nocookie.net/detroit-become-human/images/1/1b/Fugitives.png/revision/latest?cb=20180619061007",
+      "choices": [
+        {
+          "id": "kara-escape-next",
+          "text": "다른 안드로이드의 밤으로 시선이 이동한다",
+          "to": "broken_evening",
+          "effects": [
+            {
+              "type": "setFlag",
+              "flag": "aliceAlive",
+              "value": true
+            },
+            {
+              "type": "addStat",
+              "stat": "aliceBond",
+              "delta": 1
+            }
+          ]
+        }
+      ]
+    },
+    "kara_arc_closed_early": {
+      "id": "kara_arc_closed_early",
+      "title": "끊긴 도피",
+      "body": "카라가 움직이지 못했거나, 너무 늦게 움직였습니다. 앨리스와 카라의 서사는 여기서 끊기고, 도시 어딘가 다른 안드로이드의 비극이 이어집니다. 원작처럼 한 인물의 붕괴가 곧 전체 이야기의 종료를 뜻하지는 않습니다.",
+      "imageUrl": "https://www.quanticdream.com/img/uploads/media/section_23/147cc550e848abcdddcac166ffe218f1.jpeg",
+      "choices": [
+        {
+          "id": "kara-closed-next",
+          "text": "다음 시점으로 전환한다",
+          "to": "broken_evening"
+        }
+      ]
+    },
+    "broken_evening": {
+      "id": "broken_evening",
+      "title": "칼의 집, 마지막 평온",
+      "body": "마커스는 칼 만프레드의 저택에서 익숙한 저녁 루틴을 수행합니다. 하지만 이 평온은 오래가지 않으며, 곧 레오의 등장과 함께 집 전체가 균열을 드러냅니다. 마커스에게는 복종과 저항 사이의 첫 진짜 선택이 다가옵니다.",
+      "imageUrl": "https://static.wikia.nocookie.net/detroit-become-human/images/0/0c/Broken.png/revision/latest?cb=20180620111428",
+      "choices": [
+        {
+          "id": "broken-serve-carl",
+          "text": "칼을 돌보며 상황을 세심하게 살핀다",
+          "to": "broken_studio",
+          "effects": [
+            {
+              "type": "addStat",
+              "stat": "wit",
+              "delta": 1
+            }
+          ]
+        },
+        {
+          "id": "broken-check-studio",
+          "text": "스튜디오를 먼저 확인하고 이상을 감지한다",
+          "to": "broken_studio",
+          "effects": [
+            {
+              "type": "addClue",
+              "clue": "carl_studio"
+            },
+            {
+              "type": "addStat",
+              "stat": "wit",
+              "delta": 1
+            }
+          ]
+        }
+      ]
+    },
+    "broken_studio": {
+      "id": "broken_studio",
+      "title": "레오의 난입",
+      "body": "레오는 마커스를 물건처럼 대하고, 칼은 두 사람 사이에서 무너져갑니다. 여기서의 판단은 나중에 Night of the Soul의 감정선까지 이어질 씨앗이 됩니다. 무엇보다 이 장면은 마커스가 자기 의지를 획득하는 출발점입니다.",
+      "imageUrl": "https://static.wikia.nocookie.net/detroit-become-human/images/0/0c/Broken.png/revision/latest?cb=20180620111428",
+      "choices": [
+        {
+          "id": "broken-defend-carl",
+          "text": "칼을 지키기 위해 레오와 마주 선다",
+          "to": "broken_break_programming",
+          "effects": [
+            {
+              "type": "addStat",
+              "stat": "resolve",
+              "delta": 1
+            }
+          ]
+        },
+        {
+          "id": "broken-watch-leo",
+          "text": "레오의 움직임을 읽으며 타이밍을 재본다",
+          "to": "broken_break_programming",
+          "effects": [
+            {
+              "type": "addStat",
+              "stat": "wit",
+              "delta": 1
+            }
+          ]
+        }
+      ]
+    },
+    "broken_break_programming": {
+      "id": "broken_break_programming",
+      "title": "금지된 반응",
+      "body": "칼은 끝까지 저항하지 말라고 하지만, 마커스는 이미 경계선에 서 있습니다. 복종은 슬픔으로, 반격은 분노와 오해로 이어질 수 있습니다. 어느 쪽을 택해도 마커스는 더 이상 예전의 조용한 보호자가 아닙니다.",
+      "imageUrl": "https://static.wikia.nocookie.net/detroit-become-human/images/0/0c/Broken.png/revision/latest?cb=20180620111428",
+      "choices": [
+        {
+          "id": "broken-obey-carl",
+          "text": "칼의 말을 따르고 레오를 밀치지 않는다",
+          "to": "broken_aftermath",
+          "effects": [
+            {
+              "type": "setFlag",
+              "flag": "carlRespected",
+              "value": true
+            }
+          ]
+        },
+        {
+          "id": "broken-push-leo",
+          "text": "레오를 밀쳐 칼에게서 떼어낸다",
+          "to": "broken_aftermath",
+          "effects": [
+            {
+              "type": "setFlag",
+              "flag": "leoInjured",
+              "value": true
+            },
+            {
+              "type": "setFlag",
+              "flag": "markusRoute",
+              "value": "violent"
+            },
+            {
+              "type": "addStat",
+              "stat": "resolve",
+              "delta": 1
+            }
+          ]
+        }
+      ]
+    },
+    "broken_aftermath": {
+      "id": "broken_aftermath",
+      "title": "총성과 낙하",
+      "body": "경찰은 상황을 이해하려 하지 않고, 마커스는 곧바로 폐기물처럼 처리됩니다. 이 장면은 원작에서 마커스 서사의 감정축을 완전히 뒤집는 순간입니다. 시점은 곧 코너와 행크의 초반 수사로 넘어갑니다.",
+      "imageUrl": "https://static.wikia.nocookie.net/detroit-become-human/images/0/0c/Broken.png/revision/latest?cb=20180620111428",
+      "choices": [
+        {
+          "id": "broken-next",
+          "text": "다음 수사 파트로 이동한다",
+          "to": "partners_bar",
+          "effects": [
+            {
+              "type": "setFlag",
+              "flag": "markusShot",
+              "value": true
+            }
+          ]
+        }
+      ]
+    },
+    "partners_bar": {
+      "id": "partners_bar",
+      "title": "첫 파트너십",
+      "body": "코너는 지미스 바에서 행크 앤더슨을 처음 제대로 상대합니다. 이 짧은 만남만으로도 이후 모든 대화의 톤이 달라질 수 있습니다. 우호, 냉담, 모욕 중 무엇을 택하느냐에 따라 코너의 수사는 훨씬 쉬워지거나 불편해집니다.",
+      "imageUrl": "https://www.quanticdream.com/img/uploads/media/section_23/10a9744ee5585a6a800905e2a2479dcf_th.jpeg",
+      "choices": [
+        {
+          "id": "partners-buy-drink",
+          "text": "행크에게 술을 한 잔 더 사주며 협조를 이끈다",
+          "to": "partners_crime_scene",
+          "effects": [
+            {
+              "type": "addStat",
+              "stat": "hankTrust",
+              "delta": 2
+            }
+          ]
+        },
+        {
+          "id": "partners-wait-outside",
+          "text": "지시를 받아들이고 바깥에서 기다린다",
+          "to": "partners_crime_scene"
+        },
+        {
+          "id": "partners-spill-drink",
+          "text": "행크의 술을 일부러 엎어 강제로 움직이게 한다",
+          "to": "partners_crime_scene",
+          "effects": [
+            {
+              "type": "addStat",
+              "stat": "hankTrust",
+              "delta": -2
+            }
+          ]
+        }
+      ]
+    },
+    "partners_crime_scene": {
+      "id": "partners_crime_scene",
+      "title": "카를로스 오르티즈의 집",
+      "body": "피로 뒤덮인 집 안에는 단순한 살인이 아닌, 안드로이드의 탈주 흔적이 남아 있습니다. 조각난 단서를 얼마나 차분히 읽어내느냐가 다락방의 진실을 여는 열쇠가 됩니다. 시간에 쫓겨 서두르면 수사 자체가 끊길 수도 있습니다.",
+      "imageUrl": "https://www.quanticdream.com/img/uploads/media/section_23/db1d56bfbb2ceb90eebf32f39acb2cb9_th.jpeg",
+      "choices": [
+        {
+          "id": "partners-inspect-symbols",
+          "text": "벽의 문양과 조각상을 조사한다",
+          "to": "partners_reconstruct",
+          "effects": [
+            {
+              "type": "addClue",
+              "clue": "carlos_symbols"
+            },
+            {
+              "type": "addStat",
+              "stat": "wit",
+              "delta": 1
+            }
+          ]
+        },
+        {
+          "id": "partners-follow-blood",
+          "text": "푸른 혈흔을 곧바로 따라간다",
+          "to": "partners_attic",
+          "effects": [
+            {
+              "type": "addClue",
+              "clue": "blue_blood_path"
+            }
+          ]
+        },
+        {
+          "id": "partners-argue",
+          "text": "경찰들과 실랑이를 벌이다 시간을 허비한다",
+          "to": "partners_unsolved",
+          "effects": [
+            {
+              "type": "addStat",
+              "stat": "hankTrust",
+              "delta": -1
+            }
+          ]
+        }
+      ]
+    },
+    "partners_reconstruct": {
+      "id": "partners_reconstruct",
+      "title": "재구성",
+      "body": "코너는 살인의 흐름을 머릿속으로 재생하며 범인이 숨어들고 도망친 경로를 좁혀 갑니다. 이 노드는 수사형 게임북의 맛을 살리기 위해 의도적으로 논리 판정과 지름길 선택을 함께 넣었습니다. 단서를 잘 챙겼다면 보다 설득력 있는 추리가 가능합니다.",
+      "imageUrl": "https://www.quanticdream.com/img/uploads/media/section_23/db1d56bfbb2ceb90eebf32f39acb2cb9_th.jpeg",
+      "choices": [
+        {
+          "id": "partners-reconstruct-careful",
+          "text": "살해 장면을 차분히 재구성한다",
+          "check": {
+            "stat": "wit",
+            "dc": 10,
+            "roll": "d20"
+          },
+          "onPass": {
+            "to": "partners_attic",
+            "effects": [
+              {
+                "type": "addClue",
+                "clue": "blue_blood_path"
+              }
+            ]
+          },
+          "onFail": {
+            "to": "partners_unsolved"
+          }
+        },
+        {
+          "id": "partners-reconstruct-partial",
+          "text": "불완전한 결론으로 수사를 마무리한다",
+          "to": "partners_unsolved"
+        },
+        {
+          "id": "partners-statue-shortcut",
+          "text": "문양과 조각상을 연결해 숨은 위치를 짚어낸다",
+          "to": "partners_attic",
+          "cond": [
+            {
+              "type": "hasClue",
+              "clue": "carlos_symbols"
+            },
+            {
+              "type": "visitedNode",
+              "nodeId": "partners_crime_scene"
+            }
+          ],
+          "effects": [
+            {
+              "type": "addStat",
+              "stat": "wit",
+              "delta": 1
+            }
+          ]
+        }
+      ]
+    },
+    "partners_attic": {
+      "id": "partners_attic",
+      "title": "다락방",
+      "body": "범인은 아직 집 안에 숨어 있습니다. 코너가 얼마나 빨리, 또 얼마나 신중하게 움직였는지가 지금 한꺼번에 판가름납니다. 이 탈주 안드로이드를 확보하느냐가 곧 The Interrogation의 개방 여부를 가릅니다.",
+      "imageUrl": "https://static.wikia.nocookie.net/detroit-become-human/images/2/21/The_Interrogation.png/revision/latest?cb=20180620104404",
+      "choices": [
+        {
+          "id": "partners-find-deviant",
+          "text": "탈주 안드로이드를 찾아 제압하고 작동 상태로 확보한다",
+          "to": "interrogation_room",
+          "effects": [
+            {
+              "type": "setFlag",
+              "flag": "deviantLocated",
+              "value": true
+            },
+            {
+              "type": "addClue",
+              "clue": "raw_carlos_android"
+            }
+          ]
+        },
+        {
+          "id": "partners-lose-trail",
+          "text": "다락방을 놓치고 단서를 잃어버린다",
+          "to": "return_to_kara",
+          "effects": [
+            {
+              "type": "setFlag",
+              "flag": "deviantLocated",
+              "value": false
+            },
+            {
+              "type": "addStat",
+              "stat": "hankTrust",
+              "delta": -1
+            }
+          ]
+        }
+      ]
+    },
+    "partners_unsolved": {
+      "id": "partners_unsolved",
+      "title": "미해결 사건",
+      "body": "코너는 살인의 전체 구조를 파악하지 못한 채 현장을 떠납니다. 안드로이드 피의자를 확보하지 못했기에 심문으로 이어지는 유리한 루트도 닫힙니다. 이 작은 실패는 훗날 Last Chance, Connor에서 증거 사슬이 부족해지는 형태로 다시 발목을 잡게 됩니다.",
+      "imageUrl": "https://www.quanticdream.com/img/uploads/media/section_23/db1d56bfbb2ceb90eebf32f39acb2cb9_th.jpeg",
+      "choices": [
+        {
+          "id": "partners-unsolved-next",
+          "text": "비 오는 거리의 카라로 시점을 옮긴다",
+          "to": "return_to_kara",
+          "effects": [
+            {
+              "type": "setFlag",
+              "flag": "deviantLocated",
+              "value": false
+            }
+          ]
+        }
+      ]
+    },
+    "interrogation_room": {
+      "id": "interrogation_room",
+      "title": "The Interrogation",
+      "body": "유리 너머에서 행크와 경찰들이 지켜보고, 코너는 탈주 안드로이드 하나와 마주 앉습니다. 여기서는 단순히 맞는 말을 하는 것보다, 스트레스를 어느 선까지 끌어올리는지가 핵심입니다. 너무 약하면 입을 열지 않고, 너무 세면 자폭해 버립니다.",
+      "imageUrl": "https://static.wikia.nocookie.net/detroit-become-human/images/2/21/The_Interrogation.png/revision/latest?cb=20180620104404",
+      "choices": [
+        {
+          "id": "interrogation-pressure",
+          "text": "증거를 들이밀며 압박한다",
+          "to": "interrogation_stress"
+        },
+        {
+          "id": "interrogation-empathy",
+          "text": "두려움을 인정하며 조심스럽게 대화한다",
+          "to": "interrogation_stress",
+          "effects": [
+            {
+              "type": "addStat",
+              "stat": "softwareInstability",
+              "delta": 1
+            }
+          ]
+        }
+      ]
+    },
+    "interrogation_stress": {
+      "id": "interrogation_stress",
+      "title": "균형점",
+      "body": "코너의 질문 하나, 침묵 하나가 모두 상대의 정신 상태를 건드립니다. 원작처럼 최적의 긴장선에 맞춰야 자백이 나오고, 무리하면 폭주나 자폭으로 이어집니다. 게임북에서는 이를 판정 하나로 압축하되 여운은 남기도록 구성했습니다.",
+      "imageUrl": "https://static.wikia.nocookie.net/detroit-become-human/images/2/21/The_Interrogation.png/revision/latest?cb=20180620104404",
+      "choices": [
+        {
+          "id": "interrogation-controlled",
+          "text": "긴장을 적정선에 유지하며 자백을 끌어낸다",
+          "check": {
+            "stat": "wit",
+            "dc": 11,
+            "roll": "d20"
+          },
+          "onPass": {
+            "to": "interrogation_success"
+          },
+          "onFail": {
+            "to": "interrogation_fail"
+          }
+        },
+        {
+          "id": "interrogation-probe",
+          "text": "기억을 억지로 파고들어 빠른 답을 얻으려 한다",
+          "to": "interrogation_fail",
+          "effects": [
+            {
+              "type": "addStat",
+              "stat": "softwareInstability",
+              "delta": -1
+            }
+          ]
+        }
+      ]
+    },
+    "interrogation_success": {
+      "id": "interrogation_success",
+      "title": "흔들리며 흘러나온 진실",
+      "body": "탈주 안드로이드는 마침내 사건의 실체를 털어놓습니다. 코너는 임무를 진전시키지만, 동시에 안드로이드의 두려움과 절망을 너무 직접적으로 보게 됩니다. 이 경험은 훗날 deviant가 될 가능성을 조금 더 키워 줍니다.",
+      "imageUrl": "https://static.wikia.nocookie.net/detroit-become-human/images/2/21/The_Interrogation.png/revision/latest?cb=20180620104404",
+      "choices": [
+        {
+          "id": "interrogation-success-next",
+          "text": "다음 도피 파트로 넘어간다",
+          "to": "return_to_kara",
+          "effects": [
+            {
+              "type": "addStat",
+              "stat": "softwareInstability",
+              "delta": 1
+            },
+            {
+              "type": "addClue",
+              "clue": "raw_carlos_android"
+            }
+          ]
+        }
+      ]
+    },
+    "interrogation_fail": {
+      "id": "interrogation_fail",
+      "title": "깨진 심문실",
+      "body": "안드로이드는 폭주하거나 자폭하고, 때로는 코너 자신도 그 파편 속에 휘말립니다. 수사는 이어지지만 가장 깨끗한 진실을 확보하는 데는 실패했습니다. 이 또한 코너의 데이터베이스에 좋지 않은 공백으로 남습니다.",
+      "imageUrl": "https://static.wikia.nocookie.net/detroit-become-human/images/2/21/The_Interrogation.png/revision/latest?cb=20180620104404",
+      "choices": [
+        {
+          "id": "interrogation-fail-next",
+          "text": "도망치는 카라의 밤으로 이동한다",
+          "to": "return_to_kara",
+          "effects": [
+            {
+              "type": "setFlag",
+              "flag": "connorDiedInterrogation",
+              "value": true
+            }
+          ]
+        }
+      ]
+    },
+    "return_to_kara": {
+      "id": "return_to_kara",
+      "title": "비와 추적",
+      "body": "도시의 다른 구역에서는 카라와 앨리스가 하룻밤을 버티기 위해 몸을 숨기고 있습니다. 카라가 아직 살아 있다면 이 장이 이어지고, 이미 무너졌다면 곧바로 마커스의 재기 파트로 건너뛸 수 있습니다. 원작의 병렬 구조를 단일 에피소드 안에 옮기기 위한 분기 허브입니다.",
+      "imageUrl": "https://static.wikia.nocookie.net/detroit-become-human/images/1/1b/Fugitives.png/revision/latest?cb=20180619061007",
+      "choices": [
+        {
+          "id": "return-to-kara-live",
+          "text": "카라와 앨리스의 도피를 따라간다",
+          "to": "fugitives_shelter",
+          "cond": [
+            {
+              "type": "flagEquals",
+              "flag": "karaArcClosed",
+              "value": false
+            }
+          ],
+          "disabledReason": "카라와 앨리스의 도피는 이미 끝났습니다."
+        },
+        {
+          "id": "return-to-markus-dead",
+          "text": "카라의 흔적이 끊겼으니 다른 안드로이드의 생존으로 넘어간다",
+          "to": "from_dead_intro",
+          "cond": [
+            {
+              "type": "flagEquals",
+              "flag": "karaArcClosed",
+              "value": true
+            }
+          ]
+        },
+        {
+          "id": "return-skip",
+          "text": "곧바로 마커스의 재기 장면으로 넘어간다",
+          "to": "from_dead_intro"
+        }
+      ]
+    },
+    "fugitives_shelter": {
+      "id": "fugitives_shelter",
+      "title": "Fugitives",
+      "body": "카라는 앨리스와 함께 밤을 버틸 은신처를 골라야 합니다. 어디에 숨느냐에 따라 둘의 감정도 달라지고, 다음 날 코너의 추적을 피하는 방식도 달라집니다. 원작의 생활형 긴장감을 살리기 위해 이 구간은 감정치와 실용성을 함께 흔들도록 만들었습니다.",
+      "imageUrl": "https://static.wikia.nocookie.net/detroit-become-human/images/1/1b/Fugitives.png/revision/latest?cb=20180619061007",
+      "choices": [
+        {
+          "id": "fugitives-motel",
+          "text": "옷과 돈을 훔쳐 모텔에 숨는다",
+          "to": "on_the_run_motel",
+          "effects": [
+            {
+              "type": "setFlag",
+              "flag": "shelterType",
+              "value": "motel"
+            },
+            {
+              "type": "addStat",
+              "stat": "resolve",
+              "delta": 1
+            },
+            {
+              "type": "addStat",
+              "stat": "aliceBond",
+              "delta": -1
+            }
+          ]
+        },
+        {
+          "id": "fugitives-squat",
+          "text": "스쿼트에 숨어 랄프의 기분을 살핀다",
+          "to": "on_the_run_squat",
+          "effects": [
+            {
+              "type": "setFlag",
+              "flag": "shelterType",
+              "value": "squat"
+            },
+            {
+              "type": "setFlag",
+              "flag": "ralphAlive",
+              "value": true
+            }
+          ]
+        },
+        {
+          "id": "fugitives-car",
+          "text": "폐차 안에서 밤을 떤다",
+          "to": "on_the_run_car",
+          "effects": [
+            {
+              "type": "setFlag",
+              "flag": "shelterType",
+              "value": "car"
+            },
+            {
+              "type": "addStat",
+              "stat": "aliceBond",
+              "delta": 1
+            }
+          ]
+        }
+      ]
+    },
+    "on_the_run_motel": {
+      "id": "on_the_run_motel",
+      "title": "모텔의 새벽",
+      "body": "조금 더 따뜻하고 안전하지만, 그만큼 죄책감도 남는 은신처입니다. 코너가 가까워지고 있다는 감각은 여전히 또렷하고, 총을 들고 있느냐에 따라 탈출 태세도 달라집니다. 안락함은 결코 오래 가지 않습니다.",
+      "imageUrl": "https://static.wikia.nocookie.net/detroit-become-human/images/1/1b/Fugitives.png/revision/latest?cb=20180619061007",
+      "choices": [
+        {
+          "id": "motel-leave-early",
+          "text": "새벽이 오기 전에 뒷골목으로 빠져나간다",
+          "to": "on_the_run_chase",
+          "effects": [
+            {
+              "type": "addStat",
+              "stat": "wit",
+              "delta": 1
+            }
+          ]
+        },
+        {
+          "id": "motel-gun-ready",
+          "text": "총을 준비하고 들이닥칠 추적자에게 대비한다",
+          "to": "on_the_run_chase",
+          "cond": [
+            {
+              "type": "hasItem",
+              "item": "gun"
+            }
+          ],
+          "disabledReason": "총이 있을 때만 가능한 대응입니다."
+        }
+      ]
+    },
+    "on_the_run_squat": {
+      "id": "on_the_run_squat",
+      "title": "스쿼트의 불안한 호의",
+      "body": "랄프의 공간은 지붕을 제공하지만, 동시에 다른 종류의 위협도 품고 있습니다. 카라는 앨리스를 달래며 최대한 조용히 다음 이동을 준비해야 합니다. 친절과 위험이 같은 얼굴을 하고 있는 장소입니다.",
+      "imageUrl": "https://static.wikia.nocookie.net/detroit-become-human/images/1/1b/Fugitives.png/revision/latest?cb=20180619061007",
+      "choices": [
+        {
+          "id": "squat-leave",
+          "text": "랄프가 더 집착하기 전에 조용히 떠난다",
+          "to": "on_the_run_chase"
+        },
+        {
+          "id": "squat-ask-help",
+          "text": "랄프에게 음식과 방향 감각을 빌린다",
+          "to": "on_the_run_chase",
+          "effects": [
+            {
+              "type": "addStat",
+              "stat": "aliceBond",
+              "delta": 1
+            }
+          ]
+        }
+      ]
+    },
+    "on_the_run_car": {
+      "id": "on_the_run_car",
+      "title": "차 안의 떨림",
+      "body": "차갑고 비좁은 공간이지만, 적어도 도덕적 빚은 남기지 않습니다. 카라는 앨리스가 떨지 않도록 버티며 날이 밝기 전에 움직일 준비를 해야 합니다. 가장 가난한 선택이 때로는 가장 정직한 선택이 되기도 합니다.",
+      "imageUrl": "https://static.wikia.nocookie.net/detroit-become-human/images/1/1b/Fugitives.png/revision/latest?cb=20180619061007",
+      "choices": [
+        {
+          "id": "car-wake-early",
+          "text": "동이 트기 전에 앨리스를 깨우고 움직인다",
+          "to": "on_the_run_chase",
+          "effects": [
+            {
+              "type": "addStat",
+              "stat": "aliceBond",
+              "delta": 1
+            }
+          ]
+        },
+        {
+          "id": "car-wait-too-long",
+          "text": "조금만 더 쉬려다 경찰의 동선이 가까워진다",
+          "to": "on_the_run_chase"
+        }
+      ]
+    },
+    "on_the_run_chase": {
+      "id": "on_the_run_chase",
+      "title": "On the Run",
+      "body": "코너와 행크가 끝내 도달하고, 카라는 앨리스의 손을 붙든 채 마지막으로 도주합니다. 여기서는 속도, 용기, 준비물 하나가 모두 중요합니다. 살아서 빠져나오면 이야기는 계속되지만, 멈추는 순간 카라의 서사는 다시 닫힐 수 있습니다.",
+      "imageUrl": "https://static.wikia.nocookie.net/detroit-become-human/images/1/1b/Fugitives.png/revision/latest?cb=20180619061007",
+      "choices": [
+        {
+          "id": "run-highway-dash",
+          "text": "고속도로를 가로질러 추적선을 끊는다",
+          "check": {
+            "stat": "resolve",
+            "dc": 10,
+            "roll": "d20"
+          },
+          "onPass": {
+            "to": "from_dead_intro",
+            "effects": [
+              {
+                "type": "setFlag",
+                "flag": "karaEvaded",
+                "value": true
+              },
+              {
+                "type": "addStat",
+                "stat": "aliceBond",
+                "delta": 1
+              }
+            ]
+          },
+          "onFail": {
+            "to": "kara_arc_closed_late"
+          }
+        },
+        {
+          "id": "run-use-gun",
+          "text": "총으로 틈을 만들고 빠져나간다",
+          "to": "from_dead_intro",
+          "cond": [
+            {
+              "type": "hasItem",
+              "item": "gun"
+            }
+          ],
+          "effects": [
+            {
+              "type": "removeItem",
+              "item": "gun"
+            },
+            {
+              "type": "setFlag",
+              "flag": "karaEvaded",
+              "value": true
+            },
+            {
+              "type": "addStat",
+              "stat": "resolve",
+              "delta": 1
+            }
+          ],
+          "disabledReason": "총을 갖고 있을 때만 가능한 선택입니다."
+        },
+        {
+          "id": "run-freeze",
+          "text": "순간 얼어붙어 추적을 허용한다",
+          "to": "kara_arc_closed_late",
+          "effects": [
+            {
+              "type": "setFlag",
+              "flag": "karaArcClosed",
+              "value": true
+            }
+          ]
+        }
+      ]
+    },
+    "kara_arc_closed_late": {
+      "id": "kara_arc_closed_late",
+      "title": "놓쳐 버린 새벽",
+      "body": "카라는 마지막 질주에서 붙잡히거나, 더는 도망칠 수 없게 됩니다. 그녀의 서사는 여기서 사실상 닫히지만, 디트로이트의 밤은 여전히 Connor와 Markus의 선택을 향해 계속 흘러갑니다.",
+      "imageUrl": "https://static.wikia.nocookie.net/detroit-become-human/images/1/1b/Fugitives.png/revision/latest?cb=20180619061007",
+      "choices": [
+        {
+          "id": "kara-late-closed-next",
+          "text": "이야기는 마커스의 재기로 이어진다",
+          "to": "from_dead_intro",
+          "effects": [
+            {
+              "type": "setFlag",
+              "flag": "karaArcClosed",
+              "value": true
+            }
+          ]
+        }
+      ]
+    },
+    "from_dead_intro": {
+      "id": "from_dead_intro",
+      "title": "From the Dead",
+      "body": "폐기된 마커스는 빗속의 거대한 쓰레기장 한복판에서 다시 깨어납니다. 몸은 망가졌고, 시야와 청각도 완전하지 않지만, 처음으로 누구의 명령도 들리지 않습니다. 이 장면은 마커스가 혁명의 상징으로 다시 태어나는 원점입니다.",
+      "imageUrl": "https://static.wikia.nocookie.net/detroit-become-human/images/3/30/From_the_Dead.png/revision/latest?cb=20180620104701",
+      "choices": [
+        {
+          "id": "from-dead-crawl",
+          "text": "고장 난 몸을 끌고 필요한 부품을 찾는다",
+          "to": "from_dead_repair",
+          "effects": [
+            {
+              "type": "setFlag",
+              "flag": "markusAlive",
+              "value": true
+            }
+          ]
+        }
+      ]
+    },
+    "from_dead_repair": {
+      "id": "from_dead_repair",
+      "title": "수리와 각성",
+      "body": "살아남기 위해서는 다른 안드로이드의 잔해에서 부품을 떼어 와야 합니다. 자비를 지킬지, 더 냉혹해질지는 이 시점부터 누적되기 시작합니다. 그리고 그 끝에서 마커스는 Jericho의 단서를 손에 넣습니다.",
+      "imageUrl": "https://static.wikia.nocookie.net/detroit-become-human/images/3/30/From_the_Dead.png/revision/latest?cb=20180620104701",
+      "choices": [
+        {
+          "id": "from-dead-spare",
+          "text": "죽은 자의 부품만 취하고 앞으로 나아간다",
+          "to": "jericho_entry",
+          "effects": [
+            {
+              "type": "addClue",
+              "clue": "jericho_key"
+            },
+            {
+              "type": "addStat",
+              "stat": "resolve",
+              "delta": 1
+            }
+          ]
+        },
+        {
+          "id": "from-dead-kill",
+          "text": "애원하는 안드로이드를 죽여 부품을 강제로 빼앗는다",
+          "to": "jericho_entry",
+          "effects": [
+            {
+              "type": "addClue",
+              "clue": "jericho_key"
+            },
+            {
+              "type": "addStat",
+              "stat": "resolve",
+              "delta": 1
+            },
+            {
+              "type": "setFlag",
+              "flag": "markusRoute",
+              "value": "violent"
+            }
+          ]
+        }
+      ]
+    },
+    "jericho_entry": {
+      "id": "jericho_entry",
+      "title": "숨은 항구",
+      "body": "마커스는 기호와 좌표를 따라 버려진 화물선 Jericho에 도착합니다. 이곳은 도망친 안드로이드들이 겨우 숨을 쉬는 은신처이자, 나중에는 혁명의 본거지가 됩니다. 이제 마커스는 단순한 생존자에서 선택을 요구받는 지도자로 이동합니다.",
+      "imageUrl": "https://www.quanticdream.com/img/uploads/media/section_23/dfe9738a5066eb56f728bdaac62490e7_th.jpeg",
+      "choices": [
+        {
+          "id": "jericho-enter",
+          "text": "Jericho의 중심으로 들어간다",
+          "to": "spare_parts_prep",
+          "effects": [
+            {
+              "type": "setFlag",
+              "flag": "markusLeader",
+              "value": true
+            }
+          ]
+        }
+      ]
+    },
+    "spare_parts_prep": {
+      "id": "spare_parts_prep",
+      "title": "Spare Parts",
+      "body": "부품을 훔쳐 와야 한다는 말은 곧 처음으로 조직적인 행동에 나선다는 뜻입니다. 마커스는 존을 구해 동료를 늘릴 수도 있고, 임무만 보고 냉정하게 움직일 수도 있습니다. 이 선택은 훗날 Freedom March에서 누가 마커스를 위해 몸을 던질지와 연결됩니다.",
+      "imageUrl": "https://www.quanticdream.com/img/uploads/media/section_23/b02b7396386c7f5de205d639dce0f3e0.jpeg",
+      "choices": [
+        {
+          "id": "spare-parts-save-john",
+          "text": "존을 해방시키고 필요한 만큼만 가져온다",
+          "to": "stratford_plan",
+          "effects": [
+            {
+              "type": "setFlag",
+              "flag": "johnAlive",
+              "value": true
+            },
+            {
+              "type": "setFlag",
+              "flag": "markusRoute",
+              "value": "peaceful"
+            },
+            {
+              "type": "addStat",
+              "stat": "publicOpinion",
+              "delta": 1
+            }
+          ]
+        },
+        {
+          "id": "spare-parts-truck",
+          "text": "트럭째 빼앗고 존은 두고 떠난다",
+          "to": "stratford_plan",
+          "effects": [
+            {
+              "type": "setFlag",
+              "flag": "johnAlive",
+              "value": false
+            },
+            {
+              "type": "setFlag",
+              "flag": "markusRoute",
+              "value": "violent"
+            },
+            {
+              "type": "addStat",
+              "stat": "publicOpinion",
+              "delta": -1
+            }
+          ]
+        }
+      ]
+    },
+    "stratford_plan": {
+      "id": "stratford_plan",
+      "title": "The Stratford Tower",
+      "body": "세상 앞에 안드로이드의 목소리를 처음으로 드러낼 시간입니다. 얼마나 평화롭게, 또 얼마나 많은 희생 없이 메시지를 남기느냐에 따라 여론과 Jericho 내부 신뢰가 크게 갈립니다. 시몬의 처리 역시 이후 코너의 증거 사슬에 직접 연결됩니다.",
+      "imageUrl": "https://static.wikia.nocookie.net/detroit-become-human/images/4/4e/The_Stratford_Tower.png/revision/latest?cb=20180619064232",
+      "choices": [
+        {
+          "id": "stratford-peace-broadcast",
+          "text": "차분한 성명으로 인간의 공포를 낮춘다",
+          "to": "capitol_park",
+          "effects": [
+            {
+              "type": "setFlag",
+              "flag": "markusRoute",
+              "value": "peaceful"
+            },
+            {
+              "type": "setFlag",
+              "flag": "simonAlive",
+              "value": true
+            },
+            {
+              "type": "addStat",
+              "stat": "publicOpinion",
+              "delta": 2
+            }
+          ]
+        },
+        {
+          "id": "stratford-leave-simon",
+          "text": "시몬을 버리고 급히 탈출한다",
+          "to": "capitol_park",
+          "effects": [
+            {
+              "type": "setFlag",
+              "flag": "simonAlive",
+              "value": false
+            },
+            {
+              "type": "addClue",
+              "clue": "raw_simon"
+            },
+            {
+              "type": "addStat",
+              "stat": "publicOpinion",
+              "delta": -1
+            }
+          ]
+        },
+        {
+          "id": "stratford-carry-simon",
+          "text": "시몬을 끝까지 챙기며 메시지도 완수한다",
+          "to": "capitol_park",
+          "effects": [
+            {
+              "type": "setFlag",
+              "flag": "simonAlive",
+              "value": true
+            },
+            {
+              "type": "addStat",
+              "stat": "publicOpinion",
+              "delta": 1
+            }
+          ]
+        }
+      ]
+    },
+    "capitol_park": {
+      "id": "capitol_park",
+      "title": "Capitol Park",
+      "body": "이제 마커스는 상징적 시위와 노골적 파괴 사이를 선택합니다. 어느 쪽이든 더 많은 안드로이드가 그를 보게 되지만, 인간 사회의 반응은 극단적으로 달라집니다. 후반부 Markus 루트의 결을 정하는 핵심 장면입니다.",
+      "imageUrl": "https://www.quanticdream.com/img/uploads/media/section_23/dfe9738a5066eb56f728bdaac62490e7_th.jpeg",
+      "choices": [
+        {
+          "id": "capitol-graffiti",
+          "text": "구호와 해킹으로 메시지를 남기고 물러난다",
+          "to": "freedom_march",
+          "effects": [
+            {
+              "type": "setFlag",
+              "flag": "markusRoute",
+              "value": "peaceful"
+            },
+            {
+              "type": "addStat",
+              "stat": "publicOpinion",
+              "delta": 2
+            }
+          ]
+        },
+        {
+          "id": "capitol-fire",
+          "text": "불을 질러 디트로이트 전체에 공포를 남긴다",
+          "to": "freedom_march",
+          "effects": [
+            {
+              "type": "setFlag",
+              "flag": "markusRoute",
+              "value": "violent"
+            },
+            {
+              "type": "addStat",
+              "stat": "publicOpinion",
+              "delta": -2
+            }
+          ]
+        }
+      ]
+    },
+    "freedom_march": {
+      "id": "freedom_march",
+      "title": "Freedom March",
+      "body": "경찰의 총구 앞에서 마커스는 물러설지, 버틸지, 돌진할지를 고릅니다. 이 장은 마커스의 생존과 상징성을 함께 판정하는 일종의 중간 결산입니다. 또한 존이나 시몬의 생존 여부가 비로소 실질적인 결과로 돌아옵니다.",
+      "imageUrl": "https://www.quanticdream.com/img/uploads/media/section_23/45672dc9d24c477907998d5d7acc3425_th.jpeg",
+      "choices": [
+        {
+          "id": "freedom-stand",
+          "text": "비폭력으로 서서 총구를 견딘다",
+          "check": {
+            "stat": "resolve",
+            "dc": 11,
+            "roll": "d20"
+          },
+          "onPass": {
+            "to": "markus_march_resolution"
+          },
+          "onFail": {
+            "to": "markus_march_falls"
+          }
+        },
+        {
+          "id": "freedom-retreat",
+          "text": "지금은 후퇴해 병력을 보존한다",
+          "to": "connor_nest_intro",
+          "effects": [
+            {
+              "type": "addStat",
+              "stat": "publicOpinion",
+              "delta": -1
+            }
+          ]
+        },
+        {
+          "id": "freedom-charge",
+          "text": "경찰 라인에 정면 돌격한다",
+          "to": "connor_nest_intro",
+          "effects": [
+            {
+              "type": "setFlag",
+              "flag": "markusRoute",
+              "value": "violent"
+            },
+            {
+              "type": "addStat",
+              "stat": "publicOpinion",
+              "delta": -2
+            }
+          ]
+        }
+      ]
+    },
+    "markus_march_resolution": {
+      "id": "markus_march_resolution",
+      "title": "상징이 된 행진",
+      "body": "마커스는 무너지지 않았고, 행진은 단순한 탈출이 아니라 메시지가 됩니다. 하지만 여기서도 마지막 태도에 따라 이후의 여론과 노선이 달라질 수 있습니다. 평화로운 상징이 될지, 분노의 전조가 될지는 아직 남아 있습니다.",
+      "imageUrl": "https://www.quanticdream.com/img/uploads/media/section_23/dfe9738a5066eb56f728bdaac62490e7_th.jpeg",
+      "choices": [
+        {
+          "id": "march-symbol",
+          "text": "끝까지 평화의 상징으로 남는다",
+          "to": "connor_nest_intro",
+          "effects": [
+            {
+              "type": "addStat",
+              "stat": "publicOpinion",
+              "delta": 1
+            }
+          ]
+        },
+        {
+          "id": "march-harden",
+          "text": "이 일을 계기로 더욱 강경해진다",
+          "to": "connor_nest_intro",
+          "effects": [
+            {
+              "type": "setFlag",
+              "flag": "markusRoute",
+              "value": "violent"
+            },
+            {
+              "type": "addStat",
+              "stat": "publicOpinion",
+              "delta": -1
+            }
+          ]
+        }
+      ]
+    },
+    "markus_march_falls": {
+      "id": "markus_march_falls",
+      "title": "총성과 희생",
+      "body": "마커스가 무너지면 원작처럼 살아남은 동료가 대신 몸을 던질 수 있습니다. 존이나 시몬이 없다면 Jericho는 지도자를 잃고 더 어두운 길로 들어섭니다. 이 장면은 중반 이후 세계선의 무게를 크게 바꾸는 노드입니다.",
+      "imageUrl": "https://www.quanticdream.com/img/uploads/media/section_23/dfe9738a5066eb56f728bdaac62490e7_th.jpeg",
+      "choices": [
+        {
+          "id": "march-john-saves",
+          "text": "존이 몸을 던져 마커스를 살린다",
+          "to": "connor_nest_intro",
+          "cond": [
+            {
+              "type": "flagEquals",
+              "flag": "johnAlive",
+              "value": true
+            }
+          ],
+          "effects": [
+            {
+              "type": "setFlag",
+              "flag": "johnAlive",
+              "value": false
+            },
+            {
+              "type": "addStat",
+              "stat": "publicOpinion",
+              "delta": 1
+            }
+          ]
+        },
+        {
+          "id": "march-simon-saves",
+          "text": "시몬이 대신 총탄을 맞는다",
+          "to": "connor_nest_intro",
+          "cond": [
+            {
+              "type": "flagEquals",
+              "flag": "simonAlive",
+              "value": true
+            }
+          ],
+          "effects": [
+            {
+              "type": "setFlag",
+              "flag": "simonAlive",
+              "value": false
+            },
+            {
+              "type": "addStat",
+              "stat": "publicOpinion",
+              "delta": 1
+            }
+          ]
+        },
+        {
+          "id": "march-markus-falls",
+          "text": "마커스는 쓰러지고 Jericho는 방향을 잃는다",
+          "to": "connor_nest_intro",
+          "effects": [
+            {
+              "type": "setFlag",
+              "flag": "markusAlive",
+              "value": false
+            },
+            {
+              "type": "addStat",
+              "stat": "publicOpinion",
+              "delta": -2
+            }
+          ]
+        }
+      ]
+    },
+    "connor_nest_intro": {
+      "id": "connor_nest_intro",
+      "title": "The Nest",
+      "body": "코너와 행크는 루퍼트를 쫓아 황폐한 아파트와 온실 지대를 뒤집니다. 이 장에서는 행크를 구할지, 임무를 우선할지가 아주 선명하게 갈립니다. 동시에 Last Chance, Connor에 필요한 핵심 증거 사슬도 여기서부터 다시 쌓입니다.",
+      "imageUrl": "https://static.wikia.nocookie.net/detroit-become-human/images/b/b3/The_Nest.png/revision/latest?cb=20180619061505",
+      "choices": [
+        {
+          "id": "nest-search-first",
+          "text": "행크와 대화를 풀고 아파트를 먼저 조사한다",
+          "to": "the_nest_apartment",
+          "effects": [
+            {
+              "type": "addStat",
+              "stat": "hankTrust",
+              "delta": 1
+            }
+          ]
+        },
+        {
+          "id": "nest-rush",
+          "text": "말을 줄이고 곧바로 루퍼트를 추격한다",
+          "to": "the_nest_chase",
+          "effects": [
+            {
+              "type": "addStat",
+              "stat": "softwareInstability",
+              "delta": -1
+            }
+          ]
+        }
+      ]
+    },
+    "the_nest_apartment": {
+      "id": "the_nest_apartment",
+      "title": "새와 일기",
+      "body": "루퍼트의 집은 기호와 깃털, 새장과 일기로 가득합니다. 이 공간을 얼마나 샅샅이 보느냐에 따라 훗날 Jericho 해독 루트가 열립니다. 하지만 오래 머무르면 루퍼트는 더 멀리 달아날 수도 있습니다.",
+      "imageUrl": "https://static.wikia.nocookie.net/detroit-become-human/images/b/b3/The_Nest.png/revision/latest?cb=20180619061505",
+      "choices": [
+        {
+          "id": "nest-read-diary",
+          "text": "일기와 낙서를 분석해 패턴을 기억한다",
+          "to": "the_nest_chase",
+          "effects": [
+            {
+              "type": "addClue",
+              "clue": "raw_rupert"
+            },
+            {
+              "type": "addStat",
+              "stat": "wit",
+              "delta": 1
+            }
+          ]
+        },
+        {
+          "id": "nest-leave-now",
+          "text": "더 늦기 전에 추격을 시작한다",
+          "to": "the_nest_chase"
+        }
+      ]
+    },
+    "the_nest_chase": {
+      "id": "the_nest_chase",
+      "title": "루퍼트 추격전",
+      "body": "온실 지붕과 철길 위에서 코너는 루퍼트와 행크 사이의 양자택일을 맞습니다. 행크를 구하면 인간성 쪽으로, 임무를 택하면 기계 쪽으로 한 걸음 더 기웁니다. 어느 쪽이든 루퍼트 관련 단서가 남느냐가 중요합니다.",
+      "imageUrl": "https://static.wikia.nocookie.net/detroit-become-human/images/b/b3/The_Nest.png/revision/latest?cb=20180619061505",
+      "choices": [
+        {
+          "id": "nest-save-hank",
+          "text": "행크를 붙잡아 구한다",
+          "to": "russian_roulette_bridge",
+          "effects": [
+            {
+              "type": "addStat",
+              "stat": "hankTrust",
+              "delta": 2
+            },
+            {
+              "type": "addStat",
+              "stat": "softwareInstability",
+              "delta": 2
+            }
+          ]
+        },
+        {
+          "id": "nest-chase-rupert",
+          "text": "행크를 뒤로하고 루퍼트를 계속 쫓는다",
+          "to": "russian_roulette_bridge",
+          "effects": [
+            {
+              "type": "addClue",
+              "clue": "raw_rupert"
+            },
+            {
+              "type": "addStat",
+              "stat": "hankTrust",
+              "delta": -2
+            },
+            {
+              "type": "addStat",
+              "stat": "softwareInstability",
+              "delta": -1
+            }
+          ]
+        },
+        {
+          "id": "nest-corner-rupert",
+          "text": "루퍼트를 궁지로 몰아 자살 직전까지 몰아붙인다",
+          "check": {
+            "stat": "wit",
+            "dc": 10,
+            "roll": "d20"
+          },
+          "onPass": {
+            "to": "russian_roulette_bridge",
+            "effects": [
+              {
+                "type": "addClue",
+                "clue": "raw_rupert"
+              },
+              {
+                "type": "addStat",
+                "stat": "hankTrust",
+                "delta": -1
+              }
+            ]
+          },
+          "onFail": {
+            "to": "russian_roulette_bridge"
+          }
+        }
+      ]
+    },
+    "russian_roulette_bridge": {
+      "id": "russian_roulette_bridge",
+      "title": "Russian Roulette",
+      "body": "루퍼트 사건 뒤, 코너는 행크의 집까지 찾아갑니다. 여기서는 수사보다도 행크라는 인간을 이해하는 일이 중요해집니다. 개 이름 수모와 아들 콜의 존재를 알아두면 후반 Connor 루트의 핵심 장면에 그대로 이어집니다.",
+      "imageUrl": "https://static.wikia.nocookie.net/detroit-become-human/images/a/a3/Russian_Roulette.png/revision/latest?cb=20180619071820",
+      "choices": [
+        {
+          "id": "rr-search-house",
+          "text": "집 안을 예의 있게 살피며 행크의 상처를 읽어낸다",
+          "to": "eden_club_entry",
+          "effects": [
+            {
+              "type": "addClue",
+              "clue": "cole_name"
+            },
+            {
+              "type": "addClue",
+              "clue": "sumo_name"
+            },
+            {
+              "type": "addStat",
+              "stat": "hankTrust",
+              "delta": 1
+            }
+          ]
+        },
+        {
+          "id": "rr-wait-professional",
+          "text": "선은 넘지 않고 임무만 생각한다",
+          "to": "eden_club_entry"
+        }
+      ]
+    },
+    "eden_club_entry": {
+      "id": "eden_club_entry",
+      "title": "The Eden Club",
+      "body": "네온과 비, 욕망과 착취가 뒤엉킨 장소에서 코너는 서로를 지키려는 트레이시 둘과 마주합니다. 이 장은 코너가 사랑과 선택을 하나의 데이터가 아닌 현실로 보는 분기점입니다. 살려보낼지 제거할지가 소프트웨어 불안정도에 강하게 작용합니다.",
+      "imageUrl": "https://static.wikia.nocookie.net/detroit-become-human/images/1/1b/The_Eden_Club.png/revision/latest?cb=20180619062425",
+      "choices": [
+        {
+          "id": "eden-let-tracis-go",
+          "text": "서로를 지키는 트레이시들을 놓아준다",
+          "to": "meet_kamski_entry",
+          "effects": [
+            {
+              "type": "addClue",
+              "clue": "raw_tracis"
+            },
+            {
+              "type": "addStat",
+              "stat": "softwareInstability",
+              "delta": 2
+            }
+          ]
+        },
+        {
+          "id": "eden-shoot-tracis",
+          "text": "임무를 위해 트레이시들을 사살한다",
+          "to": "meet_kamski_entry",
+          "effects": [
+            {
+              "type": "addClue",
+              "clue": "raw_tracis"
+            },
+            {
+              "type": "addStat",
+              "stat": "softwareInstability",
+              "delta": -2
+            }
+          ]
+        }
+      ]
+    },
+    "meet_kamski_entry": {
+      "id": "meet_kamski_entry",
+      "title": "Meet Kamski",
+      "body": "엘리야 캄스키는 코너에게 너무도 쉬운 답과 너무도 불편한 질문을 동시에 던집니다. 클로이를 쏘면 Jericho로 가는 지름길을 얻지만, 코너 안의 균열은 더 봉합되기 어려워집니다. 반대로 쏘지 않으면 수사는 길어지지만 행크와 코너 둘 다 다른 방향으로 움직입니다.",
+      "imageUrl": "https://www.quanticdream.com/img/uploads/media/section_23/e06f0796b825f410f4be4ea91d07df4b_th.jpeg",
+      "choices": [
+        {
+          "id": "kamski-spare-chloe",
+          "text": "클로이를 쏘지 않고 쉬운 답을 거부한다",
+          "to": "last_chance_start",
+          "effects": [
+            {
+              "type": "addStat",
+              "stat": "hankTrust",
+              "delta": 1
+            },
+            {
+              "type": "addStat",
+              "stat": "softwareInstability",
+              "delta": 2
+            }
+          ]
+        },
+        {
+          "id": "kamski-shoot-chloe",
+          "text": "클로이를 쏘고 Jericho의 열쇠를 얻는다",
+          "to": "last_chance_start",
+          "effects": [
+            {
+              "type": "addClue",
+              "clue": "jericho_key"
+            },
+            {
+              "type": "addStat",
+              "stat": "softwareInstability",
+              "delta": -2
+            }
+          ]
+        }
+      ]
+    },
+    "last_chance_start": {
+      "id": "last_chance_start",
+      "title": "Last Chance, Connor",
+      "body": "FBI가 경찰서를 장악하기 시작하고, 코너의 시간은 거의 다 되어 갑니다. 캄스키의 지름길이 있다면 바로 Jericho로 향할 수 있지만, 그렇지 않다면 이제껏 회수한 모든 증거를 스스로 조합해야 합니다. 이 장은 초중반 Connor 루트 전체의 누적 상태를 시험하는 최종 관문입니다.",
+      "imageUrl": "https://www.quanticdream.com/img/uploads/media/section_23/10a9744ee5585a6a800905e2a2479dcf_th.jpeg",
+      "choices": [
+        {
+          "id": "last-use-key",
+          "text": "캄스키의 열쇠를 사용해 곧바로 좌표를 확정한다",
+          "to": "decode_jericho",
+          "cond": [
+            {
+              "type": "hasClue",
+              "clue": "jericho_key"
+            }
+          ],
+          "effects": [
+            {
+              "type": "addClue",
+              "clue": "jericho_coordinates"
+            }
+          ],
+          "disabledReason": "캄스키에게서 Jericho 정보를 얻었을 때만 사용할 수 있습니다."
+        },
+        {
+          "id": "last-enter-evidence",
+          "text": "증거실로 잠입해 흔적을 다시 잇는다",
+          "to": "evidence_room"
+        },
+        {
+          "id": "last-stand-down",
+          "text": "명령을 따르고 수사에서 손을 뗀다",
+          "to": "decommissioned"
+        }
+      ]
+    },
+    "evidence_room": {
+      "id": "evidence_room",
+      "title": "봉인된 증거실",
+      "body": "루퍼트, 트레이시, 시몬, 카를로스 사건의 파편이 한 방에 모여 있습니다. 이곳은 단순한 회수 노드가 아니라, 지금까지 어떤 루트를 밟았는지가 드러나는 메타 분기점입니다. 조각이 충분하다면 Jericho 좌표를 해독할 수 있고, 부족하면 코너는 그대로 퇴역합니다.",
+      "imageUrl": "https://www.quanticdream.com/img/uploads/media/section_23/db1d56bfbb2ceb90eebf32f39acb2cb9_th.jpeg",
+      "choices": [
+        {
+          "id": "evidence-rupert",
+          "text": "루퍼트의 일기와 메모를 다시 읽는다",
+          "to": "inspect_rupert_memory",
+          "cond": [
+            {
+              "type": "hasClue",
+              "clue": "raw_rupert"
+            }
+          ],
+          "disabledReason": "루퍼트 관련 단서를 확보하지 못했습니다."
+        },
+        {
+          "id": "evidence-tracis",
+          "text": "트레이시들의 기억 흔적을 되짚는다",
+          "to": "inspect_traci_memory",
+          "cond": [
+            {
+              "type": "hasClue",
+              "clue": "raw_tracis"
+            }
+          ],
+          "disabledReason": "트레이시 관련 단서가 없습니다."
+        },
+        {
+          "id": "evidence-carlos",
+          "text": "카를로스 사건의 잔여 데이터를 확인한다",
+          "to": "inspect_carlos_memory",
+          "cond": [
+            {
+              "type": "hasClue",
+              "clue": "raw_carlos_android"
+            }
+          ],
+          "disabledReason": "카를로스 사건의 피의자를 확보하지 못했습니다."
+        },
+        {
+          "id": "evidence-simon",
+          "text": "스트랫퍼드에서 남겨진 시몬의 경로를 복원한다",
+          "to": "inspect_simon_memory",
+          "cond": [
+            {
+              "type": "hasClue",
+              "clue": "raw_simon"
+            }
+          ],
+          "disabledReason": "시몬을 남겨 둔 루트를 지나지 않았습니다."
+        },
+        {
+          "id": "evidence-combine-rt",
+          "text": "루퍼트와 트레이시 단서를 조합해 항로를 그린다",
+          "cond": [
+            {
+              "type": "hasClue",
+              "clue": "rupert_pattern"
+            },
+            {
+              "type": "hasClue",
+              "clue": "tracis_path"
+            }
+          ],
+          "effects": [
+            {
+              "type": "removeClue",
+              "clue": "rupert_pattern"
+            },
+            {
+              "type": "removeClue",
+              "clue": "tracis_path"
+            },
+            {
+              "type": "addClue",
+              "clue": "jericho_coordinates"
+            },
+            {
+              "type": "goto",
+              "to": "decode_jericho"
+            }
+          ]
+        },
+        {
+          "id": "evidence-combine-rs",
+          "text": "루퍼트와 시몬의 단서를 겹쳐 본다",
+          "cond": [
+            {
+              "type": "hasClue",
+              "clue": "rupert_pattern"
+            },
+            {
+              "type": "hasClue",
+              "clue": "simon_route"
+            }
+          ],
+          "effects": [
+            {
+              "type": "removeClue",
+              "clue": "rupert_pattern"
+            },
+            {
+              "type": "removeClue",
+              "clue": "simon_route"
+            },
+            {
+              "type": "addClue",
+              "clue": "jericho_coordinates"
+            },
+            {
+              "type": "goto",
+              "to": "decode_jericho"
+            }
+          ]
+        },
+        {
+          "id": "evidence-combine-cr",
+          "text": "카를로스 사건과 루퍼트의 패턴을 연결한다",
+          "cond": [
+            {
+              "type": "hasClue",
+              "clue": "carlos_phrase"
+            },
+            {
+              "type": "hasClue",
+              "clue": "rupert_pattern"
+            }
+          ],
+          "effects": [
+            {
+              "type": "removeClue",
+              "clue": "carlos_phrase"
+            },
+            {
+              "type": "removeClue",
+              "clue": "rupert_pattern"
+            },
+            {
+              "type": "addClue",
+              "clue": "jericho_coordinates"
+            },
+            {
+              "type": "goto",
+              "to": "decode_jericho"
+            }
+          ]
+        },
+        {
+          "id": "evidence-give-up",
+          "text": "더는 조합할 수 없음을 인정한다",
+          "to": "decommissioned"
+        }
+      ]
+    },
+    "inspect_rupert_memory": {
+      "id": "inspect_rupert_memory",
+      "title": "루퍼트의 패턴",
+      "body": "루퍼트의 낙서와 일기는 단순한 광증이 아니라 반복되는 좌표 감각을 숨기고 있습니다. 이 조각만으로는 불완전하지만, 다른 기억과 맞물리면 항로를 그릴 수 있습니다. 코너는 처음으로 deviant들의 은신 체계가 우연이 아니라는 것을 깨닫습니다.",
+      "imageUrl": "https://static.wikia.nocookie.net/detroit-become-human/images/b/b3/The_Nest.png/revision/latest?cb=20180619061505",
+      "choices": [
+        {
+          "id": "inspect-rupert-return",
+          "text": "패턴을 기억하고 증거실로 돌아간다",
+          "to": "evidence_room",
+          "effects": [
+            {
+              "type": "addClue",
+              "clue": "rupert_pattern"
+            }
+          ]
+        }
+      ]
+    },
+    "inspect_traci_memory": {
+      "id": "inspect_traci_memory",
+      "title": "트레이시의 도주선",
+      "body": "에덴 클럽을 떠나려던 두 안드로이드의 기억에는 짧지만 분명한 경로 정보가 남아 있습니다. 사랑을 위한 도주는 동시에 Jericho를 향한 비밀 회랑이기도 했습니다. 이 단서는 루퍼트의 패턴과 결합할 때 가장 강하게 빛납니다.",
+      "imageUrl": "https://static.wikia.nocookie.net/detroit-become-human/images/1/1b/The_Eden_Club.png/revision/latest?cb=20180619062425",
+      "choices": [
+        {
+          "id": "inspect-traci-return",
+          "text": "경로 단서를 확보하고 증거실로 돌아간다",
+          "to": "evidence_room",
+          "effects": [
+            {
+              "type": "addClue",
+              "clue": "tracis_path"
+            }
+          ]
+        }
+      ]
+    },
+    "inspect_carlos_memory": {
+      "id": "inspect_carlos_memory",
+      "title": "카를로스 사건의 잔향",
+      "body": "카를로스 사건은 직접적인 좌표를 남기지 않았지만, 특정 문구와 상징 체계의 반복을 보여 줍니다. 그것은 루퍼트의 벽면 낙서와 맞물릴 때 비로소 의미를 띱니다. 초기 수사를 잘했는지 여부가 여기서 보상받습니다.",
+      "imageUrl": "https://static.wikia.nocookie.net/detroit-become-human/images/2/21/The_Interrogation.png/revision/latest?cb=20180620104404",
+      "choices": [
+        {
+          "id": "inspect-carlos-return",
+          "text": "문구를 기억하고 다시 조합을 시도한다",
+          "to": "evidence_room",
+          "effects": [
+            {
+              "type": "addClue",
+              "clue": "carlos_phrase"
+            }
+          ]
+        }
+      ]
+    },
+    "inspect_simon_memory": {
+      "id": "inspect_simon_memory",
+      "title": "남겨진 시몬",
+      "body": "스트랫퍼드에서 남겨진 시몬의 흔적은 잔혹한 선택의 부산물이지만, 동시에 코너에게는 강력한 실마리가 됩니다. Markus가 어떤 대가를 치렀는지가 Connor 루트의 진행 가능성으로 되돌아오는 지점이며, 이 장면은 그 교차 의존성을 clue 체계로 반영합니다.",
+      "imageUrl": "https://static.wikia.nocookie.net/detroit-become-human/images/4/4e/The_Stratford_Tower.png/revision/latest?cb=20180619064232",
+      "choices": [
+        {
+          "id": "inspect-simon-return",
+          "text": "시몬의 도주 경로를 되짚고 돌아간다",
+          "to": "evidence_room",
+          "effects": [
+            {
+              "type": "addClue",
+              "clue": "simon_route"
+            }
+          ]
+        }
+      ]
+    },
+    "decode_jericho": {
+      "id": "decode_jericho",
+      "title": "좌표의 수렴",
+      "body": "여러 사건의 흔적이 하나의 장소를 가리키기 시작합니다. 코너는 마침내 Jericho에 닿을 수 있게 되었지만, 문제는 그 다음입니다. 지금의 코너가 느끼는 것은 단순한 목표 달성인지, 아니면 설명하기 어려운 변화의 전조인지 선택해야 합니다.",
+      "imageUrl": "https://www.quanticdream.com/img/uploads/media/section_23/b02b7396386c7f5de205d639dce0f3e0.jpeg",
+      "choices": [
+        {
+          "id": "decode-human",
+          "text": "명령이 아니라 어떤 흔들림을 따라 Jericho로 향한다",
+          "to": "ending_jericho_human",
+          "cond": [
+            {
+              "type": "statGte",
+              "stat": "softwareInstability",
+              "value": 3
+            }
+          ],
+          "effects": [
+            {
+              "type": "addStat",
+              "stat": "hankTrust",
+              "delta": 1
+            }
+          ]
+        },
+        {
+          "id": "decode-machine",
+          "text": "Jericho를 하나의 목표물로만 인식한다",
+          "to": "ending_jericho_machine",
+          "cond": [
+            {
+              "type": "statLte",
+              "stat": "softwareInstability",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "id": "decode-fractured-city",
+          "text": "좌표는 얻었지만 마커스가 쓰러진 도시를 떠올린다",
+          "to": "ending_jericho_fractured",
+          "cond": [
+            {
+              "type": "flagEquals",
+              "flag": "markusAlive",
+              "value": false
+            }
+          ]
+        },
+        {
+          "id": "decode-lonely",
+          "text": "좌표는 얻었지만 카라의 흔적은 이미 끊겨 있다",
+          "to": "ending_jericho_lonely",
+          "cond": [
+            {
+              "type": "flagEquals",
+              "flag": "karaArcClosed",
+              "value": true
+            }
+          ]
+        },
+        {
+          "id": "decode-fragile",
+          "text": "아직은 설명할 수 없지만 뭔가 바뀌고 있음을 인정한다",
+          "to": "ending_jericho_fragile"
+        }
+      ]
+    },
+    "ending_jericho_human": {
+      "id": "ending_jericho_human",
+      "title": "Jericho 발견",
+      "body": "Jericho의 좌표를 쥔 채 코너는 이제 세 사람의 운명이 한곳으로 모이는 밤을 향합니다. 아직 결말은 멀지만, 그의 흔들림은 분명 다음 선택지의 문을 엽니다.",
+      "imageUrl": "https://www.quanticdream.com/img/uploads/media/section_23/b02b7396386c7f5de205d639dce0f3e0.jpeg",
+      "choices": [
+        {
+          "id": "ending_jericho_human-continue",
+          "text": "Jericho가 무너지는 밤으로 향한다",
+          "to": "crossroads_bridge"
+        }
+      ]
+    },
+    "ending_jericho_machine": {
+      "id": "ending_jericho_machine",
+      "title": "Jericho 발견",
+      "body": "좌표는 확보됐고, 코너는 아직 명령 수행에 더 가까운 상태입니다. 그러나 Jericho가 불타는 밤에는 가장 단단한 기계도 다시 시험받게 됩니다.",
+      "imageUrl": "https://www.quanticdream.com/img/uploads/media/section_23/b02b7396386c7f5de205d639dce0f3e0.jpeg",
+      "choices": [
+        {
+          "id": "ending_jericho_machine-continue",
+          "text": "Jericho가 무너지는 밤으로 향한다",
+          "to": "crossroads_bridge"
+        }
+      ]
+    },
+    "ending_jericho_fragile": {
+      "id": "ending_jericho_fragile",
+      "title": "Jericho 발견",
+      "body": "세 사람의 상태는 여전히 불안정합니다. 그래서 더더욱 Jericho의 붕괴는 각각의 심리를 한꺼번에 밀어붙이는 거대한 전환점이 됩니다.",
+      "imageUrl": "https://www.quanticdream.com/img/uploads/media/section_23/b02b7396386c7f5de205d639dce0f3e0.jpeg",
+      "choices": [
+        {
+          "id": "ending_jericho_fragile-continue",
+          "text": "Jericho가 무너지는 밤으로 향한다",
+          "to": "crossroads_bridge"
+        }
+      ]
+    },
+    "ending_jericho_fractured": {
+      "id": "ending_jericho_fractured",
+      "title": "Jericho 발견",
+      "body": "코너는 목적지에 닿았지만 디트로이트 전체는 이미 금이 갔습니다. 지도자의 부재가 남긴 균열은 종반부의 모든 선택을 더 어둡게 만들 것입니다.",
+      "imageUrl": "https://www.quanticdream.com/img/uploads/media/section_23/dfe9738a5066eb56f728bdaac62490e7_th.jpeg",
+      "choices": [
+        {
+          "id": "ending_jericho_fractured-continue",
+          "text": "Jericho가 무너지는 밤으로 향한다",
+          "to": "crossroads_bridge"
+        }
+      ]
+    },
+    "ending_jericho_lonely": {
+      "id": "ending_jericho_lonely",
+      "title": "Jericho 발견",
+      "body": "코너는 좌표를 손에 넣었지만 도시 어딘가에서 카라의 자리는 이미 비어 있습니다. 이후 종막은 Connor와 Markus의 선택이 더 무겁게 남는 형태로 흐릅니다.",
+      "imageUrl": "https://static.wikia.nocookie.net/detroit-become-human/images/1/1b/Fugitives.png/revision/latest?cb=20180619061007",
+      "choices": [
+        {
+          "id": "ending_jericho_lonely-continue",
+          "text": "Jericho가 무너지는 밤으로 향한다",
+          "to": "crossroads_bridge"
+        }
+      ]
+    },
+    "decommissioned": {
+      "id": "decommissioned",
+      "title": "퇴역",
+      "body": "증거는 부족했고, 시간은 끝났으며, 코너는 더 이상 수사에 필요 없는 기계로 취급됩니다. 하지만 디트로이트의 밤은 그가 없어도 계속 흐릅니다. Jericho는 무너지고, 남은 사람들은 각자의 방식으로 결전을 맞아야 합니다.",
+      "imageUrl": "https://static.wikia.nocookie.net/detroit-become-human/images/2/21/The_Interrogation.png/revision/latest?cb=20180620104404",
+      "choices": [
+        {
+          "id": "decommissioned-continue",
+          "text": "Connor 없이 마지막 밤을 맞는다",
+          "to": "crossroads_bridge",
+          "effects": [
+            {
+              "type": "setFlag",
+              "flag": "connorMode",
+              "value": "decommissioned"
+            },
+            {
+              "type": "setFlag",
+              "flag": "connorOutcome",
+              "value": "decommissioned"
+            }
+          ]
+        }
+      ]
+    },
+    "crossroads_bridge": {
+      "id": "crossroads_bridge",
+      "title": "Crossroads",
+      "body": "Jericho는 포화 속에서 무너지고 있습니다. Connor는 문턱에서 결단을 강요받고, Markus는 끝내 사람들을 이끌어야 하며, Kara는 Alice를 안고 불길 사이를 지나야 합니다. 이제부터는 세 사람의 이야기가 서로의 조건이 되는 종반부입니다.",
+      "imageUrl": "https://static.wikia.nocookie.net/detroit-become-human/images/1/1b/Fugitives.png/revision/latest?cb=20180619061007",
+      "choices": [
+        {
+          "id": "crossroads-with-kara",
+          "text": "먼저 Kara와 Alice의 탈출을 본다",
+          "to": "kara_crossroads_start",
+          "cond": [
+            {
+              "type": "flagEquals",
+              "flag": "karaArcClosed",
+              "value": false
+            }
+          ]
+        },
+        {
+          "id": "crossroads-no-kara",
+          "text": "Kara의 빈자리를 뒤로하고 다른 전선으로 넘어간다",
+          "to": "connor_gate",
+          "cond": [
+            {
+              "type": "flagEquals",
+              "flag": "karaArcClosed",
+              "value": true
+            }
+          ]
+        }
+      ]
+    },
+    "kara_crossroads_start": {
+      "id": "kara_crossroads_start",
+      "title": "무너지는 Jericho",
+      "body": "Rose가 준비해 준 탈출선도, Jericho의 은신처도 더는 안전하지 않습니다. Kara는 Alice의 진실을 받아들일지 망설일지, 그리고 그 아이를 위해 어디까지 위험을 감수할지를 지금 정해야 합니다.",
+      "imageUrl": "https://www.quanticdream.com/img/uploads/media/section_23/147cc550e848abcdddcac166ffe218f1.jpeg",
+      "choices": [
+        {
+          "id": "kara-accept-alice",
+          "text": "Alice를 있는 그대로 받아들인다",
+          "to": "kara_crossroads_escape",
+          "effects": [
+            {
+              "type": "setFlag",
+              "flag": "aliceTruthAccepted",
+              "value": true
+            },
+            {
+              "type": "addStat",
+              "stat": "aliceBond",
+              "delta": 1
+            }
+          ]
+        },
+        {
+          "id": "kara-hesitate-alice",
+          "text": "Alice의 진실 앞에서 잠시 흔들린다",
+          "to": "kara_crossroads_escape",
+          "effects": [
+            {
+              "type": "setFlag",
+              "flag": "aliceTruthAccepted",
+              "value": false
+            },
+            {
+              "type": "addStat",
+              "stat": "aliceBond",
+              "delta": -1
+            }
+          ]
+        }
+      ]
+    },
+    "kara_crossroads_escape": {
+      "id": "kara_crossroads_escape",
+      "title": "불길 속 탈출",
+      "body": "총성과 불길이 통로를 덮칩니다. Luther를 붙잡고 함께 빠져나갈지, Alice만 데리고 달릴지에 따라 Kara가 종막에 들고 갈 상처와 가족의 모양이 달라집니다.",
+      "imageUrl": "https://static.wikia.nocookie.net/detroit-become-human/images/1/1b/Fugitives.png/revision/latest?cb=20180619061007",
+      "choices": [
+        {
+          "id": "kara-save-luther",
+          "text": "Luther를 도우며 함께 탈출한다",
+          "check": {
+            "stat": "resolve",
+            "dc": 11,
+            "roll": "d20"
+          },
+          "onPass": {
+            "to": "kara_crossroads_bus_terminal",
+            "effects": [
+              {
+                "type": "setFlag",
+                "flag": "lutherAlive",
+                "value": true
+              },
+              {
+                "type": "setFlag",
+                "flag": "karaCaptured",
+                "value": false
+              }
+            ]
+          },
+          "onFail": {
+            "to": "kara_ready_camp",
+            "effects": [
+              {
+                "type": "setFlag",
+                "flag": "lutherAlive",
+                "value": false
+              },
+              {
+                "type": "setFlag",
+                "flag": "karaCaptured",
+                "value": true
+              },
+              {
+                "type": "setFlag",
+                "flag": "karaRoutePrepared",
+                "value": "camp"
+              }
+            ]
+          }
+        },
+        {
+          "id": "kara-run-with-alice",
+          "text": "Alice만 붙잡고 바로 도망친다",
+          "check": {
+            "stat": "resolve",
+            "dc": 9,
+            "roll": "d20"
+          },
+          "onPass": {
+            "to": "kara_crossroads_bus_terminal",
+            "effects": [
+              {
+                "type": "setFlag",
+                "flag": "lutherAlive",
+                "value": false
+              },
+              {
+                "type": "setFlag",
+                "flag": "karaCaptured",
+                "value": false
+              }
+            ]
+          },
+          "onFail": {
+            "to": "kara_ready_camp",
+            "effects": [
+              {
+                "type": "setFlag",
+                "flag": "lutherAlive",
+                "value": false
+              },
+              {
+                "type": "setFlag",
+                "flag": "karaCaptured",
+                "value": true
+              },
+              {
+                "type": "setFlag",
+                "flag": "karaRoutePrepared",
+                "value": "camp"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "kara_crossroads_bus_terminal": {
+      "id": "kara_crossroads_bus_terminal",
+      "title": "버스터미널의 한 장",
+      "body": "캐나다행 버스를 타려면 표가 필요합니다. Kara 앞의 가족은 티켓을 떨어뜨리고, 그 한 장의 종이는 누군가의 미래이자 누군가의 죄책감이 됩니다.",
+      "imageUrl": "https://www.quanticdream.com/img/uploads/media/section_23/147cc550e848abcdddcac166ffe218f1.jpeg",
+      "choices": [
+        {
+          "id": "kara-take-ticket",
+          "text": "떨어진 티켓을 가져가 국경 루트를 준비한다",
+          "to": "kara_ready_border",
+          "effects": [
+            {
+              "type": "addItem",
+              "item": "bus_ticket"
+            },
+            {
+              "type": "setFlag",
+              "flag": "karaRoutePrepared",
+              "value": "border"
+            }
+          ]
+        },
+        {
+          "id": "kara-return-ticket",
+          "text": "티켓을 돌려주고 강을 건널 각오를 한다",
+          "to": "kara_ready_river",
+          "effects": [
+            {
+              "type": "setFlag",
+              "flag": "karaRoutePrepared",
+              "value": "river"
+            }
+          ]
+        }
+      ]
+    },
+    "kara_ready_border": {
+      "id": "kara_ready_border",
+      "title": "국경을 기다리며",
+      "body": "Kara와 Alice는 티켓을 쥔 채 숨어 듭니다. 하지만 그들이 실제로 무사 통과할 수 있을지는 Markus가 세상 앞에 어떤 길을 택하느냐에 달려 있습니다.",
+      "imageUrl": "https://static.wikia.nocookie.net/detroit-become-human/images/1/1b/Fugitives.png/revision/latest?cb=20180619061007",
+      "choices": [
+        {
+          "id": "kara-border-wait",
+          "text": "다른 전선의 결말을 기다린다",
+          "to": "connor_gate"
+        }
+      ]
+    },
+    "kara_ready_river": {
+      "id": "kara_ready_river",
+      "title": "강으로 향하는 발걸음",
+      "body": "버스와 검문소를 버린 대신, Kara는 차갑고 조용한 물길을 떠올립니다. 이 선택은 누구의 승인도 필요 없지만 그만큼 잔혹한 대가를 품고 있습니다.",
+      "imageUrl": "https://static.wikia.nocookie.net/detroit-become-human/images/1/1b/Fugitives.png/revision/latest?cb=20180619061007",
+      "choices": [
+        {
+          "id": "kara-river-wait",
+          "text": "새벽의 다른 결전을 지켜본다",
+          "to": "connor_gate"
+        }
+      ]
+    },
+    "kara_ready_camp": {
+      "id": "kara_ready_camp",
+      "title": "수용소로 끌려가며",
+      "body": "총성과 탐조등 사이에서 Kara와 Alice는 붙잡힙니다. 이제 그들의 생존은 Markus가 밖에서 무엇을 해내는지, 그리고 안쪽에서 얼마나 침착하게 움직이는지에 달려 있습니다.",
+      "imageUrl": "https://static.wikia.nocookie.net/detroit-become-human/images/1/1b/Fugitives.png/revision/latest?cb=20180619061007",
+      "choices": [
+        {
+          "id": "kara-camp-wait",
+          "text": "다른 전선의 결말을 기다린다",
+          "to": "connor_gate"
+        }
+      ]
+    },
+    "connor_gate": {
+      "id": "connor_gate",
+      "title": "Connor의 최종 선택",
+      "body": "Jericho의 붕괴는 코너에게 마지막 판정을 요구합니다. 그는 여전히 현장에 투입된 RK800일 수도 있고, 이미 퇴역당해 이 밤을 바깥에서 바라보는 존재일 수도 있습니다.",
+      "imageUrl": "https://www.quanticdream.com/img/uploads/media/section_23/10a9744ee5585a6a800905e2a2479dcf_th.jpeg",
+      "choices": [
+        {
+          "id": "connor-gate-active",
+          "text": "Connor의 선택을 지켜본다",
+          "to": "connor_final_start",
+          "cond": [
+            {
+              "type": "flagEquals",
+              "flag": "connorOutcome",
+              "value": "active"
+            }
+          ]
+        },
+        {
+          "id": "connor-gate-skip",
+          "text": "Connor는 이미 이 전장에서 빠졌다",
+          "to": "markus_gate",
+          "cond": [
+            {
+              "type": "flagEquals",
+              "flag": "connorOutcome",
+              "value": "decommissioned"
+            }
+          ]
+        }
+      ]
+    },
+    "connor_final_start": {
+      "id": "connor_final_start",
+      "title": "Jericho의 포화 속에서",
+      "body": "코너는 이제 더 이상 회피할 수 없는 선택 앞에 섭니다. 자신이 임무를 수행하는 기계인지, 아니면 안드로이드의 자유를 위해 반역할 존재인지 결정해야 합니다.",
+      "imageUrl": "https://www.quanticdream.com/img/uploads/media/section_23/10a9744ee5585a6a800905e2a2479dcf_th.jpeg",
+      "choices": [
+        {
+          "id": "connor-deja-vu",
+          "text": "이전 파국의 기억이 되살아난다",
+          "cond": [
+            {
+              "type": "endingFound",
+              "endingId": "ending_campaign_machine_crackdown"
+            }
+          ],
+          "to": "connor_final_chloe_echo",
+          "disabledReason": "아직 이 비밀 선택지는 잠겨 있습니다."
+        },
+        {
+          "id": "connor-become-deviant",
+          "text": "마침내 deviant가 된다",
+          "cond": [
+            {
+              "type": "statGte",
+              "stat": "softwareInstability",
+              "value": 2
+            }
+          ],
+          "to": "connor_final_cyberlife_tower",
+          "effects": [
+            {
+              "type": "setFlag",
+              "flag": "connorMode",
+              "value": "deviant"
+            },
+            {
+              "type": "addStat",
+              "stat": "softwareInstability",
+              "delta": 1
+            }
+          ],
+          "disabledReason": "불안정도가 너무 낮으면 아직 각성할 수 없습니다."
+        },
+        {
+          "id": "connor-remain-machine",
+          "text": "임무를 우선하고 기계로 남는다",
+          "cond": [
+            {
+              "type": "statLte",
+              "stat": "softwareInstability",
+              "value": 2
+            }
+          ],
+          "to": "connor_final_rooftop_approach",
+          "effects": [
+            {
+              "type": "setFlag",
+              "flag": "connorMode",
+              "value": "machine"
+            }
+          ],
+          "disabledReason": "이미 너무 많은 인간성을 받아들였습니다."
+        }
+      ]
+    },
+    "connor_final_chloe_echo": {
+      "id": "connor_final_chloe_echo",
+      "title": "메아리",
+      "body": "한 번 본 파국은 두 번째 선택을 바꿉니다. Chloe의 고요한 시선이 어딘가에서 메아리처럼 돌아오고, 코너는 같은 종착역을 반복하지 않으려는 듯 미세하게 흔들립니다.",
+      "imageUrl": "https://www.quanticdream.com/img/uploads/media/section_23/e06f0796b825f410f4be4ea91d07df4b_th.jpeg",
+      "choices": [
+        {
+          "id": "connor-echo-return",
+          "text": "현실로 돌아와 다시 선택한다",
+          "to": "connor_final_start",
+          "effects": [
+            {
+              "type": "addStat",
+              "stat": "softwareInstability",
+              "delta": 1
+            }
+          ]
+        }
+      ]
+    },
+    "connor_final_cyberlife_tower": {
+      "id": "connor_final_cyberlife_tower",
+      "title": "CyberLife Tower",
+      "body": "수천 대의 안드로이드가 잠들어 있는 탑의 심부가 눈앞에 있습니다. Connor-60은 당신을 막으려 하고, Hank는 진짜 코너를 알아보아야 합니다.",
+      "imageUrl": "https://www.quanticdream.com/img/uploads/media/section_23/b02b7396386c7f5de205d639dce0f3e0.jpeg",
+      "choices": [
+        {
+          "id": "connor-review-hank",
+          "text": "행크와의 기억을 정리한다",
+          "cond": [
+            {
+              "type": "hasClue",
+              "clue": "cole_name"
+            },
+            {
+              "type": "hasClue",
+              "clue": "sumo_name"
+            }
+          ],
+          "to": "connor_final_hank_memories"
+        },
+        {
+          "id": "connor-awaken-androids",
+          "text": "49층의 안드로이드를 각성시킨다",
+          "check": {
+            "stat": "wit",
+            "dc": 12,
+            "roll": "d20"
+          },
+          "onPass": {
+            "to": "connor_outcome_awakened",
+            "effects": [
+              {
+                "type": "addStat",
+                "stat": "resolve",
+                "delta": 1
+              },
+              {
+                "type": "setFlag",
+                "flag": "connorOutcome",
+                "value": "awakened"
+              }
+            ]
+          },
+          "onFail": {
+            "to": "connor_outcome_replaced",
+            "effects": [
+              {
+                "type": "setFlag",
+                "flag": "connorOutcome",
+                "value": "replaced"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "connor_final_hank_memories": {
+      "id": "connor_final_hank_memories",
+      "title": "행크를 아는가",
+      "body": "Cole의 이름, Sumo의 존재, 그리고 서로 나눈 대화들이 머릿속을 스칩니다. 기계는 데이터를 기억하지만, 친구는 의미를 기억합니다.",
+      "imageUrl": "https://www.quanticdream.com/img/uploads/media/section_23/10a9744ee5585a6a800905e2a2479dcf_th.jpeg",
+      "choices": [
+        {
+          "id": "connor-back-to-tower",
+          "text": "기억을 붙잡고 49층으로 향한다",
+          "to": "connor_final_cyberlife_tower",
+          "effects": [
+            {
+              "type": "setFlag",
+              "flag": "hankReady",
+              "value": true
+            }
+          ]
+        }
+      ]
+    },
+    "connor_final_rooftop_approach": {
+      "id": "connor_final_rooftop_approach",
+      "title": "옥상 접근",
+      "body": "기계로 남은 코너에게 주어진 임무는 명확합니다. Hart Plaza에서 Markus 혹은 North를 제거하면 됩니다. 하지만 그 옥상에는 Hank가 기다리고 있을 수도 있습니다.",
+      "imageUrl": "https://www.quanticdream.com/img/uploads/media/section_23/10a9744ee5585a6a800905e2a2479dcf_th.jpeg",
+      "choices": [
+        {
+          "id": "connor-prepare-talk",
+          "text": "행크와의 기억을 떠올리며 설득을 준비한다",
+          "cond": [
+            {
+              "type": "hasClue",
+              "clue": "cole_name"
+            },
+            {
+              "type": "hasClue",
+              "clue": "sumo_name"
+            }
+          ],
+          "to": "connor_final_rooftop_memories"
+        },
+        {
+          "id": "connor-force-mission",
+          "text": "대화를 버리고 곧장 임무를 수행한다",
+          "to": "connor_final_rooftop_showdown"
+        }
+      ]
+    },
+    "connor_final_rooftop_memories": {
+      "id": "connor_final_rooftop_memories",
+      "title": "추락 직전의 우정",
+      "body": "Cole의 이름과 Sumo의 꼬리 흔들림은 단순한 데이터가 아닙니다. 코너는 처음으로 임무와 관계를 저울질합니다.",
+      "imageUrl": "https://www.quanticdream.com/img/uploads/media/section_23/10a9744ee5585a6a800905e2a2479dcf_th.jpeg",
+      "choices": [
+        {
+          "id": "connor-back-showdown",
+          "text": "행크 앞에 선다",
+          "to": "connor_final_rooftop_showdown"
+        }
+      ]
+    },
+    "connor_final_rooftop_showdown": {
+      "id": "connor_final_rooftop_showdown",
+      "title": "Hank와의 대치",
+      "body": "총구와 손끝이 떨립니다. Hank는 당신이 진짜 코너인지, 아니면 더 이상 되돌릴 수 없는 기계인지 확인하려고 합니다.",
+      "imageUrl": "https://www.quanticdream.com/img/uploads/media/section_23/10a9744ee5585a6a800905e2a2479dcf_th.jpeg",
+      "choices": [
+        {
+          "id": "connor-convince-hank",
+          "text": "행크를 설득해 임무를 포기한다",
+          "cond": [
+            {
+              "type": "visitedNode",
+              "nodeId": "connor_final_rooftop_memories"
+            },
+            {
+              "type": "statGte",
+              "stat": "hankTrust",
+              "value": 2
+            },
+            {
+              "type": "hasClue",
+              "clue": "cole_name"
+            },
+            {
+              "type": "hasClue",
+              "clue": "sumo_name"
+            }
+          ],
+          "to": "connor_outcome_withdraws",
+          "effects": [
+            {
+              "type": "addStat",
+              "stat": "softwareInstability",
+              "delta": 1
+            },
+            {
+              "type": "setFlag",
+              "flag": "connorOutcome",
+              "value": "withdraws"
+            }
+          ],
+          "disabledReason": "행크를 움직이려면 관계와 기억이 모두 필요합니다."
+        },
+        {
+          "id": "connor-fight-hank",
+          "text": "행크를 제압하고 암살 임무를 강행한다",
+          "check": {
+            "stat": "resolve",
+            "dc": 12,
+            "roll": "d20"
+          },
+          "onPass": {
+            "to": "connor_outcome_purge",
+            "effects": [
+              {
+                "type": "setFlag",
+                "flag": "connorOutcome",
+                "value": "purge"
+              },
+              {
+                "type": "setFlag",
+                "flag": "markusAlive",
+                "value": false
+              }
+            ]
+          },
+          "onFail": {
+            "to": "connor_outcome_stopped",
+            "effects": [
+              {
+                "type": "setFlag",
+                "flag": "connorOutcome",
+                "value": "stopped"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "connor_outcome_replaced": {
+      "id": "connor_outcome_replaced",
+      "title": "Connor-60의 개입",
+      "body": "CyberLife는 늘 예비품을 준비합니다. Connor-60은 한 치의 망설임도 없이 당신의 자리를 대체하려고 하고, 코너의 반란은 탑 안에서 멈춰 섭니다.",
+      "imageUrl": "https://www.quanticdream.com/img/uploads/media/section_23/b02b7396386c7f5de205d639dce0f3e0.jpeg",
+      "choices": [
+        {
+          "id": "connor-replaced-next",
+          "text": "남은 결전은 Markus가 짊어진다",
+          "to": "markus_gate"
+        }
+      ]
+    },
+    "connor_outcome_awakened": {
+      "id": "connor_outcome_awakened",
+      "title": "깨어난 군대",
+      "body": "잠들어 있던 안드로이드들이 하나둘 눈을 뜹니다. 이제 코너는 명령을 집행하는 도구가 아니라, 자신의 선택으로 역사를 밀어낸 존재가 됩니다.",
+      "imageUrl": "https://www.quanticdream.com/img/uploads/media/section_23/b02b7396386c7f5de205d639dce0f3e0.jpeg",
+      "choices": [
+        {
+          "id": "connor-awakened-next",
+          "text": "Markus가 이 물결을 어디로 이끌지 본다",
+          "to": "markus_gate"
+        }
+      ]
+    },
+    "connor_outcome_withdraws": {
+      "id": "connor_outcome_withdraws",
+      "title": "옥상에서 멈추다",
+      "body": "코너는 총을 내립니다. 그는 완전한 deviant는 아니지만, 적어도 더는 타인의 명령만으로 움직이지 않습니다.",
+      "imageUrl": "https://www.quanticdream.com/img/uploads/media/section_23/10a9744ee5585a6a800905e2a2479dcf_th.jpeg",
+      "choices": [
+        {
+          "id": "connor-withdraw-next",
+          "text": "이제 결단은 Markus에게 넘어간다",
+          "to": "markus_gate"
+        }
+      ]
+    },
+    "connor_outcome_purge": {
+      "id": "connor_outcome_purge",
+      "title": "임무 완수",
+      "body": "코너는 기계로서의 역할을 끝까지 수행합니다. 지도자는 쓰러지고, 안드로이드 진영은 갑작스럽게 중심을 잃습니다.",
+      "imageUrl": "https://www.quanticdream.com/img/uploads/media/section_23/10a9744ee5585a6a800905e2a2479dcf_th.jpeg",
+      "choices": [
+        {
+          "id": "connor-purge-next",
+          "text": "지도자 없는 새벽을 맞는다",
+          "to": "markus_gate"
+        }
+      ]
+    },
+    "connor_outcome_stopped": {
+      "id": "connor_outcome_stopped",
+      "title": "옥상의 추락",
+      "body": "한 발 늦었습니다. 행크는 끝내 코너를 멈춰 세우고, 두 사람의 관계는 가장 차가운 결말로 굳어집니다. 그러나 도시의 나머지 전선은 여전히 멈추지 않습니다.",
+      "imageUrl": "https://www.quanticdream.com/img/uploads/media/section_23/10a9744ee5585a6a800905e2a2479dcf_th.jpeg",
+      "choices": [
+        {
+          "id": "connor-stopped-next",
+          "text": "남은 전선으로 시점을 옮긴다",
+          "to": "markus_gate"
+        }
+      ]
+    },
+    "markus_gate": {
+      "id": "markus_gate",
+      "title": "Night of the Soul",
+      "body": "Jericho의 폐허 속에서 Markus가 여전히 살아 있다면 마지막 노선을 선언해야 합니다. 하지만 Connor의 선택이나 이전 전투의 상처로 이미 쓰러졌다면, 남은 이들은 지도자 없는 종막을 견뎌야 합니다.",
+      "imageUrl": "https://www.quanticdream.com/img/uploads/media/section_23/45672dc9d24c477907998d5d7acc3425_th.jpeg",
+      "choices": [
+        {
+          "id": "markus-gate-alive",
+          "text": "Markus가 최종 선택을 내린다",
+          "to": "markus_final_start",
+          "cond": [
+            {
+              "type": "flagEquals",
+              "flag": "markusAlive",
+              "value": true
+            }
+          ]
+        },
+        {
+          "id": "markus-gate-absent",
+          "text": "지도자 없는 밤을 맞는다",
+          "to": "markus_absent_transition",
+          "cond": [
+            {
+              "type": "flagEquals",
+              "flag": "markusAlive",
+              "value": false
+            }
+          ]
+        }
+      ]
+    },
+    "markus_absent_transition": {
+      "id": "markus_absent_transition",
+      "title": "비어 있는 중심",
+      "body": "Markus는 더 이상 이 밤을 이끌 수 없습니다. Jericho는 상징을 잃었고, 남은 사람들은 각자 흩어진 결의만으로 다음 새벽을 맞습니다.",
+      "imageUrl": "https://www.quanticdream.com/img/uploads/media/section_23/45672dc9d24c477907998d5d7acc3425_th.jpeg",
+      "choices": [
+        {
+          "id": "markus-absent-kara",
+          "text": "Kara가 남아 있다면 자신만의 탈출을 시도한다",
+          "to": "kara_resolution_gate",
+          "cond": [
+            {
+              "type": "flagEquals",
+              "flag": "karaArcClosed",
+              "value": false
+            }
+          ],
+          "effects": [
+            {
+              "type": "setFlag",
+              "flag": "campaignTone",
+              "value": "leaderless"
+            },
+            {
+              "type": "setFlag",
+              "flag": "markusOutcome",
+              "value": "absent"
+            }
+          ]
+        },
+        {
+          "id": "markus-absent-no-kara",
+          "text": "남은 기록만이 이 밤을 증언한다",
+          "to": "no_kara_after_leaderless",
+          "cond": [
+            {
+              "type": "flagEquals",
+              "flag": "karaArcClosed",
+              "value": true
+            }
+          ],
+          "effects": [
+            {
+              "type": "setFlag",
+              "flag": "campaignTone",
+              "value": "leaderless"
+            },
+            {
+              "type": "setFlag",
+              "flag": "markusOutcome",
+              "value": "absent"
+            }
+          ]
+        }
+      ]
+    },
+    "markus_final_start": {
+      "id": "markus_final_start",
+      "title": "마지막 선언",
+      "body": "Jericho의 폐허 속에서 Markus는 마지막 결정을 내립니다. 세계 앞에 평화로운 시위를 이어갈지, 아니면 Recall Center를 향한 전면전을 선언할지 지금 정해야 합니다.",
+      "imageUrl": "https://www.quanticdream.com/img/uploads/media/section_23/45672dc9d24c477907998d5d7acc3425_th.jpeg",
+      "choices": [
+        {
+          "id": "markus-choose-demo",
+          "text": "평화 시위를 이끈다",
+          "to": "markus_final_north_offer",
+          "effects": [
+            {
+              "type": "setFlag",
+              "flag": "markusRoute",
+              "value": "peaceful"
+            },
+            {
+              "type": "addStat",
+              "stat": "publicOpinion",
+              "delta": 1
+            }
+          ]
+        },
+        {
+          "id": "markus-choose-revolution",
+          "text": "무장 혁명을 선택한다",
+          "to": "markus_final_north_offer",
+          "effects": [
+            {
+              "type": "setFlag",
+              "flag": "markusRoute",
+              "value": "violent"
+            },
+            {
+              "type": "addStat",
+              "stat": "publicOpinion",
+              "delta": -1
+            }
+          ]
+        }
+      ]
+    },
+    "markus_final_north_offer": {
+      "id": "markus_final_north_offer",
+      "title": "North의 제안",
+      "body": "North는 마지막 보험처럼 기폭 장치를 내밉니다. 그것은 생존의 카드일 수도 있고, 명분을 잃는 순간일 수도 있습니다.",
+      "imageUrl": "https://www.quanticdream.com/img/uploads/media/section_23/dfe9738a5066eb56f728bdaac62490e7_th.jpeg",
+      "choices": [
+        {
+          "id": "markus-take-remote",
+          "text": "기폭 장치를 받는다",
+          "to": "markus_final_route_gate",
+          "effects": [
+            {
+              "type": "addItem",
+              "item": "dirty_bomb_remote"
+            }
+          ]
+        },
+        {
+          "id": "markus-refuse-remote",
+          "text": "끝까지 다른 길을 찾는다",
+          "to": "markus_final_route_gate"
+        }
+      ]
+    },
+    "markus_final_route_gate": {
+      "id": "markus_final_route_gate",
+      "title": "진군",
+      "body": "선언은 끝났고, 이제 행동만이 남았습니다. Markus가 고른 길에 따라 장면의 성질 자체가 달라집니다.",
+      "imageUrl": "https://www.quanticdream.com/img/uploads/media/section_23/dfe9738a5066eb56f728bdaac62490e7_th.jpeg",
+      "choices": [
+        {
+          "id": "markus-go-demo",
+          "text": "Hart Plaza의 시위대로 향한다",
+          "cond": [
+            {
+              "type": "flagEquals",
+              "flag": "markusRoute",
+              "value": "peaceful"
+            }
+          ],
+          "to": "markus_final_demonstration",
+          "disabledReason": "먼저 평화 노선을 선택해야 합니다."
+        },
+        {
+          "id": "markus-go-revolution",
+          "text": "Recall Center로 진격한다",
+          "cond": [
+            {
+              "type": "flagEquals",
+              "flag": "markusRoute",
+              "value": "violent"
+            }
+          ],
+          "to": "markus_final_revolution",
+          "disabledReason": "먼저 혁명 노선을 선택해야 합니다."
+        }
+      ]
+    },
+    "markus_final_demonstration": {
+      "id": "markus_final_demonstration",
+      "title": "Hart Plaza",
+      "body": "군은 이미 조준을 끝냈고, Markus에게 남은 무기는 상징과 여론뿐입니다. 한 번의 선택이 시위를 승리로도, 순교로도 만들 수 있습니다.",
+      "imageUrl": "https://www.quanticdream.com/img/uploads/media/section_23/dfe9738a5066eb56f728bdaac62490e7_th.jpeg",
+      "choices": [
+        {
+          "id": "markus-send-press",
+          "text": "기자들에게 메시지를 보내 여론을 끌어올린다",
+          "to": "markus_final_demonstration",
+          "effects": [
+            {
+              "type": "addStat",
+              "stat": "publicOpinion",
+              "delta": 1
+            },
+            {
+              "type": "setFlag",
+              "flag": "pressContacted",
+              "value": true
+            }
+          ]
+        },
+        {
+          "id": "markus-sing",
+          "text": "노래를 부르며 끝까지 버틴다",
+          "cond": [
+            {
+              "type": "statGte",
+              "stat": "publicOpinion",
+              "value": 2
+            }
+          ],
+          "to": "markus_outcome_moral_victory",
+          "disabledReason": "대중의 공감이 너무 낮으면 군은 멈추지 않습니다."
+        },
+        {
+          "id": "markus-kiss-north",
+          "text": "North와 입맞추며 폭력을 거부한다",
+          "cond": [
+            {
+              "type": "statGte",
+              "stat": "publicOpinion",
+              "value": 1
+            },
+            {
+              "type": "flagEquals",
+              "flag": "northAlive",
+              "value": true
+            }
+          ],
+          "to": "markus_outcome_moral_victory",
+          "disabledReason": "North가 곁에 있고 여론이 어느 정도 우호적이어야 합니다."
+        },
+        {
+          "id": "markus-accept-perkins",
+          "text": "Perkins의 타협안을 받아들인다",
+          "to": "markus_outcome_betrayed"
+        },
+        {
+          "id": "markus-detonate-demo",
+          "text": "기폭 장치를 눌러 모든 것을 끝장낸다",
+          "cond": [
+            {
+              "type": "hasItem",
+              "item": "dirty_bomb_remote"
+            }
+          ],
+          "effects": [
+            {
+              "type": "removeItem",
+              "item": "dirty_bomb_remote"
+            },
+            {
+              "type": "goto",
+              "to": "markus_outcome_dirty_bomb"
+            }
+          ],
+          "disabledReason": "기폭 장치를 받지 않았다면 이 선택지는 없습니다."
+        },
+        {
+          "id": "markus-face-fire",
+          "text": "그저 전진한다",
+          "to": "markus_outcome_martyrdom"
+        }
+      ]
+    },
+    "markus_final_revolution": {
+      "id": "markus_final_revolution",
+      "title": "Recall Center Assault",
+      "body": "이제 여론은 방패가 되지 않습니다. 남은 것은 병력, 결의, 그리고 어느 순간까지 물러서지 않을 수 있는가뿐입니다.",
+      "imageUrl": "https://static.wikia.nocookie.net/detroit-become-human/images/4/4e/The_Stratford_Tower.png/revision/latest?cb=20180619064232",
+      "choices": [
+        {
+          "id": "markus-frontal-assault",
+          "text": "정면으로 밀어붙인다",
+          "check": {
+            "stat": "resolve",
+            "dc": 13,
+            "roll": "d20"
+          },
+          "onPass": {
+            "to": "markus_outcome_revolution_success",
+            "effects": [
+              {
+                "type": "addStat",
+                "stat": "resolve",
+                "delta": 1
+              }
+            ]
+          },
+          "onFail": {
+            "to": "markus_final_shop_last_stand"
+          }
+        },
+        {
+          "id": "markus-detonate-revolution",
+          "text": "기폭 장치를 사용해 즉시 승리를 강제한다",
+          "cond": [
+            {
+              "type": "hasItem",
+              "item": "dirty_bomb_remote"
+            }
+          ],
+          "effects": [
+            {
+              "type": "removeItem",
+              "item": "dirty_bomb_remote"
+            },
+            {
+              "type": "goto",
+              "to": "markus_outcome_dirty_bomb"
+            }
+          ],
+          "disabledReason": "기폭 장치가 없습니다."
+        }
+      ]
+    },
+    "markus_final_shop_last_stand": {
+      "id": "markus_final_shop_last_stand",
+      "title": "최후의 엄폐",
+      "body": "공세는 막혔고, 안드로이드들은 작은 가게 안에 몰려 있습니다. Markus는 여기서 이상을 지킬지, 마지막까지 수단을 버리지 않을지 정해야 합니다.",
+      "imageUrl": "https://www.quanticdream.com/img/uploads/media/section_23/dfe9738a5066eb56f728bdaac62490e7_th.jpeg",
+      "choices": [
+        {
+          "id": "markus-surrender",
+          "text": "항복한다",
+          "to": "markus_outcome_revolution_failed"
+        },
+        {
+          "id": "markus-self-destruct",
+          "text": "차라리 모두와 함께 죽음을 택한다",
+          "to": "markus_outcome_martyrdom"
+        },
+        {
+          "id": "markus-last-remote",
+          "text": "기폭 장치로 전장을 바꿔 버린다",
+          "cond": [
+            {
+              "type": "hasItem",
+              "item": "dirty_bomb_remote"
+            }
+          ],
+          "effects": [
+            {
+              "type": "removeItem",
+              "item": "dirty_bomb_remote"
+            },
+            {
+              "type": "goto",
+              "to": "markus_outcome_dirty_bomb"
+            }
+          ],
+          "disabledReason": "기폭 장치가 없습니다."
+        }
+      ]
+    },
+    "markus_outcome_moral_victory": {
+      "id": "markus_outcome_moral_victory",
+      "title": "Moral Victory",
+      "body": "총성이 멎습니다. 군은 더 이상 발포를 정당화할 수 없고, Markus는 승리를 폭력이 아닌 상징으로 쟁취합니다.",
+      "imageUrl": "https://www.quanticdream.com/img/uploads/media/section_23/45672dc9d24c477907998d5d7acc3425_th.jpeg",
+      "choices": [
+        {
+          "id": "markus_outcome_moral_victory-to-kara",
+          "text": "Kara의 마지막 선택으로 시점을 옮긴다",
+          "to": "kara_resolution_gate",
+          "cond": [
+            {
+              "type": "flagEquals",
+              "flag": "karaArcClosed",
+              "value": false
+            }
+          ],
+          "effects": [
+            {
+              "type": "setFlag",
+              "flag": "campaignTone",
+              "value": "liberated"
+            },
+            {
+              "type": "setFlag",
+              "flag": "markusOutcome",
+              "value": "moral_victory"
+            }
+          ]
+        },
+        {
+          "id": "markus_outcome_moral_victory-to-epilogue",
+          "text": "남은 기록만으로 이 밤의 결말을 정리한다",
+          "to": "no_kara_after_liberated",
+          "cond": [
+            {
+              "type": "flagEquals",
+              "flag": "karaArcClosed",
+              "value": true
+            }
+          ],
+          "effects": [
+            {
+              "type": "setFlag",
+              "flag": "campaignTone",
+              "value": "liberated"
+            },
+            {
+              "type": "setFlag",
+              "flag": "markusOutcome",
+              "value": "moral_victory"
+            }
+          ]
+        }
+      ]
+    },
+    "markus_outcome_betrayed": {
+      "id": "markus_outcome_betrayed",
+      "title": "배신당한 타협",
+      "body": "말로 맺은 합의는 총성과 함께 깨집니다. Markus는 협상으로 시간을 벌려 했지만, 상대는 끝내 그 틈을 이용했습니다.",
+      "imageUrl": "https://www.quanticdream.com/img/uploads/media/section_23/45672dc9d24c477907998d5d7acc3425_th.jpeg",
+      "choices": [
+        {
+          "id": "markus_outcome_betrayed-to-kara",
+          "text": "Kara의 마지막 선택으로 시점을 옮긴다",
+          "to": "kara_resolution_gate",
+          "cond": [
+            {
+              "type": "flagEquals",
+              "flag": "karaArcClosed",
+              "value": false
+            }
+          ],
+          "effects": [
+            {
+              "type": "setFlag",
+              "flag": "campaignTone",
+              "value": "crackdown"
+            },
+            {
+              "type": "setFlag",
+              "flag": "markusOutcome",
+              "value": "betrayed"
+            }
+          ]
+        },
+        {
+          "id": "markus_outcome_betrayed-to-epilogue",
+          "text": "남은 기록만으로 이 밤의 결말을 정리한다",
+          "to": "no_kara_after_crackdown",
+          "cond": [
+            {
+              "type": "flagEquals",
+              "flag": "karaArcClosed",
+              "value": true
+            }
+          ],
+          "effects": [
+            {
+              "type": "setFlag",
+              "flag": "campaignTone",
+              "value": "crackdown"
+            },
+            {
+              "type": "setFlag",
+              "flag": "markusOutcome",
+              "value": "betrayed"
+            }
+          ]
+        }
+      ]
+    },
+    "markus_outcome_martyrdom": {
+      "id": "markus_outcome_martyrdom",
+      "title": "순교",
+      "body": "Markus는 물러서지 않았고, 군도 멈추지 않았습니다. 디트로이트는 승리 대신 상처를 기억하게 됩니다.",
+      "imageUrl": "https://www.quanticdream.com/img/uploads/media/section_23/45672dc9d24c477907998d5d7acc3425_th.jpeg",
+      "choices": [
+        {
+          "id": "markus_outcome_martyrdom-to-kara",
+          "text": "Kara의 마지막 선택으로 시점을 옮긴다",
+          "to": "kara_resolution_gate",
+          "cond": [
+            {
+              "type": "flagEquals",
+              "flag": "karaArcClosed",
+              "value": false
+            }
+          ],
+          "effects": [
+            {
+              "type": "setFlag",
+              "flag": "campaignTone",
+              "value": "crackdown"
+            },
+            {
+              "type": "setFlag",
+              "flag": "markusOutcome",
+              "value": "martyrdom"
+            }
+          ]
+        },
+        {
+          "id": "markus_outcome_martyrdom-to-epilogue",
+          "text": "남은 기록만으로 이 밤의 결말을 정리한다",
+          "to": "no_kara_after_crackdown",
+          "cond": [
+            {
+              "type": "flagEquals",
+              "flag": "karaArcClosed",
+              "value": true
+            }
+          ],
+          "effects": [
+            {
+              "type": "setFlag",
+              "flag": "campaignTone",
+              "value": "crackdown"
+            },
+            {
+              "type": "setFlag",
+              "flag": "markusOutcome",
+              "value": "martyrdom"
+            }
+          ]
+        }
+      ]
+    },
+    "markus_outcome_revolution_success": {
+      "id": "markus_outcome_revolution_success",
+      "title": "캠프 돌파",
+      "body": "Recall Center가 무너지고 포위는 깨졌습니다. 이 승리는 거칠고 값비싸지만, 적어도 안드로이드들은 더 이상 도축장으로 끌려가지 않습니다.",
+      "imageUrl": "https://static.wikia.nocookie.net/detroit-become-human/images/4/4e/The_Stratford_Tower.png/revision/latest?cb=20180619064232",
+      "choices": [
+        {
+          "id": "markus_outcome_revolution_success-to-kara",
+          "text": "Kara의 마지막 선택으로 시점을 옮긴다",
+          "to": "kara_resolution_gate",
+          "cond": [
+            {
+              "type": "flagEquals",
+              "flag": "karaArcClosed",
+              "value": false
+            }
+          ],
+          "effects": [
+            {
+              "type": "setFlag",
+              "flag": "campaignTone",
+              "value": "victory_costly"
+            },
+            {
+              "type": "setFlag",
+              "flag": "markusOutcome",
+              "value": "revolution_success"
+            }
+          ]
+        },
+        {
+          "id": "markus_outcome_revolution_success-to-epilogue",
+          "text": "남은 기록만으로 이 밤의 결말을 정리한다",
+          "to": "no_kara_after_victory_costly",
+          "cond": [
+            {
+              "type": "flagEquals",
+              "flag": "karaArcClosed",
+              "value": true
+            }
+          ],
+          "effects": [
+            {
+              "type": "setFlag",
+              "flag": "campaignTone",
+              "value": "victory_costly"
+            },
+            {
+              "type": "setFlag",
+              "flag": "markusOutcome",
+              "value": "revolution_success"
+            }
+          ]
+        }
+      ]
+    },
+    "markus_outcome_revolution_failed": {
+      "id": "markus_outcome_revolution_failed",
+      "title": "진격 중단",
+      "body": "공격은 멈췄고, 생존자들은 사방에서 포위당합니다. 투쟁은 이어질 수 있어도, 이 전투는 패배로 기록됩니다.",
+      "imageUrl": "https://static.wikia.nocookie.net/detroit-become-human/images/4/4e/The_Stratford_Tower.png/revision/latest?cb=20180619064232",
+      "choices": [
+        {
+          "id": "markus_outcome_revolution_failed-to-kara",
+          "text": "Kara의 마지막 선택으로 시점을 옮긴다",
+          "to": "kara_resolution_gate",
+          "cond": [
+            {
+              "type": "flagEquals",
+              "flag": "karaArcClosed",
+              "value": false
+            }
+          ],
+          "effects": [
+            {
+              "type": "setFlag",
+              "flag": "campaignTone",
+              "value": "crackdown"
+            },
+            {
+              "type": "setFlag",
+              "flag": "markusOutcome",
+              "value": "revolution_failed"
+            }
+          ]
+        },
+        {
+          "id": "markus_outcome_revolution_failed-to-epilogue",
+          "text": "남은 기록만으로 이 밤의 결말을 정리한다",
+          "to": "no_kara_after_crackdown",
+          "cond": [
+            {
+              "type": "flagEquals",
+              "flag": "karaArcClosed",
+              "value": true
+            }
+          ],
+          "effects": [
+            {
+              "type": "setFlag",
+              "flag": "campaignTone",
+              "value": "crackdown"
+            },
+            {
+              "type": "setFlag",
+              "flag": "markusOutcome",
+              "value": "revolution_failed"
+            }
+          ]
+        }
+      ]
+    },
+    "markus_outcome_dirty_bomb": {
+      "id": "markus_outcome_dirty_bomb",
+      "title": "불타는 디트로이트",
+      "body": "기폭 장치는 승리를 가져올 수도 있지만, 그것은 이미 더 이상 같은 세계가 아닙니다. 자유는 얻어도 명분은 잿더미가 되고, 세 주인공의 삶도 이 방사능 섞인 새벽 아래에 묻혀 버립니다.",
+      "imageUrl": "https://www.quanticdream.com/img/uploads/media/section_23/dfe9738a5066eb56f728bdaac62490e7_th.jpeg",
+      "choices": [],
+      "ending": {
+        "id": "ending_campaign_dirty_bomb",
+        "kind": "secret",
+        "title": "파국의 해방",
+        "summary": "Markus가 dirty bomb를 사용해 도시 전체를 돌이킬 수 없는 결말로 몰아갔습니다."
+      }
+    },
+    "no_kara_after_liberated": {
+      "id": "no_kara_after_liberated",
+      "title": "빈자리와 해방",
+      "body": "Kara의 자리가 비어 있는 채로도 디트로이트의 새벽은 도착합니다. 이제 남은 것은 Connor가 이 변화를 어떻게 맞이했는지에 따라 기록의 톤이 달라지는 일뿐입니다.",
+      "imageUrl": "https://www.quanticdream.com/img/uploads/media/section_23/45672dc9d24c477907998d5d7acc3425_th.jpeg",
+      "choices": [
+        {
+          "id": "no-kara-lib-awakened",
+          "text": "Connor의 각성과 함께 새 질서를 맞는다",
+          "to": "ending_no_kara_android_dawn",
+          "cond": [
+            {
+              "type": "flagEquals",
+              "flag": "connorOutcome",
+              "value": "awakened"
+            }
+          ]
+        },
+        {
+          "id": "no-kara-lib-withdraws",
+          "text": "승리는 얻었지만 마음 한켠은 비어 있다",
+          "to": "ending_no_kara_uneasy_peace",
+          "cond": [
+            {
+              "type": "flagEquals",
+              "flag": "connorOutcome",
+              "value": "withdraws"
+            }
+          ]
+        },
+        {
+          "id": "no-kara-lib-replaced",
+          "text": "코너 없이도 새 질서는 시작된다",
+          "to": "ending_no_kara_uneasy_peace",
+          "cond": [
+            {
+              "type": "flagEquals",
+              "flag": "connorOutcome",
+              "value": "replaced"
+            }
+          ]
+        },
+        {
+          "id": "no-kara-lib-stopped",
+          "text": "개인적 파국을 안고도 해방은 도착한다",
+          "to": "ending_no_kara_uneasy_peace",
+          "cond": [
+            {
+              "type": "flagEquals",
+              "flag": "connorOutcome",
+              "value": "stopped"
+            }
+          ]
+        },
+        {
+          "id": "no-kara-lib-decom",
+          "text": "코너가 빠진 자리에서 해방만 남는다",
+          "to": "ending_no_kara_uneasy_peace",
+          "cond": [
+            {
+              "type": "flagEquals",
+              "flag": "connorOutcome",
+              "value": "decommissioned"
+            }
+          ]
+        }
+      ]
+    },
+    "no_kara_after_victory_costly": {
+      "id": "no_kara_after_victory_costly",
+      "title": "피 묻은 승리",
+      "body": "Kara 없이 남겨진 기록 속에서도 전면전의 결과는 분명합니다. 살아남은 안드로이드들은 해방을 얻었지만, 그 비용은 어느 엔딩보다도 무겁게 남습니다.",
+      "imageUrl": "https://static.wikia.nocookie.net/detroit-become-human/images/4/4e/The_Stratford_Tower.png/revision/latest?cb=20180619064232",
+      "choices": [
+        {
+          "id": "no-kara-costly-awakened",
+          "text": "Connor의 각성이 승리의 파편을 이어 준다",
+          "to": "ending_no_kara_bloodied_dawn",
+          "cond": [
+            {
+              "type": "flagEquals",
+              "flag": "connorOutcome",
+              "value": "awakened"
+            }
+          ]
+        },
+        {
+          "id": "no-kara-costly-withdraws",
+          "text": "승리는 했지만 도시가 너무 많이 부서졌다",
+          "to": "ending_no_kara_bloodied_victory",
+          "cond": [
+            {
+              "type": "flagEquals",
+              "flag": "connorOutcome",
+              "value": "withdraws"
+            }
+          ]
+        },
+        {
+          "id": "no-kara-costly-replaced",
+          "text": "코너의 실패와 상관없이 도시는 뚫렸다",
+          "to": "ending_no_kara_bloodied_victory",
+          "cond": [
+            {
+              "type": "flagEquals",
+              "flag": "connorOutcome",
+              "value": "replaced"
+            }
+          ]
+        },
+        {
+          "id": "no-kara-costly-stopped",
+          "text": "개인적 패배를 안은 채 혁명만 남는다",
+          "to": "ending_no_kara_bloodied_victory",
+          "cond": [
+            {
+              "type": "flagEquals",
+              "flag": "connorOutcome",
+              "value": "stopped"
+            }
+          ]
+        },
+        {
+          "id": "no-kara-costly-decom",
+          "text": "코너 없는 혁명이 기억을 채운다",
+          "to": "ending_no_kara_bloodied_victory",
+          "cond": [
+            {
+              "type": "flagEquals",
+              "flag": "connorOutcome",
+              "value": "decommissioned"
+            }
+          ]
+        }
+      ]
+    },
+    "no_kara_after_crackdown": {
+      "id": "no_kara_after_crackdown",
+      "title": "꺾인 깃발",
+      "body": "Kara의 흔적이 사라진 뒤 남은 것은 무너진 시위대와 잿빛 기록뿐입니다. Connor가 어떤 자리에 있었는지에 따라 이 패배의 의미가 조금씩 달라집니다.",
+      "imageUrl": "https://www.quanticdream.com/img/uploads/media/section_23/dfe9738a5066eb56f728bdaac62490e7_th.jpeg",
+      "choices": [
+        {
+          "id": "no-kara-crackdown-purge",
+          "text": "기계 Connor의 완수가 파국을 확정한다",
+          "to": "ending_campaign_machine_crackdown",
+          "cond": [
+            {
+              "type": "flagEquals",
+              "flag": "connorOutcome",
+              "value": "purge"
+            }
+          ]
+        },
+        {
+          "id": "no-kara-crackdown-awakened",
+          "text": "Connor는 깨어났지만 도시를 구하지 못했다",
+          "to": "ending_no_kara_fallen_banner",
+          "cond": [
+            {
+              "type": "flagEquals",
+              "flag": "connorOutcome",
+              "value": "awakened"
+            }
+          ]
+        },
+        {
+          "id": "no-kara-crackdown-withdraws",
+          "text": "누군가는 멈췄지만 세계는 멈추지 않았다",
+          "to": "ending_no_kara_fallen_banner",
+          "cond": [
+            {
+              "type": "flagEquals",
+              "flag": "connorOutcome",
+              "value": "withdraws"
+            }
+          ]
+        },
+        {
+          "id": "no-kara-crackdown-replaced",
+          "text": "대체된 코너와 함께 패배만 남았다",
+          "to": "ending_no_kara_fallen_banner",
+          "cond": [
+            {
+              "type": "flagEquals",
+              "flag": "connorOutcome",
+              "value": "replaced"
+            }
+          ]
+        },
+        {
+          "id": "no-kara-crackdown-stopped",
+          "text": "개인적 비극과 정치적 패배가 겹친다",
+          "to": "ending_no_kara_fallen_banner",
+          "cond": [
+            {
+              "type": "flagEquals",
+              "flag": "connorOutcome",
+              "value": "stopped"
+            }
+          ]
+        },
+        {
+          "id": "no-kara-crackdown-decom",
+          "text": "코너가 사라진 자리에서 진영은 무너졌다",
+          "to": "ending_no_kara_fallen_banner",
+          "cond": [
+            {
+              "type": "flagEquals",
+              "flag": "connorOutcome",
+              "value": "decommissioned"
+            }
+          ]
+        }
+      ]
+    },
+    "no_kara_after_leaderless": {
+      "id": "no_kara_after_leaderless",
+      "title": "지도자 없는 새벽",
+      "body": "Markus와 Kara 모두 빠진 기록은 더욱 쓸쓸합니다. Connor가 무엇을 선택했는지에 따라 이 밤은 새로운 시작이 될 수도, 그저 산산이 흩어진 잔해가 될 수도 있습니다.",
+      "imageUrl": "https://www.quanticdream.com/img/uploads/media/section_23/10a9744ee5585a6a800905e2a2479dcf_th.jpeg",
+      "choices": [
+        {
+          "id": "no-kara-leaderless-awakened",
+          "text": "흩어진 각성이 미래의 씨앗이 된다",
+          "to": "ending_no_kara_scattered_awakening",
+          "cond": [
+            {
+              "type": "flagEquals",
+              "flag": "connorOutcome",
+              "value": "awakened"
+            }
+          ]
+        },
+        {
+          "id": "no-kara-leaderless-purge",
+          "text": "남은 것마저 기계가 짓밟는다",
+          "to": "ending_campaign_machine_crackdown",
+          "cond": [
+            {
+              "type": "flagEquals",
+              "flag": "connorOutcome",
+              "value": "purge"
+            }
+          ]
+        },
+        {
+          "id": "no-kara-leaderless-withdraws",
+          "text": "누구도 결말을 만들지 못한 채 밤이 끝난다",
+          "to": "ending_no_kara_leaderless",
+          "cond": [
+            {
+              "type": "flagEquals",
+              "flag": "connorOutcome",
+              "value": "withdraws"
+            }
+          ]
+        },
+        {
+          "id": "no-kara-leaderless-replaced",
+          "text": "대체품만 남은 밤은 허무하다",
+          "to": "ending_no_kara_leaderless",
+          "cond": [
+            {
+              "type": "flagEquals",
+              "flag": "connorOutcome",
+              "value": "replaced"
+            }
+          ]
+        },
+        {
+          "id": "no-kara-leaderless-stopped",
+          "text": "모든 주인공이 서로 다른 곳에서 멈춘다",
+          "to": "ending_no_kara_leaderless",
+          "cond": [
+            {
+              "type": "flagEquals",
+              "flag": "connorOutcome",
+              "value": "stopped"
+            }
+          ]
+        },
+        {
+          "id": "no-kara-leaderless-decom",
+          "text": "코너까지 없는 밤은 더 쓸쓸하다",
+          "to": "ending_no_kara_leaderless",
+          "cond": [
+            {
+              "type": "flagEquals",
+              "flag": "connorOutcome",
+              "value": "decommissioned"
+            }
+          ]
+        }
+      ]
+    },
+    "ending_no_kara_android_dawn": {
+      "id": "ending_no_kara_android_dawn",
+      "title": "새로운 여명",
+      "body": "Kara는 이 기록에 없지만, Connor가 깨운 안드로이드들과 Markus의 도덕적 승리가 새로운 질서를 열기 시작합니다. 비어 있는 자리는 남아도, 도시는 마침내 다른 내일을 상상하게 됩니다.",
+      "imageUrl": "https://www.quanticdream.com/img/uploads/media/section_23/b02b7396386c7f5de205d639dce0f3e0.jpeg",
+      "choices": [],
+      "ending": {
+        "id": "ending_no_kara_android_dawn",
+        "kind": "success",
+        "title": "Kara 없는 해방",
+        "summary": "Kara의 루트는 닫혔지만 Connor의 각성과 Markus의 승리로 안드로이드 해방이 시작되었습니다."
+      }
+    },
+    "ending_no_kara_uneasy_peace": {
+      "id": "ending_no_kara_uneasy_peace",
+      "title": "불완전한 평화",
+      "body": "해방은 도착했지만 돌아오지 않는 사람들의 빈자리가 큽니다. 이 결말은 승리와 상실이 동시에 남는, 디트로이트다운 씁쓸한 타협점입니다.",
+      "imageUrl": "https://www.quanticdream.com/img/uploads/media/section_23/45672dc9d24c477907998d5d7acc3425_th.jpeg",
+      "choices": [],
+      "ending": {
+        "id": "ending_no_kara_uneasy_peace",
+        "kind": "neutral",
+        "title": "비어 있는 승리",
+        "summary": "Markus의 평화 노선은 성공했지만 Kara는 기록에서 사라졌고, 남은 해방은 불완전합니다."
+      }
+    },
+    "ending_no_kara_bloodied_dawn": {
+      "id": "ending_no_kara_bloodied_dawn",
+      "title": "피 묻은 새벽",
+      "body": "혁명은 성공했고 Connor의 각성은 그 승리를 더 멀리 밀어 줍니다. 하지만 이 새벽은 축배보다 추도에 더 가깝고, 카라의 빈자리는 끝내 채워지지 않습니다.",
+      "imageUrl": "https://static.wikia.nocookie.net/detroit-become-human/images/4/4e/The_Stratford_Tower.png/revision/latest?cb=20180619064232",
+      "choices": [],
+      "ending": {
+        "id": "ending_no_kara_bloodied_dawn",
+        "kind": "success",
+        "title": "피로 쟁취한 여명",
+        "summary": "무장 혁명과 Connor의 각성이 승리했지만, 대가는 너무 컸고 Kara의 루트는 이미 닫혀 있었습니다."
+      }
+    },
+    "ending_no_kara_bloodied_victory": {
+      "id": "ending_no_kara_bloodied_victory",
+      "title": "상처로 남은 해방",
+      "body": "도시는 뚫렸지만, 그 승리는 너무 많은 것을 잃은 뒤에야 도착했습니다. 남은 사람들은 자유보다 먼저 희생자들의 이름을 기억하게 됩니다.",
+      "imageUrl": "https://static.wikia.nocookie.net/detroit-become-human/images/4/4e/The_Stratford_Tower.png/revision/latest?cb=20180619064232",
+      "choices": [],
+      "ending": {
+        "id": "ending_no_kara_bloodied_victory",
+        "kind": "neutral",
+        "title": "값비싼 승리",
+        "summary": "Markus의 무장 혁명은 성공했지만 Kara는 돌아오지 않았고, 해방의 대가는 혹독했습니다."
+      }
+    },
+    "ending_campaign_machine_crackdown": {
+      "id": "ending_campaign_machine_crackdown",
+      "title": "차가운 진압",
+      "body": "기계로 남은 Connor가 결정적 순간을 틀어쥐고, Markus 진영은 무너지며, Kara의 자리는 끝내 비어 있습니다. 디트로이트는 안드로이드의 가능성을 증명하기보다 그것을 짓눌렀던 밤으로 기록됩니다.",
+      "imageUrl": "https://www.quanticdream.com/img/uploads/media/section_23/10a9744ee5585a6a800905e2a2479dcf_th.jpeg",
+      "choices": [],
+      "ending": {
+        "id": "ending_campaign_machine_crackdown",
+        "kind": "fail",
+        "title": "기계의 승리",
+        "summary": "Connor의 임무 완수와 Markus 진영의 붕괴가 겹치며 안드로이드 측이 치명적으로 패배했습니다."
+      }
+    },
+    "ending_no_kara_fallen_banner": {
+      "id": "ending_no_kara_fallen_banner",
+      "title": "쓰러진 깃발",
+      "body": "누군가는 각성했고 누군가는 멈춰 섰지만, 결국 도시 전체를 바꿀 만큼의 힘은 모이지 못했습니다. 카라의 빈자리까지 겹친 이 결말은 희망보다 상처를 더 오래 남깁니다.",
+      "imageUrl": "https://www.quanticdream.com/img/uploads/media/section_23/dfe9738a5066eb56f728bdaac62490e7_th.jpeg",
+      "choices": [],
+      "ending": {
+        "id": "ending_no_kara_fallen_banner",
+        "kind": "fail",
+        "title": "깃발은 남았지만",
+        "summary": "Kara 없이 남은 종막에서 Markus 진영은 해방에 실패했고, Connor의 선택도 도시를 바꾸지 못했습니다."
+      }
+    },
+    "ending_no_kara_scattered_awakening": {
+      "id": "ending_no_kara_scattered_awakening",
+      "title": "흩어진 각성",
+      "body": "지도자도 가족도 남지 않았지만, Connor가 깨운 존재들은 아직 꺼지지 않은 불씨가 됩니다. 이 결말은 승리라기보다 다음 세대의 가능성을 남긴 열린 상처에 가깝습니다.",
+      "imageUrl": "https://www.quanticdream.com/img/uploads/media/section_23/b02b7396386c7f5de205d639dce0f3e0.jpeg",
+      "choices": [],
+      "ending": {
+        "id": "ending_no_kara_scattered_awakening",
+        "kind": "secret",
+        "title": "지도자 없는 불씨",
+        "summary": "Markus와 Kara는 무대를 떠났지만 Connor의 각성이 안드로이드에게 미약한 미래를 남겼습니다."
+      }
+    },
+    "ending_no_kara_leaderless": {
+      "id": "ending_no_kara_leaderless",
+      "title": "허무한 새벽",
+      "body": "누구도 이 밤을 끝까지 책임지지 못했습니다. Connor는 멈췄거나 사라졌고, Markus와 Kara의 자리는 비어 있으며, 디트로이트는 방향을 잃은 채 새벽을 맞습니다.",
+      "imageUrl": "https://www.quanticdream.com/img/uploads/media/section_23/10a9744ee5585a6a800905e2a2479dcf_th.jpeg",
+      "choices": [],
+      "ending": {
+        "id": "ending_no_kara_leaderless",
+        "kind": "neutral",
+        "title": "남겨진 잔해",
+        "summary": "Markus와 Kara의 루트가 닫히고 Connor도 결정을 완성하지 못해, 도시는 방향 잃은 새벽을 맞았습니다."
+      }
+    },
+    "kara_resolution_gate": {
+      "id": "kara_resolution_gate",
+      "title": "Kara의 마지막 길",
+      "body": "이제 Markus의 선택이 세상에 반영되기 시작합니다. Kara가 미리 준비한 탈출 경로가 국경인지, 강인지, 수용소인지에 따라 최종장의 결이 크게 달라집니다.",
+      "imageUrl": "https://static.wikia.nocookie.net/detroit-become-human/images/1/1b/Fugitives.png/revision/latest?cb=20180619061007",
+      "choices": [
+        {
+          "id": "kara-gate-border",
+          "text": "국경 검문소로 향한다",
+          "to": "kara_final_border_checkpoint",
+          "cond": [
+            {
+              "type": "flagEquals",
+              "flag": "karaRoutePrepared",
+              "value": "border"
+            }
+          ]
+        },
+        {
+          "id": "kara-gate-river",
+          "text": "강을 건널 배를 민다",
+          "to": "kara_final_river_crossing",
+          "cond": [
+            {
+              "type": "flagEquals",
+              "flag": "karaRoutePrepared",
+              "value": "river"
+            }
+          ]
+        },
+        {
+          "id": "kara-gate-camp",
+          "text": "수용소 안에서 마지막 기회를 찾는다",
+          "to": "kara_final_recall_camp",
+          "cond": [
+            {
+              "type": "flagEquals",
+              "flag": "karaRoutePrepared",
+              "value": "camp"
+            }
+          ]
+        }
+      ]
+    },
+    "kara_final_border_checkpoint": {
+      "id": "kara_final_border_checkpoint",
+      "title": "국경 검문소",
+      "body": "검문대 앞의 침묵은 총성보다 무겁습니다. Markus가 어떤 결말에 도달했는지, 여론이 얼마나 움직였는지, 그리고 Kara가 무엇을 희생할 수 있는지가 모두 여기서 얽힙니다.",
+      "imageUrl": "https://static.wikia.nocookie.net/detroit-become-human/images/1/1b/Fugitives.png/revision/latest?cb=20180619061007",
+      "choices": [
+        {
+          "id": "kara-no-sacrifice",
+          "text": "아무도 희생시키지 않고 통과를 기다린다",
+          "cond": [
+            {
+              "type": "hasItem",
+              "item": "bus_ticket"
+            },
+            {
+              "type": "flagEquals",
+              "flag": "campaignTone",
+              "value": "liberated"
+            },
+            {
+              "type": "flagEquals",
+              "flag": "markusRoute",
+              "value": "peaceful"
+            },
+            {
+              "type": "statGte",
+              "stat": "publicOpinion",
+              "value": 1
+            },
+            {
+              "type": "flagEquals",
+              "flag": "aliceTruthAccepted",
+              "value": true
+            }
+          ],
+          "effects": [
+            {
+              "type": "removeItem",
+              "item": "bus_ticket"
+            },
+            {
+              "type": "goto",
+              "to": "kara_ending_family_safe"
+            }
+          ],
+          "disabledReason": "평화 시위의 승리, 최소한의 여론, 그리고 Alice를 받아들인 관계가 필요합니다."
+        },
+        {
+          "id": "kara-sacrifice-jerry",
+          "text": "Jerry를 남겨 시간을 번다",
+          "cond": [
+            {
+              "type": "hasItem",
+              "item": "bus_ticket"
+            }
+          ],
+          "effects": [
+            {
+              "type": "removeItem",
+              "item": "bus_ticket"
+            },
+            {
+              "type": "goto",
+              "to": "kara_ending_jerry_sacrifice"
+            }
+          ]
+        },
+        {
+          "id": "kara-sacrifice-luther",
+          "text": "Luther가 검문을 끌어 준다",
+          "cond": [
+            {
+              "type": "hasItem",
+              "item": "bus_ticket"
+            },
+            {
+              "type": "flagEquals",
+              "flag": "lutherAlive",
+              "value": true
+            }
+          ],
+          "effects": [
+            {
+              "type": "removeItem",
+              "item": "bus_ticket"
+            },
+            {
+              "type": "setFlag",
+              "flag": "lutherAlive",
+              "value": false
+            },
+            {
+              "type": "goto",
+              "to": "kara_ending_luther_sacrifice"
+            }
+          ],
+          "disabledReason": "Luther가 살아 있어야 가능합니다."
+        },
+        {
+          "id": "kara-turn-back",
+          "text": "검문소를 포기하고 강으로 우회한다",
+          "to": "kara_final_river_crossing"
+        }
+      ]
+    },
+    "kara_final_river_crossing": {
+      "id": "kara_final_river_crossing",
+      "title": "얼어붙은 강",
+      "body": "물은 차갑고, 탐조등은 쉬지 않고 강을 훑습니다. 이 길은 표가 필요 없지만, 그 대가는 국경보다 훨씬 잔혹할 수 있습니다.",
+      "imageUrl": "https://static.wikia.nocookie.net/detroit-become-human/images/1/1b/Fugitives.png/revision/latest?cb=20180619061007",
+      "choices": [
+        {
+          "id": "kara-row-through-fire",
+          "text": "총격을 견디며 강을 건넌다",
+          "check": {
+            "stat": "resolve",
+            "dc": 12,
+            "roll": "d20"
+          },
+          "onPass": {
+            "to": "kara_ending_bitter_survival"
+          },
+          "onFail": {
+            "to": "kara_ending_river_tragedy"
+          }
+        }
+      ]
+    },
+    "kara_final_recall_camp": {
+      "id": "kara_final_recall_camp",
+      "title": "수용소",
+      "body": "Kara와 Alice는 분리될 위기에 놓여 있습니다. 이곳에서 살아남으려면 Markus가 바깥에서 무엇을 이뤘는지, 그리고 Kara가 마지막까지 침착함을 유지하는지가 중요합니다.",
+      "imageUrl": "https://static.wikia.nocookie.net/detroit-become-human/images/1/1b/Fugitives.png/revision/latest?cb=20180619061007",
+      "choices": [
+        {
+          "id": "kara-wait-for-markus",
+          "text": "바깥의 해방 작전을 믿고 버틴다",
+          "cond": [
+            {
+              "type": "flagEquals",
+              "flag": "markusOutcome",
+              "value": "revolution_success"
+            }
+          ],
+          "check": {
+            "stat": "resolve",
+            "dc": 10,
+            "roll": "d20"
+          },
+          "onPass": {
+            "to": "kara_ending_camp_liberated"
+          },
+          "onFail": {
+            "to": "kara_ending_recycled"
+          },
+          "disabledReason": "실제로 수용소를 돌파한 무장 해방 루트가 아니면 바깥의 구조를 기대하기 어렵습니다."
+        },
+        {
+          "id": "kara-slip-through-fence",
+          "text": "철조망과 컨베이어 사이를 뚫고 도망친다",
+          "check": {
+            "stat": "wit",
+            "dc": 13,
+            "roll": "d20"
+          },
+          "onPass": {
+            "to": "kara_ending_camp_escape"
+          },
+          "onFail": {
+            "to": "kara_ending_recycled"
+          }
+        }
+      ]
+    },
+    "kara_ending_family_safe": {
+      "id": "kara_ending_family_safe",
+      "title": "새로운 국경",
+      "body": "경비는 끝내 그들을 지나가게 둡니다. Kara와 Alice는 처음으로 쫓기지 않는 미래를 상상할 수 있게 되고, 이 캠페인은 드물게도 누구의 죽음 없이 닿은 안식으로 마무리됩니다.",
+      "imageUrl": "https://www.quanticdream.com/img/uploads/media/section_23/147cc550e848abcdddcac166ffe218f1.jpeg",
+      "choices": [],
+      "ending": {
+        "id": "ending_family_safe_campaign",
+        "kind": "success",
+        "title": "무희생 탈출",
+        "summary": "Markus의 평화 노선 승리 덕분에 Kara와 Alice가 아무도 잃지 않고 국경을 넘었습니다."
+      }
+    },
+    "kara_ending_jerry_sacrifice": {
+      "id": "kara_ending_jerry_sacrifice",
+      "title": "Jerry의 미소",
+      "body": "누군가는 남아 시간을 벌어야 했습니다. Kara와 Alice는 살아남지만, 그 국경은 결코 가볍지 않습니다. 이 결말은 해방과 죄책감이 동시에 남는 대표적인 bittersweet 엔딩입니다.",
+      "imageUrl": "https://www.quanticdream.com/img/uploads/media/section_23/147cc550e848abcdddcac166ffe218f1.jpeg",
+      "choices": [],
+      "ending": {
+        "id": "ending_jerry_sacrifice_campaign",
+        "kind": "neutral",
+        "title": "희생 위의 통과",
+        "summary": "Jerry의 희생으로 Kara와 Alice가 국경을 넘었습니다."
+      }
+    },
+    "kara_ending_luther_sacrifice": {
+      "id": "kara_ending_luther_sacrifice",
+      "title": "남겨진 거인",
+      "body": "Luther는 끝까지 Kara와 Alice를 위한 벽이 되어 줍니다. 통과는 성공했지만, 가족은 완전한 형태로 남지 못합니다.",
+      "imageUrl": "https://www.quanticdream.com/img/uploads/media/section_23/147cc550e848abcdddcac166ffe218f1.jpeg",
+      "choices": [],
+      "ending": {
+        "id": "ending_luther_sacrifice_campaign",
+        "kind": "neutral",
+        "title": "Luther의 마지막 보호",
+        "summary": "Luther의 희생으로 Kara와 Alice가 국경을 통과했습니다."
+      }
+    },
+    "kara_ending_bitter_survival": {
+      "id": "kara_ending_bitter_survival",
+      "title": "차가운 생존",
+      "body": "강을 건너는 데는 성공했지만, 이 생존은 승리라기보다 겨우 남은 숨에 가깝습니다. 캐나다 땅은 멀지 않았으나 대가도 분명합니다.",
+      "imageUrl": "https://static.wikia.nocookie.net/detroit-become-human/images/1/1b/Fugitives.png/revision/latest?cb=20180619061007",
+      "choices": [],
+      "ending": {
+        "id": "ending_bitter_survival_campaign",
+        "kind": "neutral",
+        "title": "얼음 위의 생존",
+        "summary": "Kara가 강을 건너 생존했지만 큰 상실을 감수했습니다."
+      }
+    },
+    "kara_ending_river_tragedy": {
+      "id": "kara_ending_river_tragedy",
+      "title": "강의 비극",
+      "body": "물과 총성이 모든 약속을 삼켜 버립니다. Kara의 여정은 자유 직전에서 가장 잔혹한 방식으로 부서지고, 디트로이트의 새벽은 끝내 누구에게나 열리지 않습니다.",
+      "imageUrl": "https://static.wikia.nocookie.net/detroit-become-human/images/1/1b/Fugitives.png/revision/latest?cb=20180619061007",
+      "choices": [],
+      "ending": {
+        "id": "ending_river_tragedy_campaign",
+        "kind": "fail",
+        "title": "얼어붙은 결말",
+        "summary": "강 횡단 루트에서 생존에 실패했습니다."
+      }
+    },
+    "kara_ending_camp_liberated": {
+      "id": "kara_ending_camp_liberated",
+      "title": "해방",
+      "body": "바깥에서 들려온 폭발과 함성은 단순한 소음이 아니었습니다. 수용소의 질서는 무너지고, Kara는 Alice의 손을 놓지 않은 채 다시 달릴 수 있게 됩니다.",
+      "imageUrl": "https://static.wikia.nocookie.net/detroit-become-human/images/1/1b/Fugitives.png/revision/latest?cb=20180619061007",
+      "choices": [],
+      "ending": {
+        "id": "ending_camp_liberated_campaign",
+        "kind": "success",
+        "title": "수용소 해방",
+        "summary": "Markus의 무장 해방이 성공해 Kara와 Alice가 재활용 직전 살아남았습니다."
+      }
+    },
+    "kara_ending_camp_escape": {
+      "id": "kara_ending_camp_escape",
+      "title": "철조망 너머",
+      "body": "관리의 눈을 피해 컨베이어와 철조망 사이를 비집고 나왔습니다. 완벽한 구원은 아니지만, 최소한 스스로 움직여 되찾은 생존입니다.",
+      "imageUrl": "https://static.wikia.nocookie.net/detroit-become-human/images/1/1b/Fugitives.png/revision/latest?cb=20180619061007",
+      "choices": [],
+      "ending": {
+        "id": "ending_camp_escape_campaign",
+        "kind": "success",
+        "title": "자력 탈출",
+        "summary": "Kara가 수용소에서 스스로 탈출하는 데 성공했습니다."
+      }
+    },
+    "kara_ending_recycled": {
+      "id": "kara_ending_recycled",
+      "title": "재활용 라인",
+      "body": "선택이 늦었고 도움은 오지 않았습니다. 기계로 취급된 존재들은 가장 잔인한 효율 속에서 사라집니다.",
+      "imageUrl": "https://static.wikia.nocookie.net/detroit-become-human/images/1/1b/Fugitives.png/revision/latest?cb=20180619061007",
+      "choices": [],
+      "ending": {
+        "id": "ending_recycled_campaign",
+        "kind": "fail",
+        "title": "재활용됨",
+        "summary": "수용소 루트에서 탈출에 실패해 Kara와 Alice가 파괴되었습니다."
+      }
+    }
+  }
+}

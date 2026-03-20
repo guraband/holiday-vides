@@ -1,0 +1,102 @@
+[
+  {
+    "node": "start",
+    "prompt": "Avengers Tower briefing room, Sam Wilson leading an urgent team meeting, Doctor Strange projecting a glowing red magical screen with the words DOOMSDAY PROTOCOL, Thor casually eating snacks at the conference table, Bruce Banner explaining a multiverse collapse threat, futuristic holo displays, tense but slightly comedic team dynamics, cinematic comic-book realism, dramatic rim light, wide shot, high detail, polished Marvel-inspired atmosphere",
+    "negative": "lowres, blurry, crowd confusion, extra limbs, duplicate heroes, unreadable interface, flat lighting, watermark"
+  },
+  {
+    "node": "briefing",
+    "prompt": "high-tech Avengers briefing room, Doctor Strange presenting a three-part plan on layered holographic displays, portals, TVA documents, and lunar barrier schematics visualized around him, Sam Wilson watching seriously, Peter Parker reacting with nervous humor, sharp blue and red interface glow, cinematic comic-book realism, strategic war-room composition, medium wide shot, high detail",
+    "negative": "blurry holograms, cluttered screen, unreadable diagrams, distorted faces, bad anatomy, low detail"
+  },
+  {
+    "node": "sanctum",
+    "prompt": "Sanctum Sanctorum chamber filled with fading circular portal residue glowing on scorched walls, Wong examining magically rearranged runes, Doctor Strange style arcane geometry mixed with Latverian metal engravings and tiny paper fibers floating in the air, mystical detective atmosphere, gold and teal magic light, cinematic comic-book realism, detailed environment, mysterious mood",
+    "negative": "generic wizard room, muddy lighting, low detail runes, messy background, blurry particles"
+  },
+  {
+    "node": "snack-table",
+    "prompt": "Avengers conference snack table in chaotic aftermath, crushed muffins and spilled snacks, Thor nearby with unapologetic confidence, a half-burned metal fragment and a small data chip engraved DOOMSDAY BACKUP SPEECH v12 revealed under the crumbs, comedic clue discovery, warm indoor lighting, cinematic comic-book realism, close-up with character presence, high detail props",
+    "negative": "gross food mess, unreadable chip, blurry close-up, extra hands, distorted objects"
+  },
+  {
+    "node": "tva-archive",
+    "prompt": "TVA archive corridor with endless retro-futuristic filing cabinets, suspicious paperwork drawers, timeline stamps and official forms, Loki observing with amused intelligence, Peter Parker confused by the bureaucracy, subtle signs of forged records and a folder labeled meeting minutes draft, yellow industrial lighting, cinematic comic-book realism, bureaucratic sci-fi mystery, high detail",
+    "negative": "empty hallway, modern office look, blurry cabinets, unreadable folders, poor perspective"
+  },
+  {
+    "node": "moon-base",
+    "prompt": "futuristic Blue Moon base laboratory, Reed Richards standing beside a partially corrupted holographic barrier schematic, missing key values highlighted in the projection, sleek lunar research architecture, advanced consoles, cosmic blue light through reinforced windows, brilliant scientific mystery mood, cinematic comic-book realism, clean sci-fi composition, high detail",
+    "negative": "generic spaceship interior, blurry hologram, low detail lab, broken perspective, bad hands"
+  },
+  {
+    "node": "latveria-gate",
+    "prompt": "exterior of Castle Doom in Latveria, towering gothic fortress walls with arcane portal symbols embedded in the stone, polite security drones hovering near the gate, power cores marked with bureaucratic identification codes, stormy sky, ominous but strangely refined atmosphere, cinematic comic-book realism, epic wide shot, high detail, green and steel color palette",
+    "negative": "fantasy castle only, cute drones, flat daylight, low detail stonework, cluttered layout"
+  },
+  {
+    "node": "doom-throne",
+    "prompt": "Doctor Doom seated on an imposing throne inside a vast royal-tech chamber, green cloak and metal armor, calm authoritarian posture, holographic framework behind him showing a reality-stabilizing machine and a permanent rule system, heroes confronting him in the foreground, regal lighting, cinematic comic-book realism, dramatic symmetry, high detail, intimidating and intelligent villain presence",
+    "negative": "cartoon villain, goofy armor, low detail throne room, distorted mask, unreadable holograms"
+  },
+  {
+    "node": "deduction-1",
+    "prompt": "investigative montage of Avengers clues on a floating holographic board, portal residue, snack table metal fragment, briefing documents, red string style visual logic connecting every clue to Doctor Doom, Sam Wilson and Bruce Banner studying the pattern, tense realization, cinematic comic-book realism, detective board energy, medium wide shot, high detail",
+    "negative": "random collage, unreadable clues, messy composition, low contrast, blurry faces"
+  },
+  {
+    "node": "deduction-2",
+    "prompt": "conceptual cinematic scene showing three systems merging: TVA documents, Sanctum portal magic, and Blue Moon barrier engineering, layered around the Avengers as a unified operating structure of the multiverse, Sam Wilson uneasy, Bruce Banner intellectually alarmed, glowing papers, runes, and schematics interwoven, comic-book realism, high detail, dynamic composition",
+    "negative": "abstract blur, unreadable components, low detail, chaotic layering, muddy colors"
+  },
+  {
+    "node": "deduction-3",
+    "prompt": "symbolic multiverse control scene, Doctor Doom framed like a cosmic administrator rather than a destroyer, fractured realities being organized into orderly grids instead of exploding, authoritarian beauty mixed with danger, uneasy moral tension, cinematic comic-book realism, surreal but readable composition, high detail, dark majestic lighting",
+    "negative": "pure explosion scene, generic apocalypse, low detail cosmos, confusing abstraction, washed colors"
+  },
+  {
+    "node": "final-lock",
+    "prompt": "climactic chamber with a multiverse sealing device activating, forged TVA legitimacy, Sanctum portal access patterns, and Blue Moon barrier keys all converging into one machine, Avengers facing the mechanism at the decisive moment, freedom versus control theme, intense cinematic lighting, comic-book realism, epic scale, high detail, dramatic final confrontation energy",
+    "negative": "generic machine room, low scale, blurry device, flat staging, unreadable effects"
+  },
+  {
+    "node": "gag-assembly",
+    "prompt": "comedic Avengers team meeting collapsing into chaos almost instantly, one hero launching into an emotional speech too early, Sam Wilson frustrated, Bruce Banner trying to restore order, Thor clapping enthusiastically, Peter Parker whispering in confusion, half-finished holographic briefing in the background, cinematic comic-book realism, expressive faces, dynamic comedy composition, high detail",
+    "negative": "slapstick exaggeration, blurry crowd, distorted expressions, low detail room, cluttered framing"
+  },
+  {
+    "node": "gag-drone",
+    "prompt": "outside Castle Doom, a sleek Latverian security drone politely scolding the heroes after a failed hack, a glowing banner reading rude visitor detected on the fortress wall, Thor amused and taking a photo, embarrassed team reaction, refined villain technology with comedic humiliation, cinematic comic-book realism, high detail, crisp night lighting",
+    "negative": "silly cartoon drone, unreadable banner, blurry characters, low detail fortress, chaotic perspective"
+  },
+  {
+    "node": "gag-lunch",
+    "prompt": "Avengers war room transformed into an absurd sandwich strategy debate, Thor enthusiastically championing the lunch plan, heroes gathered around a table comparing ridiculous sandwich combinations Doctor Doom would hate, laughter and relief before battle, warm light, cinematic comic-book realism, team chemistry, high detail, lighthearted heroic mood",
+    "negative": "gross food focus, low detail faces, messy clutter, childish cartoon style, blurry table"
+  },
+  {
+    "node": "ending-truth",
+    "prompt": "triumphant final scene in Doctor Doom's chamber, the reality-collapse machine reconfigured rather than destroyed, Sue Storm's inverse barrier energy, Reed Richards' missing keys, Sanctum rune patterns, and TVA forgery evidence woven together to reverse control authority, Doctor Doom stunned into silence, Avengers preparing to withdraw, cinematic comic-book realism, intelligent victory, glowing controlled energy, high detail",
+    "negative": "explosion-only ending, low detail machine, goofy expressions, blurry energy effects, overexposed light"
+  },
+  {
+    "node": "ending-bittersweet",
+    "prompt": "bittersweet retreat scene, Doctor Strange and Sue Storm delaying the core device while Sam Wilson leads civilians from unstable dimensional portals, Doctor Doom withdrawing in the distance with controlled menace, exhausted heroes illuminated by damaged machinery and fading portal light, cinematic comic-book realism, emotional aftermath, high detail, heroic but melancholic tone",
+    "negative": "total victory celebration, bright cheerful ending, blurry civilians, messy action blur, low detail environment"
+  },
+  {
+    "node": "ending-almost",
+    "prompt": "unstable near-victory in the multiverse chamber, the machine half-reversed and half-active, realities only partially stabilized, Doctor Doom escaping through the opening with quiet confidence, Sam Wilson disappointed but steady, Loki observing with ambiguous amusement, cinematic comic-book realism, unresolved tension, high detail, fractured energy effects",
+    "negative": "complete defeat scene, pure explosion, blurry escape figure, low detail energy cracks, flat mood"
+  },
+  {
+    "node": "ending-punch",
+    "prompt": "dramatic action scene where a powerful punch hits Doctor Doom's device, triggering an emergency lockdown across all dimensions, bold cinematic impact frozen at the worst possible moment, Wong staring in long silent disappointment, sealed portals and warning lights everywhere, comic-book realism, trailer-worthy action with ironic consequences, high detail",
+    "negative": "generic fistfight, low detail impact, blurry Wong, unreadable warning lights, messy composition"
+  },
+  {
+    "node": "ending-gag",
+    "prompt": "humorous ensemble aftermath in Avengers headquarters, team members laughing after a chaotic mission, one hero embarrassed by a polite drone incident, another still talking about lunch strategy, Thor more invested in sandwich combinations than tactics, Bruce Banner observing the team dynamic with dry amusement, cinematic comic-book realism, warm closure, high detail, playful but heartfelt tone",
+    "negative": "grim ending, low detail group shot, blurry faces, random background clutter, flat lighting"
+  }
+]

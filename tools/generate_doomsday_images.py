@@ -4,6 +4,7 @@ import os
 import pathlib
 import shutil
 import time
+import urllib.error
 import urllib.request
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
@@ -28,13 +29,19 @@ def post_json(path, payload):
         data=json.dumps(payload).encode(),
         headers={"Content-Type": "application/json"},
     )
-    return json.loads(urllib.request.urlopen(req).read().decode())
-
+    try:
+        with urllib.request.urlopen(req) as response:
+            return json.loads(response.read().decode())
+    except urllib.error.URLError as exc:
+        raise RuntimeError(f"API POST request to {API}{path} failed: {exc}") from exc
 
 
 def get_json(path):
-    return json.loads(urllib.request.urlopen(API + path).read().decode())
-
+    try:
+        with urllib.request.urlopen(API + path) as response:
+            return json.loads(response.read().decode())
+    except urllib.error.URLError as exc:
+        raise RuntimeError(f"API GET request to {API}{path} failed: {exc}") from exc
 
 
 def submit(node, prompt, negative, seed):
@@ -67,7 +74,6 @@ def submit(node, prompt, negative, seed):
     return post_json("/prompt", {"prompt": workflow})["prompt_id"], prefix
 
 
-
 def wait_history(prompt_id):
     for _ in range(240):
         hist = get_json("/history/" + prompt_id)
@@ -75,7 +81,6 @@ def wait_history(prompt_id):
             return hist[prompt_id]
         time.sleep(2)
     raise TimeoutError(prompt_id)
-
 
 
 def latest_temp(prefix):
